@@ -4,20 +4,8 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <iframe marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=taylorhughe05-20&language=en_US&marketplace=amazon&region=US&placement=B076T87G61&asins=B076T87G61&linkId=dabd0e5fb6632ef7235a2592b07526a0&show_border=true&link_opens_in_new_window=true"></iframe>
+      <iframe marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=taylorhughe05-20&language=en_US&marketplace=amazon&region=US&placement=B08BHYCFTH&asins=B08BHYCFTH&linkId=0d84e059364d1ee512161b863d9c3099&show_border=true&link_opens_in_new_window=true"></iframe>
     </div>
   );
 }
