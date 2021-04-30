@@ -124,11 +124,35 @@ Based on the initial logic defined in the previous sections try and breakdown th
 
 Time frames are also key in the development cycle.  You have limited time to code all phases of the game.  Your estimates can then be used to evalute game possibilities based on time needed and the actual time you have before game must be submitted. It's always best to pad the time by a few hours so that you account for the unknown so add and additional hour or two to each component to play it safe. Also, put a gif at the top of your Readme before you pitch, and you'll get a panda prize.
 
-| Component | Priority | Estimated Time | Time Invetsted | Actual Time |
+| Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| Adding Form | H | 3hrs| 3.5hrs | 3.5hrs |
-| Working with API | H | 3hrs| 2.5hrs | 2.5hrs |
-| Total | H | 6hrs| 5hrs | 5hrs |
+| Create Nav, Keyword, Cart pages | H | 1hr |  |  |
+| Initialize Router and create Switch statements | H | 1hr |  |  |
+| Build Nav | H | 1hr |  |  |
+| Build Keyword Page | H | 1hr |  |  |
+| Build Cart Page | M | 1hr |  |  |
+| Add and test linking between router pages | H | 1hr |  |  |
+| Add display functionality to Name and Budget fields | L | 2hr |  |  |
+| Initialize State for saving Recipient data | H | 0.5hr |  |  |
+| Initialize State for Product Information | H | 0.5hr |  |  |
+| Create onChange and OnClick Events to manipulate Recipient State | H | 3hr |  |  |
+| Create Dummy data for development purposes | M | 2hr |  |  |
+| Implement Product Ranking Algorithm | M | 3hr |  |  |
+| Build Product Carousel Component | H | 2.5hr |  |  |
+| Build Product Component | H | 2hr |  |  |
+| Send Product Info to Product Component | H | 1.5hr |  |  |
+| Implement Selection information lift to Recipient Profile | H | 1hr |  |  |
+| Style Carousel | H | 2hr |  |  |
+| Style selected Products | H | 2hr |  |  |
+| Send recipient profile to cart | H | 1hr |  |  |
+| Render Cart | M | 1hr |  |  |
+| Render Product Links | H | 2.5hr |  |  |
+| Styling for Mobile | H | 3hr |  |  |
+| Styling for Tablet | H | 3hr |  |  |
+| Styling for Desktop | H | 3hr |  |  |
+| Nav/New List reset state functionality | L | 1hr |  |  |
+| Final Styling Tweaks | H | 3hr |  |  |
+| Total | H | 46hrs| 5hrs | 5hrs |
 
 ## Additional Libraries
  Use this section to list all supporting libraries and thier role in the project such as Axios, ReactStrap, D3, etc. 
