@@ -73,6 +73,8 @@ Upload images of wireframe to cloudinary and add the link here with a descriptio
 
 #### MVP Documents
 - [Mobile Wireframes](https://imgur.com/a/CK1qOwD)
+- [Tablet Wireframes](https://imgur.com/a/WNlr4QJ)
+- [Desktop Wireframes](https://imgur.com/a/wuxvK07)
 - [React Architecture](https://imgur.com/a/ytuYQIR)
 
 #### Post-MVP Documents
@@ -96,7 +98,7 @@ The functionality will then be divided into two separate lists: MPV and PostMVP.
 - Show cart subtotal to user once Cart has been finalized
 - Serve product links to the user for easy purchase
 
-#### PostMVP EXAMPLE
+#### PostMVP
 
 - Create new page for initializing a list
 - Enable user to select if the recipients are Small, Medium, or Large gifts and calculate budget per person based on that
@@ -104,6 +106,10 @@ The functionality will then be divided into two separate lists: MPV and PostMVP.
 - Allow user to edit Person Name, Person Budget, Total Budget, List Name, Person Gift Size and update all state accordingly
 - Allow user to edit Recipient Profiles in Final Cart
 - Introduce total costs to Keyword Builder and Final Cart
+
+## Time/Priority Matrix
+
+[Please see Time Priority Matrix at this link](https://imgur.com/a/85XeFGj)
 
 ## Components
 ##### Writing out your components and its descriptions isn't a required part of the proposal but can be helpful.
@@ -136,7 +142,7 @@ Time frames are also key in the development cycle.  You have limited time to cod
 | Initialize State for saving Recipient data | H | 0.5hr |  |  |
 | Initialize State for Product Information | H | 0.5hr |  |  |
 | Create onChange and OnClick Events to manipulate Recipient State | H | 3hr |  |  |
-| Create Dummy data for development purposes | M | 2hr |  |  |
+| Create Dummy data for development purposes | H | 2hr |  |  |
 | Implement Product Ranking Algorithm | M | 3hr |  |  |
 | Build Product Carousel Component | H | 2.5hr |  |  |
 | Build Product Component | H | 2hr |  |  |
@@ -155,7 +161,7 @@ Time frames are also key in the development cycle.  You have limited time to cod
 | Total | H | 46hrs| 5hrs | 5hrs |
 
 ## Additional Libraries
- Use this section to list all supporting libraries and thier role in the project such as Axios, ReactStrap, D3, etc. 
+This project will leverage React-Bootstrap as well as SASS for styling purposes.
 
 ## Code Snippet
 
