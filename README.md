@@ -139,7 +139,7 @@ Time frames are also key in the development cycle.  You have limited time to cod
 | Build Cart Page | M | 1hr | 0.5hr | 0.5hr |
 | Add and test linking between router pages | H | 1hr | 0.5hr | 0.5hr |
 | Add display functionality to Name and Budget fields | L | 2hr |  |  |
-| Initialize State for saving Recipient data | H | 0.5hr |  |  |
+| Initialize State for saving Recipient data | H | 0.5hr | 2hr | 2hr |
 | Initialize State for Product Information | H | 0.5hr |  |  |
 | Create onChange and OnClick Events to manipulate Recipient State | H | 3hr |  |  |
 | Create Dummy data for development purposes | H | 2hr |  |  |
