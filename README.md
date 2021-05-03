@@ -132,9 +132,9 @@ Time frames are also key in the development cycle.  You have limited time to cod
 
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| Create Nav, Keyword, Cart pages | H | 1hr |  |  |
-| Initialize Router and create Switch statements | H | 1hr |  |  |
-| Build Nav | H | 1hr |  |  |
+| Create Nav, Keyword, Cart pages | H | 1hr | 0.5hr | 0.5hr |
+| Initialize Router and create Switch statements | H | 1hr | 0.5hr | 0.5hr |
+| Build Nav | H | 1hr | 0.5hr | 0.5hr |
 | Build Keyword Page | H | 1hr |  |  |
 | Build Cart Page | M | 1hr |  |  |
 | Add and test linking between router pages | H | 1hr |  |  |
