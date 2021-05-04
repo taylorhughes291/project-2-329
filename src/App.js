@@ -4,6 +4,7 @@ import KeywordBuilder from "./pages/KeywordBuilder"
 import FinalCart from "./pages/FinalCart"
 import {Route, Switch} from "react-router-dom"
 import {useState} from "react"
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   ////////////////////////
