@@ -11,6 +11,7 @@ function App() {
   ////////////////////////
 
   // initialize state to capture person profile
+
   const [person, setPerson] = useState({
     name: "",
     budget: "",
@@ -25,6 +26,10 @@ function App() {
   const handleSetPerson = (value) => {
     setPerson(value)
   }
+
+
+  
+
 
   ////////////////////////
   // Render

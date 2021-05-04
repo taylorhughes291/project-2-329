@@ -1,4 +1,4 @@
-{
+export default {
     "request_info": {
       "success": true,
       "credits_used": 2,

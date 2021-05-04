@@ -1,7 +1,7 @@
 // 20210429220243
 // https://api.rainforestapi.com/request?api_key=1B2E215619074D408C3A9E1D5AC8F372&type=search&amazon_domain=amazon.com&search_term=star+wars&sort_by=price_high_to_low
 
-{
+export default {
     "request_info": {
       "success": true,
       "credits_used": 1,
