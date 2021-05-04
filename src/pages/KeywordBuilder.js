@@ -1,6 +1,8 @@
 import React, {useState} from "react"
 import {Link} from "react-router-dom"
 import ProductCarousel from "../components/ProductCarousel"
+import ranking from "../functions/ranking.js"
+
 import coffeeData from "../data/coffeeData"
 import coffeeHikingData from "../data/coffeeHikingData"
 import hikingData from "../data/hikingData"
@@ -87,6 +89,7 @@ const KeywordBuilder = (props) => {
     }
 
     // Please note that the below was adopted from https://dev.to/clairecodes/how-to-create-an-array-of-unique-values-in-javascript-using-sets-5dg6
+    // The below creates only unique values of searchTerms
     searchTerms = [...new Set(searchTerms)]
 
     // The below is for sending an API request for all search terms to Rainforest API Product Search
@@ -113,7 +116,10 @@ const KeywordBuilder = (props) => {
     const starWarsHiking = starWarsHikingData
     searchResults.push(starWarsHiking.search_results)
     
-    console.log(searchResults)
+    const resultsBank = ranking(searchResults, props.person.budget, keywordSplit)
+    
+    const displayResults = resultsBank.splice(0, 10)
+    setProductSearch(displayResults)
   }
 
   ////////////////////////
@@ -146,7 +152,9 @@ const KeywordBuilder = (props) => {
                     onClick={() => handleClick(props.person.keywordText)}
                 >Search Products</button>
             </form>
-            <ProductCarousel />
+            <ProductCarousel 
+                data={productSearch}
+            />
             <Link to="/finalcart">
                 <button>Finalize Cart</button>
             </Link>
