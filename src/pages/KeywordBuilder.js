@@ -112,6 +112,7 @@ const KeywordBuilder = (props) => {
     searchResults.push(starWars.search_results)
     const starWarsHiking = starWarsHikingData
     searchResults.push(starWarsHiking.search_results)
+    
     console.log(searchResults)
   }
 
