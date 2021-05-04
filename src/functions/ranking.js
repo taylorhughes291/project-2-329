@@ -1,42 +1,54 @@
-import coffeeData from "../data/coffeeData.js"
-import coffeeHikingData from "../data/coffeeHikingData.js"
-import hikingData from "../data/hikingData.js"
-import starWarsCoffeeData from "../data/starWarsCoffeeData.js"
-import starWarsCoffeeHikingData from "../data/starWarsCoffeeHikingData.js"
-import starWarsData from "../data/starWarsData.js"
-import starWarsHikingData from "../data/starWarsHikingData.js"
 
-let searchResults = []
-const coffee = coffeeData
-searchResults.push(coffee.search_results)
-const coffeeHiking = coffeeHikingData
-searchResults.push(coffeeHiking.search_results)
-const hiking = hikingData
-searchResults.push(hiking.search_results)
-const starWarsCoffee = starWarsCoffeeData
-searchResults.push(starWarsCoffee.search_results)
-const starWarsCoffeeHiking = starWarsCoffeeHikingData
-searchResults.push(starWarsCoffeeHiking.search_results)
-const starWars = starWarsData
-searchResults.push(starWars.search_results)
-const starWarsHiking = starWarsHikingData
-searchResults.push(starWarsHiking.search_results)
 
 const budget = 50
+const keywords = ["star wars", "coffee", "hiking"]
 
 
-const ranking = (arr, cost) => {
-    const newArr = arr.map((item, index) => {
+const ranking = (arr, cost, keywords) => {
+    let newArr = arr.map((item, index) => {
         return (
             item.filter((item, index) => {
-                console.log(item.price && item.price.value <= cost, index);
                 return (
                     item.price && item.price.value <= cost
                 )
             })
         )
     })
-    return newArr
+
+    newArr = newArr.map((item, index) => {
+        return (
+            item.map((item, index) => {
+                let counter = 0
+                for (const word of keywords) {
+                    if (item.title.toLowerCase().includes(word.toLowerCase())) {
+                        counter += 1
+                    }
+                }
+                if (!item.rating) {
+                    item.rating = 0
+                }
+                return (
+                    Object.assign(item, {ranking: (item.price.value/cost) + (item.rating/5) + counter})
+                )
+            })
+        )
+    })
+    let sortedArray = []
+    for (let i = 0; i < newArr.length; i += 1) {
+        sortedArray = sortedArray.concat(newArr[i])
+    }
+
+    // Please note that the below two-tiered sorting was achieved with help from https://stackoverflow.com/questions/4576714/sort-by-two-values-prioritizing-on-one-of-them
+
+    sortedArray = sortedArray.sort((a, b) => {
+        var n = b.ranking - a.ranking
+        if (n !== 0) {
+            return n
+        }
+        return b.ratings_total - a.ratings_total
+    })
+
+    return sortedArray
 }
 
-searchResults = ranking(searchResults, budget)
+export default ranking
