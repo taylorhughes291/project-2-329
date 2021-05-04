@@ -145,8 +145,8 @@ Time frames are also key in the development cycle.  You have limited time to cod
 | Create Dummy data for development purposes | H | 2hr | 1hr | 1hr |
 | Implement Product Ranking Algorithm | M | 3hr | 5hr | 5hr |
 | Build Product Carousel Component | H | 2.5hr |  |  |
-| Build Product Component | H | 2hr |  |  |
-| Send Product Info to Product Component | H | 1.5hr |  |  |
+| Build Product Component | H | 2hr | 2hr | 2hr |
+| Send Product Info to Product Component | H | 1.5hr | 1hr | 1hr |
 | Implement Selection information lift to Recipient Profile | H | 1hr |  |  |
 | Style Carousel | H | 2hr |  |  |
 | Style selected Products | H | 2hr |  |  |

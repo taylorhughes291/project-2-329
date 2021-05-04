@@ -36,3 +36,8 @@
     transform: rotate(360deg);
   }
 }
+
+/* Conditional Rendering */
+.hidden {
+  display: none !important
+}

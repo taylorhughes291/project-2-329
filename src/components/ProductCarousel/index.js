@@ -10,6 +10,9 @@ const ProductCarousel = (props) => {
                 <Row>
                     <Product 
                         data={props.data}
+                        setProductSearch={props.setProductSearch}
+                        person={props.person}
+                        setPerson={props.setPerson}
                     />
                 </Row>
             </Container>

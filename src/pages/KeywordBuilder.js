@@ -116,9 +116,18 @@ const KeywordBuilder = (props) => {
     const starWarsHiking = starWarsHikingData
     searchResults.push(starWarsHiking.search_results)
     
+    //Invoke function from ranking.js to distill which products to display
     const resultsBank = ranking(searchResults, props.person.budget, keywordSplit)
     
+    //displayResults is what we want to show, but resultsBank has the rest if the user wishes to see more
     const displayResults = resultsBank.splice(0, 10)
+
+    //Need to create a data point for all display results to toggle selected and deselected
+    for (const obj of displayResults) {
+        obj.selected = false
+    }
+
+    //set the Product search state with what you wish to display
     setProductSearch(displayResults)
   }
 
@@ -154,6 +163,9 @@ const KeywordBuilder = (props) => {
             </form>
             <ProductCarousel 
                 data={productSearch}
+                setProductSearch={setProductSearch}
+                person={props.person}
+                setPerson={props.setPerson}
             />
             <Link to="/finalcart">
                 <button>Finalize Cart</button>
