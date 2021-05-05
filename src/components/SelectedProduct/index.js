@@ -1,9 +1,22 @@
 import React from "react"
 
-const SelectedProduct = () => {
+const SelectedProduct = (props) => {
+
+    const selections = props.person.selectedProducts.map((item, index) => {
+        return (<div
+            key={index}
+        >
+            <img src={item.image}/>
+            <div>
+                <p>{item.title}</p>
+                <p>${item.price}</p>
+            </div>
+        </div>
+        )
+    })
     return (
         <div>
-            This is the SelectedProduct Component
+            {selections}
         </div>
     )
 }

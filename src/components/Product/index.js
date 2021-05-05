@@ -45,6 +45,39 @@ const Product = (props) => {
         )
     }
 
+    const handleDelete = (asin) => {
+        // Need to first delete the product from the person useState at selectedProduct
+        const newSelectedProducts = props.person.selectedProducts.filter((item, index) => {
+            return (
+                item.asin !== asin
+            )
+        })
+        const person = {
+            ...props.person,
+            selectedProducts: newSelectedProducts
+        }
+        props.setPerson(
+            person
+        )
+
+        // Now we must toggle the class of the data object selected to selected = false
+        const productDisplay = props.data.map((item, index) => {
+            if (item.asin === asin) {
+                return ({
+                    ...item,
+                    selected: false
+                })
+            } else {
+                return (
+                    item
+                )
+            }
+        })
+        props.setProductSearch(
+            productDisplay
+        )
+    }
+
     //////////////////////////
     // Render
     //////////////////////////
@@ -71,11 +104,12 @@ const Product = (props) => {
                                 url: item.link,
                                 asin: item.asin
                             })}
-                            className={item.selected ? "hidden btn btn-primary" : "btn btn-primary"}
+                            className={item.selected ? "selected hidden btn btn-primary" : "btn btn-primary"}
                         >Select Item</Button>
                         <Button 
                             variant="primary"
-                            className={item.selected ? "btn btn-primary" : "hidden btn btn-primary"}
+                            className={item.selected ? "selected btn btn-primary" : "hidden btn btn-primary"}
+                            onClick={() => handleDelete(item.asin)}
                         >Delete Item</Button>
                     </Card.Body>
                 </Card>
