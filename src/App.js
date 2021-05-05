@@ -48,7 +48,9 @@ function App() {
           />
         </Route>
         <Route path="/finalcart">
-          <FinalCart />
+          <FinalCart 
+            person={person}
+          />
         </Route>
       </Switch>
       

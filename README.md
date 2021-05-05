@@ -138,21 +138,21 @@ Time frames are also key in the development cycle.  You have limited time to cod
 | Build Keyword Page | H | 1hr | 0.5hr | 0.5hr |
 | Build Cart Page | M | 1hr | 0.5hr | 0.5hr |
 | Add and test linking between router pages | H | 1hr | 0.5hr | 0.5hr |
-| Add display functionality to Name and Budget fields | L | 2hr |  |  |
+| Add display functionality to Name and Budget fields | L | 2hr | 2hr | 2hr |
 | Initialize State for saving Recipient data | H | 0.5hr | 0.5hr | 0.5hr |
 | Initialize State for Product Information | H | 0.5hr | 1hr | 1hr |
 | Create onChange and OnClick Events to manipulate Recipient State | H | 3hr | 2hr | 2hr |
 | Create Dummy data for development purposes | H | 2hr | 1hr | 1hr |
 | Implement Product Ranking Algorithm | M | 3hr | 5hr | 5hr |
-| Build Product Carousel Component | H | 2.5hr |  |  |
+| Build Product Carousel Component | H | 2.5hr | 1hr | 1hr |
 | Build Product Component | H | 2hr | 2hr | 2hr |
 | Send Product Info to Product Component | H | 1.5hr | 1hr | 1hr |
-| Implement Selection information lift to Recipient Profile | H | 1hr |  |  |
+| Implement Selection information lift to Recipient Profile | H | 1hr | 2hr | 2hr |
 | Style Carousel | H | 2hr |  |  |
 | Style selected Products | H | 2hr |  |  |
 | Send recipient profile to cart | H | 1hr |  |  |
 | Render Cart | M | 1hr |  |  |
-| Render Product Links | H | 2.5hr |  |  |
+| Render Product Links | H | 2.5hr | 2hr | 2hr |
 | Styling for Mobile | H | 3hr |  |  |
 | Styling for Tablet | H | 3hr |  |  |
 | Styling for Desktop | H | 3hr |  |  |

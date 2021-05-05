@@ -9,7 +9,6 @@ const Product = (props) => {
     // Constants
     //////////////////////////
 
-    const selectedProducts = []
 
     //////////////////////////
     // Functions
@@ -17,10 +16,12 @@ const Product = (props) => {
 
     const handleSelect = (obj) => {
         // Attach the product info to the person's final selection
-        selectedProducts.push(obj)
         const person = {
             ...props.person,
-            selectedProducts: selectedProducts
+            selectedProducts: [
+                ...props.person.selectedProducts,
+                obj
+            ]
         }
         props.setPerson(
             person

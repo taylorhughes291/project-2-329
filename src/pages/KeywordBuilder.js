@@ -54,7 +54,9 @@ const KeywordBuilder = (props) => {
 
   const getProducts = async (searchTerm) => {
     const apiKey = "1B2E215619074D408C3A9E1D5AC8F372"
-    const url = `https://api.rainforestapi.com/request?api_key=${apiKey}&type=search&amazon_domain=amazon.com&search_term=${searchTerm}`
+    const associateId = "taylorhughe05-20"
+    const url = `https://api.rainforestapi.com/request?api_key=${apiKey}&type=search&amazon_domain=amazon.com&associate_id=${associateId}&search_term=${searchTerm}`
+    
     const response = await fetch(url)
     const data = await response.json()
     return data.search_results
