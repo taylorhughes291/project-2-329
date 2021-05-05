@@ -138,7 +138,7 @@ const KeywordBuilder = (props) => {
   ////////////////////////
 
     return (
-        <div>
+        <div className="keyword-cont">
             <form>
                 <input 
                     type="text" 
@@ -152,9 +152,10 @@ const KeywordBuilder = (props) => {
                     value={props.person.budget}
                     onChange={handleBudgetChange}
                 ></input>
+                <h5>Enter up to 3 Keywords below:</h5>
                 <input 
                     type="text" 
-                    placeholder="Keywords"
+                    placeholder="Coffee, Star Wars, Succulents"
                     value={props.person.keywordText}
                     onChange={handleKeywordChange}
                 ></input>
