@@ -36,6 +36,9 @@ const FinalCart = (props) => {
             <h2>{props.person.name}</h2>
             <SelectedProduct 
                 person={props.person}
+                setPerson={props.setPerson}
+                productSearch={props.productSearch}
+                setProductSearch={props.setProductSearch}
             />
             <h3>Total Cost: {sumTotal()}</h3>
             <h2>Product Links:</h2>

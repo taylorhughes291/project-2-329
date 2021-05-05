@@ -21,6 +21,8 @@ function App() {
     selectedProducts: []
   })
 
+  const [productSearch, setProductSearch] = useState(null)
+
   ////////////////////////
   // Functions
   ////////////////////////
@@ -28,10 +30,6 @@ function App() {
   const handleSetPerson = (value) => {
     setPerson(value)
   }
-
-
-  
-
 
   ////////////////////////
   // Render
@@ -45,11 +43,16 @@ function App() {
           <KeywordBuilder 
             person={person}
             setPerson={setPerson}
+            productSearch={productSearch}
+            setProductSearch={setProductSearch}
           />
         </Route>
         <Route path="/finalcart">
           <FinalCart 
             person={person}
+            setPerson={setPerson}
+            productSearch={productSearch}
+            setProductSearch={setProductSearch}
           />
         </Route>
       </Switch>

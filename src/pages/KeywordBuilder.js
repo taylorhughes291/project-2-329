@@ -16,7 +16,7 @@ const KeywordBuilder = (props) => {
   // Constants
   ////////////////////////
 
-  const [productSearch, setProductSearch] = useState(null)
+  
 
   ////////////////////////
   // Functions
@@ -130,7 +130,7 @@ const KeywordBuilder = (props) => {
     }
 
     //set the Product search state with what you wish to display
-    setProductSearch(displayResults)
+    props.setProductSearch(displayResults)
   }
 
   ////////////////////////
@@ -164,8 +164,8 @@ const KeywordBuilder = (props) => {
                 >Search Products</button>
             </form>
             <ProductCarousel 
-                data={productSearch}
-                setProductSearch={setProductSearch}
+                data={props.productSearch}
+                setProductSearch={props.setProductSearch}
                 person={props.person}
                 setPerson={props.setPerson}
             />
