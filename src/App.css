@@ -37,7 +37,25 @@
   }
 }
 
+/* Custom Styles */
+div.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+div.hamburger-cont {
+ padding: 30px;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+
 /* Conditional Rendering */
 .hidden {
   display: none !important
+}
+
+@media screen and () {
+
 }
