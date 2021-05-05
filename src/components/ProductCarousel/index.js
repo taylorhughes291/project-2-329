@@ -5,19 +5,21 @@ import Product from "../Product"
 
 const ProductCarousel = (props) => {
     return (
-        <div className="product-carousel">
-            <Container>
-                <Row>
-                    <Product 
-                        data={props.data}
-                        setProductSearch={props.setProductSearch}
-                        person={props.person}
-                        setPerson={props.setPerson}
-                    />
-                </Row>
-            </Container>
+        <>
+            <div className="product-carousel">
+                <Container>
+                    <Row>
+                        <Product 
+                            data={props.data}
+                            setProductSearch={props.setProductSearch}
+                            person={props.person}
+                            setPerson={props.setPerson}
+                        />
+                    </Row>
+                </Container>
 
-        </div>
+            </div>
+        </>
     )
 }
 

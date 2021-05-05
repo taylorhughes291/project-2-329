@@ -36,18 +36,26 @@ const SelectedProduct = (props) => {
     }
 
     const selections = props.person.selectedProducts.map((item, index) => {
-        return (<div
+        return (
+        <div
             key={index}
+            className="selectedProduct"
         >
-            <img src={item.image}/>
-            <div>
+            <div className="img-cont">
+                <img 
+                    src={item.image}
+                    className="selectedImage"
+                />
+                <button
+                    type="button"
+                    onClick={() => handleDelete(item.asin)}
+                >Delete</button>
+            </div>
+            <div className="selected-info">
                 <p>{item.title}</p>
                 <p>${item.price}</p>
             </div>
-            <button
-                type="button"
-                onClick={() => handleDelete(item.asin)}
-            >Delete from Cart</button>
+
         </div>
         )
     })

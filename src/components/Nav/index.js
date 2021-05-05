@@ -8,8 +8,7 @@ const Nav = () => {
     // Media Queries
     //////////////////////////
 
-    const isTablet = useMediaQuery({ query: '(max-width: 1023px)' })
-    const isDesktop = useMediaQuery({ query: '(min-width: 1024px)' })
+
     let [menuClicked, setMenuClicked] = useState(false)
 
     //////////////////////////

@@ -87,9 +87,12 @@ const Product = (props) => {
         return (
             <Col
                 key={index}
+                className="product"
             >
                 <Card style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src={item.image} />
+                    <div className="img-cont">
+                        <Card.Img variant="top" src={item.image} />
+                    </div>
                     <Card.Body>
                         <Card.Text>
                         {item.title}
@@ -125,7 +128,10 @@ const Product = (props) => {
 
     const loading = () => {
         return (
-            <h1>Loading...</h1>
+            <div className="loading-cont">
+                <h3>Fill out the above to get started gifting!</h3>
+                <i class="fas fa-gift fa-9x"></i>
+            </div>
         )
     }
 

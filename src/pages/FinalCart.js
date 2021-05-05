@@ -32,8 +32,8 @@ const FinalCart = (props) => {
     //////////////////////////
 
     return (
-        <div>
-            <h2>{props.person.name}</h2>
+        <div className="cart-cont">
+            <h2 className="title">{`${props.person.name}'s Gifts`}</h2>
             <SelectedProduct 
                 person={props.person}
                 setPerson={props.setPerson}

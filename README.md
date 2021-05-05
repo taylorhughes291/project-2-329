@@ -150,8 +150,8 @@ Time frames are also key in the development cycle.  You have limited time to cod
 | Implement Selection information lift to Recipient Profile | H | 1hr | 2hr | 2hr |
 | Style Carousel | H | 2hr |  |  |
 | Style selected Products | H | 2hr |  |  |
-| Send recipient profile to cart | H | 1hr |  |  |
-| Render Cart | M | 1hr |  |  |
+| Send recipient profile to cart | H | 1hr | 2hr | 2hr |
+| Render Cart | M | 1hr | 1hr | 1hr |
 | Render Product Links | H | 2.5hr | 2hr | 2hr |
 | Styling for Mobile | H | 3hr |  |  |
 | Styling for Tablet | H | 3hr |  |  |

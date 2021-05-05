@@ -122,7 +122,8 @@ const KeywordBuilder = (props) => {
     const resultsBank = ranking(searchResults, props.person.budget, keywordSplit)
     
     //displayResults is what we want to show, but resultsBank has the rest if the user wishes to see more
-    const displayResults = resultsBank.splice(0, 10)
+    // I am going to make the number of results dynamic upon which device is being used.
+    const displayResults = resultsBank.splice(0, 5)
 
     //Need to create a data point for all display results to toggle selected and deselected
     for (const obj of displayResults) {
@@ -140,15 +141,17 @@ const KeywordBuilder = (props) => {
     return (
         <div className="keyword-cont">
             <form>
+                <h5>Gift Recipient:</h5>
                 <input 
                     type="text" 
-                    placeholder="Person"
+                    placeholder="Tiny Tim"
                     value={props.person.name}
                     onChange={handleNameChange}
                 ></input>
+                <h5>Budget:</h5>
                 <input 
                     type="number" 
-                    placeholder="Budget"
+                    placeholder="$75"
                     value={props.person.budget}
                     onChange={handleBudgetChange}
                 ></input>
@@ -171,7 +174,7 @@ const KeywordBuilder = (props) => {
                 setPerson={props.setPerson}
             />
             <Link to="/finalcart">
-                <button>Finalize Cart</button>
+                <button className="finalize">Finalize Cart</button>
             </Link>
         </div>
     )
