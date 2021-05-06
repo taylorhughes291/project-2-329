@@ -97,23 +97,25 @@ const Product = (props) => {
                         <Card.Text>
                         {item.title}
                         </Card.Text>
-                        <Card.Title>{`$${item.price.value}`}</Card.Title>
-                        <Button 
-                            variant="primary"
-                            onClick={() => handleSelect({
-                                title: item.title,
-                                price: item.price.value,
-                                image: item.image,
-                                url: item.link,
-                                asin: item.asin
-                            })}
-                            className={item.selected ? "selected hidden btn btn-primary" : "btn btn-primary"}
-                        >Select Item</Button>
-                        <Button 
-                            variant="primary"
-                            className={item.selected ? "selected btn btn-primary" : "hidden btn btn-primary"}
-                            onClick={() => handleDelete(item.asin)}
-                        >Delete Item</Button>
+                        <div className="price-button-cont">
+                            <Card.Title>{`$${parseFloat(Math.trunc(item.price.value*100)/100).toFixed(2)}`}</Card.Title>
+                            <Button 
+                                variant="primary"
+                                onClick={() => handleSelect({
+                                    title: item.title,
+                                    price: item.price.value,
+                                    image: item.image,
+                                    url: item.link,
+                                    asin: item.asin
+                                })}
+                                className={item.selected ? "selected hidden btn btn-primary" : "btn btn-primary"}
+                            >Select Item</Button>
+                            <Button 
+                                variant="primary"
+                                className={item.selected ? "selected btn btn-primary" : "hidden btn btn-primary"}
+                                onClick={() => handleDelete(item.asin)}
+                            >Delete Item</Button>
+                        </div>
                     </Card.Body>
                 </Card>
             </Col>

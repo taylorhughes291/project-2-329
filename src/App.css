@@ -113,6 +113,20 @@ div.loading-cont {
   width: 100%
 }
 
+div.row {
+  display: flex;
+  justify-content: space-around;
+}
+
+div.card {
+  margin: 0 auto;
+  height: 580px;
+}
+
+div.card p.card-text {
+  font-size: 14px;
+}
+
 div.product {
   margin: 20px 0 0;
 }
@@ -130,6 +144,17 @@ div.product div.img-cont img {
   max-height: 100%;
   width: auto;
   height: auto;
+}
+
+div.product div.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+div.product div.price-button-cont {
+  display: flex;
+  flex-direction: column;
 }
 
 /* Cart */
@@ -214,5 +239,8 @@ div.selectedProduct div.selected-info {
   }
 
   /* Product Carousel */
-  
+  div.product-carousel {
+    width: 90%;
+    margin: 40px auto 20px;
+  }
 }
