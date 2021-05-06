@@ -130,7 +130,7 @@ const Product = (props) => {
         return (
             <div className="loading-cont">
                 <h3>Fill out the above to get started gifting!</h3>
-                <i class="fas fa-gift fa-9x"></i>
+                <i className="fas fa-gift fa-9x"></i>
             </div>
         )
     }

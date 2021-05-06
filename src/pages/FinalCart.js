@@ -9,9 +9,7 @@ const FinalCart = (props) => {
 
     const links = props.person.selectedProducts.map((item, index) => {
         return (
-            <h2
-                key={index}
-            ><a href={item.url}>{item.title}</a></h2>
+            item.url
         )
     })
 
@@ -24,7 +22,13 @@ const FinalCart = (props) => {
         for (const obj of props.person.selectedProducts) {
             sum = sum + obj.price
         }
-        return sum
+        return parseFloat(Math.trunc(sum*100)/100).toFixed(2)
+    }
+
+    const handleCheckout = () => {
+        for (const link of links) {
+           setTimeout(window.open(link), 2000)
+        }
     }
 
     //////////////////////////
@@ -40,9 +44,11 @@ const FinalCart = (props) => {
                 productSearch={props.productSearch}
                 setProductSearch={props.setProductSearch}
             />
-            <h3>Total Cost: {sumTotal()}</h3>
-            <h2>Product Links:</h2>
-            <div>{links}</div>
+            <h3>Total Cost: {`$${sumTotal()}`}</h3>
+            <button
+                type="button"
+                onClick={handleCheckout}
+            >Take me to the Products</button>
         </div>
     )
 }

@@ -147,7 +147,9 @@ div.selectedProduct {
   align-items: center;
   height: 175px;
   margin: 0 4px;
+  padding: 0 2px;
   border: 1px solid black;
+  grid-gap: 7px;
 }
 
 div.selectedProduct div.img-cont {
@@ -170,6 +172,7 @@ div.selectedProduct button {
 
 div.selectedProduct div.selected-info {
   font-size: 13px;
+  text-align: left;
 }
 
 /* Conditional Rendering */

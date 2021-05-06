@@ -53,7 +53,7 @@ const SelectedProduct = (props) => {
             </div>
             <div className="selected-info">
                 <p>{item.title}</p>
-                <p>${item.price}</p>
+                <h5>${parseFloat(Math.trunc(item.price*100)/100).toFixed(2)}</h5>
             </div>
 
         </div>
