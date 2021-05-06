@@ -2,6 +2,7 @@ import React, {useState} from "react"
 import {Link} from "react-router-dom"
 import ProductCarousel from "../components/ProductCarousel"
 import ranking from "../functions/ranking.js"
+import {useMediaQuery} from "react-responsive"
 
 import coffeeData from "../data/coffeeData"
 import coffeeHikingData from "../data/coffeeHikingData"
@@ -16,7 +17,11 @@ const KeywordBuilder = (props) => {
   // Constants
   ////////////////////////
 
-  
+  const isTablet = useMediaQuery({query: '(min-width: 768px)'})
+  let numberResults = 5
+  if (isTablet) {
+    numberResults = 8
+  }
 
   ////////////////////////
   // Functions
@@ -122,8 +127,10 @@ const KeywordBuilder = (props) => {
     const resultsBank = ranking(searchResults, props.person.budget, keywordSplit)
     
     //displayResults is what we want to show, but resultsBank has the rest if the user wishes to see more
-    // I am going to make the number of results dynamic upon which device is being used.
-    const displayResults = resultsBank.splice(0, 5)
+    // I am going to make the number of results dynamic upon which device is being used. Note that
+    //      numberResults is a variable declared in the above constants section depending on the size of 
+    //      the screen using media queries from react-responsive
+    const displayResults = resultsBank.splice(0, numberResults)
 
     //Need to create a data point for all display results to toggle selected and deselected
     for (const obj of displayResults) {

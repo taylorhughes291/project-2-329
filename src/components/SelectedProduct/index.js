@@ -41,11 +41,13 @@ const SelectedProduct = (props) => {
             key={index}
             className="selectedProduct"
         >
-            <div className="img-cont">
-                <img 
-                    src={item.image}
-                    className="selectedImage"
-                />
+            <div className="img-button-cont">
+                <div className="img-cont">
+                    <img 
+                        src={item.image}
+                        className="selectedImage"
+                    />
+                </div>
                 <button
                     type="button"
                     onClick={() => handleDelete(item.asin)}
