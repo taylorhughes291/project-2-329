@@ -50,7 +50,7 @@ const FinalCart = (props) => {
                 productSearch={props.productSearch}
                 setProductSearch={props.setProductSearch}
             />
-            <h3>Total Cost: {`$${sumTotal()}`}</h3>
+            <h3 className="total-cost">Total Cost: {`$${sumTotal()}`}</h3>
             <button
                 type="button"
                 onClick={handleCheckout}

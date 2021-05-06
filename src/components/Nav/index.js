@@ -10,6 +10,7 @@ const Nav = () => {
 
 
     let [menuClicked, setMenuClicked] = useState(false)
+    const isTablet = useMediaQuery({query: '(min-width: 768px)'})
 
     //////////////////////////
     // Functions
@@ -31,14 +32,14 @@ const Nav = () => {
         <div className="nav">
             <div className="mobileCont">
                 <img className="logo" alt="wrappd logo" src="https://placeimg.com/200/100/any" />
-                <div className="hamburger-cont">
+                {!isTablet && <div className="hamburger-cont">
                     <i 
                         className="fas fa-bars fa-3x"
                         onClick={handleClick}
                     ></i>
-                </div>
+                </div>}
             </div>
-            {menuClicked && <>
+            {(menuClicked || isTablet) && <>
                 <div className="options-cont">
                     <ul className="options">
                         <li>About</li>

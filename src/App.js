@@ -3,8 +3,9 @@ import Nav from "./components/Nav"
 import KeywordBuilder from "./pages/KeywordBuilder"
 import FinalCart from "./pages/FinalCart"
 import {Route, Switch} from "react-router-dom"
-import {useState} from "react"
-import 'bootstrap/dist/css/bootstrap.min.css';
+import {useEffect, useState} from "react"
+import 'bootstrap/dist/css/bootstrap.min.css'
+import {useMediaQuery} from "react-responsive"
 
 function App() {
   ////////////////////////
@@ -22,14 +23,12 @@ function App() {
   })
 
   const [productSearch, setProductSearch] = useState(null)
-
+  
   ////////////////////////
   // Functions
   ////////////////////////
 
-  const handleSetPerson = (value) => {
-    setPerson(value)
-  }
+  
 
   ////////////////////////
   // Render
