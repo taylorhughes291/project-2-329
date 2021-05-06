@@ -18,9 +18,12 @@ const KeywordBuilder = (props) => {
   ////////////////////////
 
   const isTablet = useMediaQuery({query: '(min-width: 768px)'})
+  const isDesktop = useMediaQuery({query: '(min-width: 961px)'})
   let numberResults = 5
-  if (isTablet) {
+  if (isTablet && !isDesktop) {
     numberResults = 8
+  } else if (isDesktop) {
+    numberResults = 12
   }
 
   ////////////////////////
