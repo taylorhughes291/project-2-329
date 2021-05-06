@@ -148,14 +148,14 @@ Time frames are also key in the development cycle.  You have limited time to cod
 | Build Product Component | H | 2hr | 2hr | 2hr |
 | Send Product Info to Product Component | H | 1.5hr | 1hr | 1hr |
 | Implement Selection information lift to Recipient Profile | H | 1hr | 2hr | 2hr |
-| Style Carousel | H | 2hr |  |  |
-| Style selected Products | H | 2hr |  |  |
+| Style Carousel | H | 2hr | 1hr | 1hr |
+| Style selected Products | H | 2hr | 2hr | 2hr |
 | Send recipient profile to cart | H | 1hr | 2hr | 2hr |
 | Render Cart | M | 1hr | 1hr | 1hr |
 | Render Product Links | H | 2.5hr | 2hr | 2hr |
 | Layout for Mobile | H | 3hr | 3hr | 3hr |
-| Styling for Tablet | H | 3hr |  |  |
-| Styling for Desktop | H | 3hr |  |  |
+| Styling for Tablet | H | 3hr | 1hr | 1hr |
+| Styling for Desktop | H | 3hr | 1hr | 1hr |
 | Nav/New List reset state functionality | L | 1hr |  |  |
 | Final Styling Tweaks | H | 3hr |  |  |
 | Total | H | 46hrs| 5hrs | 5hrs |

@@ -43,15 +43,21 @@
 /* BODY */
 body {
   max-width: 961px;
-  margin: 0 auto !important;
+  background-color: #FBE489 !important;
 }
 
 /* Nav bar */
+div.nav {
+  background-color: #F7BFB4;
+  padding: 5px 0 5px;
+}
+
 div.mobileCont {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%
+  width: 100%;
+  padding-left: 5px;
 }
 
 div.hamburger-cont {
@@ -59,6 +65,10 @@ div.hamburger-cont {
  display: flex;
  justify-content: center;
  align-items: center;
+}
+
+div.nav i {
+  color: #786870;
 }
 
 div.options-cont {
@@ -78,14 +88,19 @@ div.options-cont li {
   display: block;
   list-style: none;
   padding: 5px 0;
-  color: black;
+  color: #786870;
   font-size: 20px;
+}
+
+div.nav svg {
+  background-color: black;
+  fill: #282c34
 }
 
 /* Keyword Builder  */
 
 div.keyword-cont {
-  padding: 30px 0 0;
+  padding: 15px 0 0;
 }
 
 div.keyword-cont input {

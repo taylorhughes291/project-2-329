@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import {Link} from "react-router-dom"
 import {useMediaQuery} from "react-responsive"
+import logo from "./assets/WrappdAltLogo.png"
 
 const Nav = () => {
 
@@ -31,10 +32,10 @@ const Nav = () => {
     return (
         <div className="nav">
             <div className="mobileCont">
-                <img className="logo" alt="wrappd logo" src="https://placeimg.com/200/100/any" />
+                <img src="https://i.imgur.com/b3520VX.png?1" alt="wrappd logo"/>
                 {!isTablet && <div className="hamburger-cont">
                     <i 
-                        className="fas fa-bars fa-3x"
+                        className="fas fa-bars fa-2x"
                         onClick={handleClick}
                     ></i>
                 </div>}
