@@ -126,8 +126,10 @@ div.product div.img-cont {
 }
 
 div.product div.img-cont img {
+  max-width: 100%;
+  max-height: 100%;
   width: auto;
-  max-height: 100%
+  height: auto;
 }
 
 /* Cart */
@@ -163,7 +165,7 @@ div.selectedProduct div.img-cont {
 
 div.selectedProduct img {
   max-width: 100%;
-  max-height: auto;
+  max-height: 100%;
 }
 
 div.selectedProduct button {

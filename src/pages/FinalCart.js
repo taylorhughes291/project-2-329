@@ -7,9 +7,9 @@ const FinalCart = (props) => {
     // Constants
     //////////////////////////
 
-    const links = props.person.selectedProducts.map((item, index) => {
+    const asins = props.person.selectedProducts.map((item, index) => {
         return (
-            item.url
+            item.asin
         )
     })
 
@@ -26,9 +26,15 @@ const FinalCart = (props) => {
     }
 
     const handleCheckout = () => {
-        for (const link of links) {
-           setTimeout(window.open(link), 2000)
+        let urlParam = ""
+        for (let i = 1; i <= asins.length; i += 1) {
+            if (i !== 1) {
+                urlParam = urlParam + "&"
+            }
+            urlParam = urlParam + `ASIN.${i}=${asins[i-1]}&Quantity.${i}=1`
         }
+        const url = `https://www.amazon.com/gp/aws/cart/add.html?${urlParam}&AssociateTag=taylorhughe05-20`
+        window.open(url)
     }
 
     //////////////////////////
