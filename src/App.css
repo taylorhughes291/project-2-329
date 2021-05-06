@@ -1,5 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
+
+
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .App-logo {
@@ -42,15 +49,33 @@
 
 /* BODY */
 body {
-  max-width: 961px;
   background-color: #FBE489 !important;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+button {
+  border-radius: 7px !important;
+  border-color: #99E9FF;
+  background-color: #99E9FF;
+  color: #847178;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 700;
 }
 
 /* Nav bar */
+div.container-fluid {
+  padding: 0;
+  background-color: #F7BFB4;
+  display: flex;
+  justify-content: center;
+}
 div.nav {
   background-color: #F7BFB4;
   padding: 5px 0 5px;
+  max-width: 961px;
+  width: 100%;
 }
+
 
 div.mobileCont {
   display: flex;
@@ -89,6 +114,7 @@ div.options-cont li {
   list-style: none;
   padding: 5px 0;
   color: #786870;
+  font-weight: 700;
   font-size: 20px;
 }
 
@@ -101,12 +127,22 @@ div.nav svg {
 
 div.keyword-cont {
   padding: 15px 0 0;
+  max-width: 961px;
+  width: 100%;
 }
 
 div.keyword-cont input {
   width: 100%;
   height: 50px;
   margin: 0 0 20px;
+  font-weight: 400;
+  border-radius: 5px;
+  border: 2px solid #79B990;
+  background-color: #FFFFFF;
+}
+
+div.keyword-cont input::placeholder {
+  color: #BDB2B6;
 }
 
 div.keyword-cont form {
@@ -115,14 +151,22 @@ div.keyword-cont form {
   margin: 0 auto;
 }
 
+div.keyword-cont h5 {
+  font-weight: 700;
+  color: #786870;
+}
+
 button.finalize {
   margin: 0 0 30px;
 }
 
 /* Product Carousel */
 div.product-carousel {
-  border: 1px solid black;
+  border-radius: 10px;
+  border: 2px solid #847178;
   margin: 40px 2px 20px;
+  background-color: #F7BFB4;
+  padding: 0 0 25px 0;
 }
 
 /* Products */
@@ -131,7 +175,8 @@ div.loading-cont {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100%
+  width: 100%;
+  color: #847178;
 }
 
 div.row {
@@ -141,15 +186,19 @@ div.row {
 
 div.card {
   margin: 0 auto;
-  height: 580px;
+  height: 595px;
+  border-radius: 10px;
+  border: 2px solid #79B990;
 }
 
 div.card p.card-text {
-  font-size: 14px;
+  font-size: 15px;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 div.product {
   margin: 20px 0 0;
+  border-radius: 10px;
 }
 
 div.product div.img-cont {
@@ -161,8 +210,8 @@ div.product div.img-cont {
 }
 
 div.product div.img-cont img {
-  max-width: 100%;
-  max-height: 100%;
+  max-width: 95%;
+  max-height: 95%;
   width: auto;
   height: auto;
 }
@@ -178,18 +227,36 @@ div.product div.price-button-cont {
   flex-direction: column;
 }
 
+div.product div.price-button-cont button {
+  background-color: #AFD5BD;
+  color: #63545A;
+  font-weight: 700;
+  border: 2px solid #AFD5BD;
+}
+
+div.product div.price-button-cont div.h5 {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+}
+
 /* Cart */
 div.cart-cont {
   margin: 20px 0;
+  font-family: 'Josefin Sans', sans-serif;
+  color: #584B50;
+  max-width: 961px;
 }
 
 div.cart-cont .title {
   margin: 0 0 20px;
   text-transform: capitalize;
+  font-weight: 700;
 }
 
 div.cart-cont .total-cost {
   margin: 15px 0;
+  font-weight: 700;
 }
 
 /* Selected Products */
@@ -201,8 +268,20 @@ div.selectedProduct {
   height: 215px;
   margin: 0 4px;
   padding: 0 5px;
-  border: 1px solid black;
+  border: 2px solid #79676E;
+  border-bottom: 0;
   grid-gap: 11px;
+}
+
+div.selectedProduct:last-of-type {
+  border-bottom: 2px solid #79676E;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+div.selectedProduct:nth-of-type(1) {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 div.selectedProduct div.img-button-cont {
@@ -229,6 +308,8 @@ div.selectedProduct div.img-cont {
 div.selectedProduct img {
   max-width: 100%;
   max-height: 100%;
+  border: 2px solid #AFD5BD;
+  border-radius: 7px;
 }
 
 div.selectedProduct button {
@@ -281,6 +362,7 @@ div.selectedProduct h5 {
 
   div.nav ul li {
     padding: 20px;
+    font-size: 27px;
   }
 
   /* Product Carousel */

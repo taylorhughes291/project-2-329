@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react"
 import {Link} from "react-router-dom"
 import {useMediaQuery} from "react-responsive"
 import logo from "./assets/WrappdAltLogo.png"
+import Container from "react-bootstrap/Container"
 
 const Nav = () => {
 
@@ -30,28 +31,30 @@ const Nav = () => {
     //////////////////////////
 
     return (
-        <div className="nav">
-            <div className="mobileCont">
-                <img src="https://i.imgur.com/b3520VX.png?1" alt="wrappd logo"/>
-                {!isTablet && <div className="hamburger-cont">
-                    <i 
-                        className="fas fa-bars fa-2x"
-                        onClick={handleClick}
-                    ></i>
-                </div>}
-            </div>
-            {(menuClicked || isTablet) && <>
-                <div className="options-cont">
-                    <ul className="options">
-                        <li>About</li>
-                        <Link to="/">
-                            <li>New Gift</li>
-                        </Link>
-                    </ul>
+        <Container fluid>
+            <div className="nav">
+                <div className="mobileCont">
+                    <img src="https://i.imgur.com/b3520VX.png?1" alt="wrappd logo"/>
+                    {!isTablet && <div className="hamburger-cont">
+                        <i 
+                            className="fas fa-bars fa-2x"
+                            onClick={handleClick}
+                        ></i>
+                    </div>}
                 </div>
-            </>}
+                {(menuClicked || isTablet) && <>
+                    <div className="options-cont">
+                        <ul className="options">
+                            <li>About</li>
+                            <Link to="/">
+                                <li>New Gift</li>
+                            </Link>
+                        </ul>
+                    </div>
+                </>}
 
-        </div>
+            </div>
+        </Container>
     )
 }
 
