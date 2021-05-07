@@ -1,8 +1,7 @@
-import React, {useState} from "react"
+import React from "react"
 import Card from "react-bootstrap/Card"
 import Button from "react-bootstrap/Button"
 import Col from "react-bootstrap/Col"
-import Modal from "react-bootstrap/Modal"
 
 const Product = (props) => {
     

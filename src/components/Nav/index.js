@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import {Link} from "react-router-dom"
 import {useMediaQuery} from "react-responsive"
-import logo from "./assets/WrappdAltLogo.png"
 import {Container, Modal, Button} from "react-bootstrap"
 
 const Nav = (props) => {

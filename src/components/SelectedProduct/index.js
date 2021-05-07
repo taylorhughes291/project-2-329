@@ -46,6 +46,7 @@ const SelectedProduct = (props) => {
                     <img 
                         src={item.image}
                         className="selectedImage"
+                        alt={item.title}
                     />
                 </div>
                 <button
