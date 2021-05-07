@@ -6,13 +6,13 @@ import {useMediaQuery} from "react-responsive"
 import {Modal, Button} from "react-bootstrap"
 
 // Comment this out if you want to turn off demo mode
-import coffeeData from "../data/coffeeData.js"
-import coffeeHikingData from "../data/coffeeHikingData.js"
-import hikingData from "../data/hikingData.js"
-import starWarsCoffeeData from "../data/starWarsCoffeeData.js"
-import starWarsCoffeeHikingData from "../data/starWarsCoffeeHikingData.js"
-import starWarsData from "../data/starWarsData.js"
-import starWarsHikingData from "../data/starWarsHikingData.js"
+// import coffeeData from "../data/coffeeData.js"
+// import coffeeHikingData from "../data/coffeeHikingData.js"
+// import hikingData from "../data/hikingData.js"
+// import starWarsCoffeeData from "../data/starWarsCoffeeData.js"
+// import starWarsCoffeeHikingData from "../data/starWarsCoffeeHikingData.js"
+// import starWarsData from "../data/starWarsData.js"
+// import starWarsHikingData from "../data/starWarsHikingData.js"
 
 const KeywordBuilder = (props) => {
   ////////////////////////
@@ -102,6 +102,8 @@ const KeywordBuilder = (props) => {
   // The following code is adopted from React-bootstrap in order to render a Modal so that the customer
   //    knows that their content is loading! It creates the Modal and the button that must be clicked
   //    for the modal to pop up, which is rendered down below in the "Render" area
+  //    - This function also checks to make sure that the form is all filled out before searching.
+  //        - The purpose of this is so the user makes the most robust search possible and doesn't waste an API call.
 
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -202,25 +204,25 @@ const KeywordBuilder = (props) => {
     // Please only activate this when you're ready to go live.
 
     
-    // for (const search of searchTerms) {
-    //     searchResults.push(await getProducts(search))
-    // }
+    for (const search of searchTerms) {
+        searchResults.push(await getProducts(search))
+    }
 
     // The below is for the purposes of development only, and should be switched back to the code above when you are ready to present.
-    const coffee = coffeeData
-    searchResults.push(coffee.search_results)
-    const coffeeHiking = coffeeHikingData
-    searchResults.push(coffeeHiking.search_results)
-    const hiking = hikingData
-    searchResults.push(hiking.search_results)
-    const starWarsCoffee = starWarsCoffeeData
-    searchResults.push(starWarsCoffee.search_results)
-    const starWarsCoffeeHiking = starWarsCoffeeHikingData
-    searchResults.push(starWarsCoffeeHiking.search_results)
-    const starWars = starWarsData
-    searchResults.push(starWars.search_results)
-    const starWarsHiking = starWarsHikingData
-    searchResults.push(starWarsHiking.search_results)
+    // const coffee = coffeeData
+    // searchResults.push(coffee.search_results)
+    // const coffeeHiking = coffeeHikingData
+    // searchResults.push(coffeeHiking.search_results)
+    // const hiking = hikingData
+    // searchResults.push(hiking.search_results)
+    // const starWarsCoffee = starWarsCoffeeData
+    // searchResults.push(starWarsCoffee.search_results)
+    // const starWarsCoffeeHiking = starWarsCoffeeHikingData
+    // searchResults.push(starWarsCoffeeHiking.search_results)
+    // const starWars = starWarsData
+    // searchResults.push(starWars.search_results)
+    // const starWarsHiking = starWarsHikingData
+    // searchResults.push(starWarsHiking.search_results)
     
     //Invoke function from ranking.js to distill which products to display
     const rankedResults = ranking(searchResults, props.person.budget, keywordSplit)
