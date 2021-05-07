@@ -5,6 +5,15 @@ import ranking from "../functions/ranking.js"
 import {useMediaQuery} from "react-responsive"
 import {Modal, Button} from "react-bootstrap"
 
+// Comment this out if you want to turn off demo mode
+// import coffeeData from "../data/coffeeData.js"
+// import coffeeHikingData from "../data/coffeeHikingData.js"
+// import hikingData from "../data/hikingData.js"
+// import starWarsCoffeeData from "../data/starWarsCoffeeData.js"
+// import starWarsCoffeeHikingData from "../data/starWarsCoffeeHikingData.js"
+// import starWarsData from "../data/starWarsData.js"
+// import starWarsHikingData from "../data/starWarsHikingData.js"
+
 const KeywordBuilder = (props) => {
   ////////////////////////
   // Constants
@@ -24,10 +33,9 @@ const KeywordBuilder = (props) => {
     isFilled = true
   }
 
-  const [loading, setLoading] = useState({
-      isLoading: false,
-      loadingPercent: 0
-  })
+  //The following state will keep track of the remaining products in the case that you want to add more
+  //     if the user so desires. This array will get filled in the handleClick function below.
+  const [resultsBank, setResultsBank] = useState([])
 
   ////////////////////////
   // Functions
@@ -47,6 +55,17 @@ const KeywordBuilder = (props) => {
         budget: event.target.value
     }
     props.setPerson(person)
+  }
+
+  //Invoking this function will enable the user to see more products than what is displayed.
+  const handleSeeMore = (numberOfProducts, results) => {
+      const newProductSearch = props.productSearch.concat(results.slice(0, numberOfProducts))
+    props.setProductSearch(
+        newProductSearch
+    )
+    setResultsBank(
+        results.slice(numberOfProducts, results.length)
+    )
   }
 
 
@@ -168,21 +187,17 @@ const KeywordBuilder = (props) => {
     // searchResults.push(starWarsHiking.search_results)
     
     //Invoke function from ranking.js to distill which products to display
-    const resultsBank = ranking(searchResults, props.person.budget, keywordSplit)
+    const rankedResults = ranking(searchResults, props.person.budget, keywordSplit)
+    // console.log(ranking(searchResults, props.person.budget, keywordSplit))
+    // console.log(resultsBank)
     
     //displayResults is what we want to show, but resultsBank has the rest if the user wishes to see more
     // I am going to make the number of results dynamic upon which device is being used. Note that
     //      numberResults is a variable declared in the above constants section depending on the size of 
     //      the screen using media queries from react-responsive
-    const displayResults = resultsBank.splice(0, numberResults)
+    // Note that I have to call this callback function in order for state to set properly.
+    handleSeeMore(numberResults, rankedResults)
 
-    //Need to create a data point for all display results to toggle selected and deselected
-    for (const obj of displayResults) {
-        obj.selected = false
-    }
-
-    //set the Product search state with what you wish to display
-     props.setProductSearch(displayResults)
 
      //You may now take down the loading state
     handleClose()
@@ -225,7 +240,8 @@ const KeywordBuilder = (props) => {
                 setProductSearch={props.setProductSearch}
                 person={props.person}
                 setPerson={props.setPerson}
-                loading={loading}
+                handleSeeMore={handleSeeMore}
+                resultsBank={resultsBank}
             />
             <Link to="/finalcart">
                 <button className="finalize btn btn-primary">Finalize Cart</button>

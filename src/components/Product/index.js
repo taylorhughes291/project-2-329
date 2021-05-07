@@ -139,7 +139,7 @@ const Product = (props) => {
         )
     }
 
-    return props.data ? loaded() : waiting()
+    return props.data.length > 0 ? loaded() : waiting()
 }
 
 export default Product

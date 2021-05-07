@@ -22,7 +22,7 @@ function App() {
     selectedProducts: []
   })
 
-  const [productSearch, setProductSearch] = useState(null)
+  const [productSearch, setProductSearch] = useState([])
   
   ////////////////////////
   // Functions

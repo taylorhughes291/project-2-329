@@ -61,6 +61,10 @@ const ranking = (arr, cost, keywords) => {
         )
     })
 
+    for (const item of sortedArray) {
+        Object.assign(item, {selected: false})
+    }
+
     return sortedArray
 }
 
