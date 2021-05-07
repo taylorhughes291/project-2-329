@@ -28,7 +28,16 @@ function App() {
   // Functions
   ////////////////////////
 
-  
+  const handleReset = () => {
+    setPerson({
+      name: "",
+      budget: "",
+      keywords: [],
+      keywordText: "",
+      selectedProducts: []
+    })
+    setProductSearch([])
+  }
 
   ////////////////////////
   // Render
@@ -36,7 +45,9 @@ function App() {
 
   return (
     <div className="App">
-      <Nav />
+      <Nav 
+        handleReset={handleReset}
+      />
       <Switch>
         <Route exact path="/">
           <KeywordBuilder 
