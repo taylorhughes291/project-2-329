@@ -91,34 +91,39 @@ const Product = (props) => {
                 key={index}
                 className="product"
             >
-                <Card style={{ width: '18rem' }}>
+                <Card 
+                    style={{ width: '18rem' }}
+                >
+                    <div 
+                        className={item.selected ? "selected overlay" : "not-selected overlay"}
+                    ></div>
                     <div className="img-cont">
                         <Card.Img variant="top" src={item.image} />
                     </div>
-                    <Card.Body>
-                        <Card.Text>
-                        {item.title}
-                        </Card.Text>
-                        <div className="price-button-cont">
-                            <Card.Title>{`$${parseFloat(Math.trunc(item.price.value*100)/100).toFixed(2)}`}</Card.Title>
-                            <Button 
-                                variant="primary"
-                                onClick={() => handleSelect({
-                                    title: item.title,
-                                    price: item.price.value,
-                                    image: item.image,
-                                    url: item.link,
-                                    asin: item.asin
-                                })}
-                                className={item.selected ? "selected hidden btn btn-primary" : "btn btn-primary"}
-                            >Select Item</Button>
-                            <Button 
-                                variant="primary"
-                                className={item.selected ? "selected btn btn-primary" : "hidden btn btn-primary"}
-                                onClick={() => handleDelete(item.asin)}
-                            >Delete Item</Button>
-                        </div>
-                    </Card.Body>
+                        <Card.Body>
+                            <Card.Text>
+                            {item.title}
+                            </Card.Text>
+                            <div className="price-button-cont">
+                                <Card.Title>{`$${parseFloat(Math.trunc(item.price.value*100)/100).toFixed(2)}`}</Card.Title>
+                                <Button 
+                                    variant="primary"
+                                    onClick={() => handleSelect({
+                                        title: item.title,
+                                        price: item.price.value,
+                                        image: item.image,
+                                        url: item.link,
+                                        asin: item.asin
+                                    })}
+                                    className={item.selected ? "selected hidden btn btn-primary" : "btn btn-primary"}
+                                >Select Item</Button>
+                                <Button 
+                                    variant="primary"
+                                    className={item.selected ? "selected btn btn-primary" : "hidden btn btn-primary"}
+                                    onClick={() => handleDelete(item.asin)}
+                                >Delete Item</Button>
+                            </div>
+                        </Card.Body>
                 </Card>
             </Col>
         )
