@@ -1,5 +1,6 @@
 import React from "react"
 import SelectedProduct from "../components/SelectedProduct"
+import {Link} from "react-router-dom"
 
 const FinalCart = (props) => {
 
@@ -44,6 +45,9 @@ const FinalCart = (props) => {
     return (
         <div className="cart-cont">
             <h2 className="title">{`${props.person.name}'s Gifts`}</h2>
+            <Link to="/">
+                <h4 className="return">{`< Return to Product Selection`}</h4>
+            </Link>
             <SelectedProduct 
                 person={props.person}
                 setPerson={props.setPerson}

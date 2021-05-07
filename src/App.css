@@ -214,9 +214,11 @@ div.product-carousel div.see-more {
   justify-content: center;
   align-items: center;
   background-color: #554D56;
-  border-bottom-right-radius: 10px;
-  border-bottom-left-radius: 10px;
+  border: 5px solid #554D56;
+  border-bottom-right-radius: 7px;
+  border-bottom-left-radius: 7px;
   margin: 25px 0 0;
+  cursor: pointer;
 } 
 
 div.product-carousel div.see-more h5 {
@@ -226,7 +228,6 @@ div.product-carousel div.see-more h5 {
 }
 
 div.product-carousel div.see-more i {
-  /* margin-top: -20px; */
   position: absolute;
   margin: 25px auto 0;
   color: #554D56;
@@ -315,6 +316,18 @@ div.cart-cont .title {
   margin: 0 0 20px;
   text-transform: capitalize;
   font-weight: 700;
+}
+
+div.cart-cont .return {
+  text-align: left;
+  padding: 0 0 10px 10px;
+  color: #786870;
+  font-size: 18px;
+}
+
+div.cart-cont a:hover {
+  text-decoration: none;
+  color: inherit;
 }
 
 div.cart-cont .total-cost {
@@ -490,6 +503,10 @@ div.cart-cont .title {
 div.cart-cont .total-cost {
   font-size: 45px;
   margin: 30px 0;
+}
+/* Product Carousel */
+div.cart-cont .return {
+  font-size: 23px;
 }
 
 /* Selected Products */
