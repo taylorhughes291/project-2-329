@@ -16,7 +16,7 @@ function App() {
 
   const [person, setPerson] = useState({
     name: "",
-    budget: "",
+    budget: 0,
     keywords: [],
     keywordText: "",
     selectedProducts: []
