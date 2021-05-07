@@ -114,6 +114,7 @@ div.options-cont li {
   list-style: none;
   padding: 5px 0;
   color: #786870;
+  font-family: 'Josefin Sans', sans-serif;
   font-weight: 700;
   font-size: 20px;
 }
@@ -129,6 +130,7 @@ div.keyword-cont {
   padding: 15px 0 30px;;
   max-width: 961px;
   width: 100%;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 div.keyword-cont input {
@@ -196,6 +198,21 @@ div.keyword-cont button.finalize {
 }
 
 /* Product Carousel */
+div.sum-total-cont {
+  position: absolute;
+  margin: 10px auto;
+  max-width: 961px;
+  width: 100%;
+}
+
+div.sum-total-cont .sum-total {
+  color: #584B50;
+}
+
+div.sum-total-cont .over {
+  color: #DE2E2B;
+}
+
 div.product-carousel {
   border-radius: 10px;
   border: 2px solid #847178;
@@ -250,7 +267,7 @@ div.row {
 
 div.card {
   margin: 0 auto;
-  height: 595px;
+  height: 610px;
   border-radius: 10px;
   border: 2px solid #79B990;
 }

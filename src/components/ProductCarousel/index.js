@@ -16,8 +16,24 @@ const ProductCarousel = (props) => {
       seeMoreResults = 6
     }
 
+    // Need to have a sum total of selected items.
+    const sumTotal = () => {
+        let sum = 0
+        for (const obj of props.person.selectedProducts) {
+            sum = sum + obj.price
+        }
+        return parseFloat(Math.trunc(sum*100)/100).toFixed(2)
+    }
+
     return (
         <>
+            {props.data.length > 0 && <>
+            <div className="sum-total-cont">
+                <h4
+                    className={sumTotal() > props.person.budget ? "sum-total over" : "sum-total"}
+                >Budget Used: ${sumTotal()} / ${props.person.budget}</h4>
+            </div>
+            </>}
             <div className="product-carousel">
                 <Container>
                     <Row>

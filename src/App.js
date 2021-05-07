@@ -3,9 +3,8 @@ import Nav from "./components/Nav"
 import KeywordBuilder from "./pages/KeywordBuilder"
 import FinalCart from "./pages/FinalCart"
 import {Route, Switch} from "react-router-dom"
-import {useEffect, useState} from "react"
+import {useState} from "react"
 import 'bootstrap/dist/css/bootstrap.min.css'
-import {useMediaQuery} from "react-responsive"
 
 function App() {
   ////////////////////////
