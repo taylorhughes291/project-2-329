@@ -126,7 +126,7 @@ div.nav svg {
 /* Keyword Builder  */
 
 div.keyword-cont {
-  padding: 15px 0 0;
+  padding: 15px 0 30px;;
   max-width: 961px;
   width: 100%;
 }
@@ -145,6 +145,24 @@ div.keyword-cont input::placeholder {
   color: #BDB2B6;
 }
 
+div.keyword-cont span.dollar{
+  position: absolute;
+  margin-left: 4px;
+  margin-top: 13px;
+  color: #BDB2B6;
+}
+
+div.keyword-cont span.dollar-filled{
+  position: absolute;
+  margin-left: 4px;
+  margin-top: 13px;
+  color: black;
+}
+
+div.keyword-cont input.budget {
+  padding: 0 0 0 13px;
+}
+
 div.keyword-cont form {
   text-align: left;
   width: 90%;
@@ -156,8 +174,25 @@ div.keyword-cont h5 {
   color: #786870;
 }
 
-button.finalize {
-  margin: 0 0 30px;
+div.keyword-cont button {
+  margin: 10px 0 0;
+  background-color: #AFD5BD;
+  color: #63545A;
+  font-weight: 700;
+  border: 2px solid #AFD5BD;
+}
+
+div.keyword-cont button:hover {
+  background-color: #F7BFB4;
+  border: #99E9FF;
+  color: #79676E;
+  size: default;
+}
+
+div.keyword-cont button.finalize {
+  width: 400px;
+  font-size: 30px;
+  weight: 700;
 }
 
 /* Product Carousel */

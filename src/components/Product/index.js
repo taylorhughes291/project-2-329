@@ -1,7 +1,8 @@
-import React from "react"
+import React, {useState} from "react"
 import Card from "react-bootstrap/Card"
 import Button from "react-bootstrap/Button"
 import Col from "react-bootstrap/Col"
+import Modal from "react-bootstrap/Modal"
 
 const Product = (props) => {
     
@@ -78,6 +79,7 @@ const Product = (props) => {
         )
     }
 
+
     //////////////////////////
     // Render
     //////////////////////////
@@ -128,7 +130,7 @@ const Product = (props) => {
     )
     }
 
-    const loading = () => {
+    const waiting = () => {
         return (
             <div className="loading-cont">
                 <h3>Fill out the above to get started gifting!</h3>
@@ -137,7 +139,7 @@ const Product = (props) => {
         )
     }
 
-    return props.data ? loaded() : loading()
+    return props.data ? loaded() : waiting()
 }
 
 export default Product

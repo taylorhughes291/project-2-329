@@ -14,6 +14,7 @@ const ProductCarousel = (props) => {
                             setProductSearch={props.setProductSearch}
                             person={props.person}
                             setPerson={props.setPerson}
+                            loading={props.loading}
                         />
                     </Row>
                 </Container>
