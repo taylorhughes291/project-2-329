@@ -78,6 +78,10 @@ const Product = (props) => {
         )
     }
 
+    // Next we need to declare a function that will open the browser to a new tab with the selected product.
+    const handleProductLink = (url) => {
+        window.open(url)
+    }
 
     //////////////////////////
     // Render
@@ -97,11 +101,22 @@ const Product = (props) => {
                         className={item.selected ? "selected overlay" : "not-selected overlay"}
                     ></div>
                     <div className="img-cont">
-                        <Card.Img variant="top" src={item.image} />
+                        <Card.Img 
+                            variant="top" 
+                            src={item.image}
+                        />
+                        <div 
+                            className="img-link-overlay"
+                            onClick={() => handleProductLink(item.link)}
+                        ></div>
                     </div>
                         <Card.Body>
                             <Card.Text>
                             {item.title}
+                            <div 
+                                className="text-link-overlay"
+                                onClick={() => handleProductLink(item.link)}
+                            ></div>
                             </Card.Text>
                             <div className="price-button-cont">
                                 <Card.Title>{`$${parseFloat(Math.trunc(item.price.value*100)/100).toFixed(2)}`}</Card.Title>
