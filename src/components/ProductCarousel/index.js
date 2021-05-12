@@ -27,7 +27,7 @@ const ProductCarousel = (props) => {
 
     return (
         <>
-            {props.data.length > 0 && <>
+            {props.data.productDisplay.length > 0 && <>
             <div className="sum-total-cont">
                 <h4
                     className={sumTotal() > props.person.budget ? "sum-total over" : "sum-total"}

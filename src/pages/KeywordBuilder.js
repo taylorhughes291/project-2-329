@@ -56,7 +56,7 @@ const KeywordBuilder = (props) => {
   const handleBudgetChange = (event) => {
     let person = {
         ...props.person,
-        budget: event.target.value
+        budget: parseFloat(event.target.value)
     }
     props.setPerson(person)
   }
