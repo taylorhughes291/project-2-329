@@ -35,6 +35,11 @@ const SelectedProduct = (props) => {
         )
     }
 
+    // Next we need to declare a function that will open the browser to a new tab with the selected product.
+    const handleProductLink = (url) => {
+        window.open(url)
+    }
+
     const selections = props.person.selectedProducts.map((item, index) => {
         return (
         <div
@@ -47,6 +52,7 @@ const SelectedProduct = (props) => {
                         src={item.image}
                         className="selectedImage"
                         alt={item.title}
+                        onClick={() => handleProductLink(item.link)}
                     />
                 </div>
                 <button
@@ -55,7 +61,9 @@ const SelectedProduct = (props) => {
                 >Delete</button>
             </div>
             <div className="selected-info">
-                <p>{item.title}</p>
+                <p
+                    onClick={() => handleProductLink(item.link)}
+                >{item.title}</p>
                 <h5>${parseFloat(Math.trunc(item.price*100)/100).toFixed(2)}</h5>
             </div>
 

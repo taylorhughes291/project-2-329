@@ -22,7 +22,7 @@ const ranking = (arr, cost, keywords) => {
                     item.rating = 0
                 }
                 return (
-                    Object.assign(item, {ranking: (item.price.value/cost) + (item.rating/5) + counter})
+                    Object.assign(item, {ranking: (item.price.value/cost) + (item.rating/5) + counter*0.7})
                 )
             })
         )

@@ -463,6 +463,7 @@ div.selectedProduct img {
   max-height: 100%;
   border: 2px solid #AFD5BD;
   border-radius: 7px;
+  cursor: pointer;
 }
 
 div.selectedProduct button {
@@ -479,6 +480,14 @@ div.selectedProduct div.selected-info {
   max-height: 100%;
   height: 100%;
   padding: 5px 0;
+}
+
+div.selected-info p {
+  cursor: pointer;
+}
+
+div.selected-info p:hover {
+  text-decoration: underline;
 }
 
 div.selectedProduct h5 {
