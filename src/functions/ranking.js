@@ -1,19 +1,6 @@
-import priceFilter from "./priceFilter.js"
-
 const ranking = (arr, cost, keywords) => {
 
-    let sortedArray = []
-    for (let i = 0; i < arr.length; i += 1) {
-        sortedArray = sortedArray.concat(arr[i])
-    }
-
-    sortedArray = sortedArray.filter((item,index) => {
-        return (
-            item.price
-        )
-    })
-
-    sortedArray = sortedArray.map((item, index) => {
+    let sortedArray = arr.map((item, index) => {
         let counter = 0
         for (const word of keywords) {
             if (item.title.toLowerCase().includes(word.toLowerCase())) {
@@ -61,7 +48,6 @@ const ranking = (arr, cost, keywords) => {
         Object.assign(item, {selected: false})
     }
 
-    sortedArray = priceFilter(sortedArray, cost)
 
     return sortedArray
 }
