@@ -339,8 +339,15 @@ div.product div.card-body {
   justify-content: space-between;
 }
 
+div.product div.card-body div.text-cont {
+  position: relative;
+  padding: 0;
+  z-index: 2;
+}
+
 div.product div.card-body p {
-  position: relative
+  z-index: 2;
+  position: absolute;
 }
 
 div.product div.card-body p:hover {

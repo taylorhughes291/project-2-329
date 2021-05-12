@@ -1,27 +1,32 @@
+import priceFilter from "./priceFilter.js"
+
 const ranking = (arr, cost, keywords) => {
 
-    let newArr = arr.map((item, index) => {
+    let sortedArray = []
+    for (let i = 0; i < arr.length; i += 1) {
+        sortedArray = sortedArray.concat(arr[i])
+    }
+
+    sortedArray = sortedArray.filter((item,index) => {
         return (
-            item.map((item, index) => {
-                let counter = 0
-                for (const word of keywords) {
-                    if (item.title.toLowerCase().includes(word.toLowerCase())) {
-                        counter += 1
-                    }
-                }
-                if (!item.rating) {
-                    item.rating = 0
-                }
-                return (
-                    Object.assign(item, {ranking: (item.price.value/cost) + (item.rating/5) + counter*0.7})
-                )
-            })
+            item.price
         )
     })
-    let sortedArray = []
-    for (let i = 0; i < newArr.length; i += 1) {
-        sortedArray = sortedArray.concat(newArr[i])
-    }
+
+    sortedArray = sortedArray.map((item, index) => {
+        let counter = 0
+        for (const word of keywords) {
+            if (item.title.toLowerCase().includes(word.toLowerCase())) {
+                counter += 1
+            }
+        }
+        if (!item.rating) {
+            item.rating = 0
+        }
+        return (
+            Object.assign(item, {ranking: (item.price.value/cost) + (item.rating/5) + counter*0.7})
+        )
+    })
 
     // Please note that the below two-tiered sorting was achieved with help from https://stackoverflow.com/questions/4576714/sort-by-two-values-prioritizing-on-one-of-them
 
@@ -55,6 +60,8 @@ const ranking = (arr, cost, keywords) => {
     for (const item of sortedArray) {
         Object.assign(item, {selected: false})
     }
+
+    sortedArray = priceFilter(sortedArray, cost)
 
     return sortedArray
 }

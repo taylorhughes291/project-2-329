@@ -1,11 +1,10 @@
 const priceFilter = (arr, cost) => {
-    let arr = arr.map((item, index) => {
+    const priceArr = arr.filter((item, index) => {
         return (
-            item.filter((item, index) => {
-                return (
-                    item.price && item.price.value <= cost
-                )
-            })
+            item.price.value <= cost
         )
     })
+    return priceArr
 }
+
+export default priceFilter

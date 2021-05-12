@@ -111,13 +111,15 @@ const Product = (props) => {
                         ></div>
                     </div>
                         <Card.Body>
-                            <Card.Text>
-                            {item.title}
-                            <div 
-                                className="text-link-overlay"
-                                onClick={() => handleProductLink(item.link)}
-                            ></div>
-                            </Card.Text>
+                            <div className="text-cont">
+                                <Card.Text>
+                                {item.title}
+                                </Card.Text>
+                                <div 
+                                    className="text-link-overlay"
+                                    onClick={() => handleProductLink(item.link)}
+                                ></div>
+                            </div>
                             <div className="price-button-cont">
                                 <Card.Title>{`$${parseFloat(Math.trunc(item.price.value*100)/100).toFixed(2)}`}</Card.Title>
                                 <Button 
