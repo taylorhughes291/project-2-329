@@ -21,7 +21,10 @@ function App() {
     selectedProducts: []
   })
 
-  const [productSearch, setProductSearch] = useState([])
+  const [productSearch, setProductSearch] = useState({
+    productDisplay: [],
+    displayBank: []
+  })
   
   ////////////////////////
   // Functions

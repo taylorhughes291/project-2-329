@@ -28,7 +28,7 @@ const Product = (props) => {
         )
         
         //toggle the class of the object in data to selected = true
-        const productDisplay = props.data.map((item, index) => {
+        const newProductDisplay = props.data.productDisplay.map((item, index) => {
             if (item.asin === obj.asin) {
                 return ({
                     ...item,
@@ -41,7 +41,10 @@ const Product = (props) => {
             }
         })
         props.setProductSearch(
-            productDisplay
+            {
+                productDisplay: newProductDisplay,
+                displayBank: props.data.displayBank
+            }
         )
     }
 
@@ -61,7 +64,7 @@ const Product = (props) => {
         )
 
         // Now we must toggle the class of the data object selected to selected = false
-        const productDisplay = props.data.map((item, index) => {
+        const newProductDisplay = props.data.productDisplay.map((item, index) => {
             if (item.asin === asin) {
                 return ({
                     ...item,
@@ -74,7 +77,10 @@ const Product = (props) => {
             }
         })
         props.setProductSearch(
-            productDisplay
+            {
+                productDisplay: newProductDisplay,
+                displayBank: props.data.displayBank
+            }
         )
     }
 
@@ -88,7 +94,7 @@ const Product = (props) => {
     //////////////////////////
 
     const loaded = () => {
-    const products = props.data.map((item, index) => {
+    const products = props.data.productDisplay.map((item, index) => {
         return (
             <Col
                 key={index}
@@ -160,7 +166,7 @@ const Product = (props) => {
         )
     }
 
-    return props.data.length > 0 ? loaded() : waiting()
+    return props.data.productDisplay.length > 0 ? loaded() : waiting()
 }
 
 export default Product
