@@ -90,7 +90,7 @@ const KeywordBuilder = (props) => {
 
   // This function handles the API call to Rainforest.
   const getProducts = async (searchTerm) => {
-    const apiKey = "1B2E215619074D408C3A9E1D5AC8F372"
+    const apiKey = process.env.REACT_APP_RAINFOREST_API_KEY
     const associateId = "taylorhughe05-20"
     const url = `https://api.rainforestapi.com/request?api_key=${apiKey}&type=search&amazon_domain=amazon.com&associate_id=${associateId}&search_term=${searchTerm}`
     
