@@ -23,4 +23,10 @@ yarn-debug.log*
 yarn-error.log*
 
 src/data/coffeeData.js
+src/data/coffeeHikingData.js
+src/data/hikingData.js
+src/data/starWarsCoffeeData.js
+src/data/starWarsCoffeeHikingData.js
+src/data/starWarsData.js
+src/data/starWarsHikingData.js
 .env

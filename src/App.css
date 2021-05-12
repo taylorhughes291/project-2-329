@@ -188,7 +188,7 @@ div.keyword-cont button:hover {
   background-color: #F7BFB4;
   border: #99E9FF;
   color: #79676E;
-  size: default;
+  text-decoration: none;
 }
 
 div.keyword-cont button.finalize {
