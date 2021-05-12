@@ -1,15 +1,6 @@
 const ranking = (arr, cost, keywords) => {
-    let newArr = arr.map((item, index) => {
-        return (
-            item.filter((item, index) => {
-                return (
-                    item.price && item.price.value <= cost
-                )
-            })
-        )
-    })
 
-    newArr = newArr.map((item, index) => {
+    let newArr = arr.map((item, index) => {
         return (
             item.map((item, index) => {
                 let counter = 0
