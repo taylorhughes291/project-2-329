@@ -43,6 +43,9 @@ const ProductCarousel = (props) => {
                             person={props.person}
                             setPerson={props.setPerson}
                             loading={props.loading}
+                            resultsBank={props.resultsBank}
+                            setResultsBank={props.setResultsBank}
+                            handleSeeMore={props.handleSeeMore}
                         />
                     </Row>
                 </Container>

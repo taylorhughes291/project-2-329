@@ -18,11 +18,10 @@ const ranking = (arr, cost, keywords) => {
     // Please note that the below two-tiered sorting was achieved with help from https://stackoverflow.com/questions/4576714/sort-by-two-values-prioritizing-on-one-of-them
 
     sortedArray = sortedArray.sort((a, b) => {
-        var n = b.ranking - a.ranking
-        if (n !== 0) {
-            return n
-        }
-        return b.ratings_total - a.ratings_total
+        const n = b.ranking - a.ranking
+        const p = b.ratings_total - a.ratings_total
+        return (a.selected === b.selected) ? (n === 0 ? p : n) : a.selected ? -1 : 1
+
     })
 
 

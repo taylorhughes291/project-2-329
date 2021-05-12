@@ -290,6 +290,7 @@ const KeywordBuilder = (props) => {
                 setPerson={props.setPerson}
                 handleSeeMore={handleSeeMore}
                 resultsBank={resultsBank}
+                setResultsBank={setResultsBank}
             />
             <Link to="/finalcart">
                 <button className="finalize btn btn-primary">Finalize Cart</button>

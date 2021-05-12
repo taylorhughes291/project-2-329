@@ -2,6 +2,9 @@ import React from "react"
 import Card from "react-bootstrap/Card"
 import Button from "react-bootstrap/Button"
 import Col from "react-bootstrap/Col"
+import priceFilter from "../../functions/priceFilter.js"
+import ranking from "../../functions/ranking.js"
+import {useMediaQuery} from "react-responsive"
 
 const Product = (props) => {
     
@@ -9,6 +12,14 @@ const Product = (props) => {
     // Constants
     //////////////////////////
 
+    const isTablet = useMediaQuery({query: '(min-width: 768px)'})
+    const isDesktop = useMediaQuery({query: '(min-width: 961px)'})
+    let numberResults = 5
+    if (isTablet && !isDesktop) {
+      numberResults = 8
+    } else if (isDesktop) {
+      numberResults = 12
+    }
 
     //////////////////////////
     // Functions
@@ -23,12 +34,10 @@ const Product = (props) => {
                 obj
             ]
         }
-        props.setPerson(
-            person
-        )
+
         
         //toggle the class of the object in data to selected = true
-        const newProductDisplay = props.data.productDisplay.map((item, index) => {
+        const newResultsBank = props.resultsBank.map((item, index) => {
             if (item.asin === obj.asin) {
                 return ({
                     ...item,
@@ -40,11 +49,23 @@ const Product = (props) => {
                 )
             }
         })
+
+        const newBudget = props.person.budget - obj.price
+        let filteredArray = priceFilter(newResultsBank, newBudget)
+        const rankedArray = ranking(filteredArray, newBudget, props.person.keywords)
+        const newProductDisplay = rankedArray.splice(0, numberResults)
         props.setProductSearch(
             {
                 productDisplay: newProductDisplay,
-                displayBank: props.data.displayBank
+                displayBank: rankedArray
             }
+        )
+
+        props.setResultsBank(
+            newResultsBank
+        )
+        props.setPerson(
+            person
         )
     }
 
