@@ -46,9 +46,9 @@ const ProductCarousel = (props) => {
                         />
                     </Row>
                 </Container>
-                {props.data.length > 0 && <div 
+                {props.data.displayBank.length > 0 && <div 
                     className="see-more"
-                    onClick={() => props.handleSeeMore(seeMoreResults, props.resultsBank)}    
+                    onClick={() => props.handleSeeMore(seeMoreResults, props.data.displayBank)}    
                 >
                         <h5>More Products</h5>
                         <i className="fas fa-sort-down fa-3x"></i>

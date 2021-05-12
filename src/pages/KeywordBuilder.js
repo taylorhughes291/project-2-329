@@ -4,6 +4,8 @@ import ProductCarousel from "../components/ProductCarousel"
 import ranking from "../functions/ranking.js"
 import {useMediaQuery} from "react-responsive"
 import {Modal, Button} from "react-bootstrap"
+import priceFilter from "../functions/priceFilter.js"
+import processSearch from "../functions/processSearch.js"
 
 // Comment this out if you want to turn off demo mode
 import coffeeData from "../data/coffeeData.js"
@@ -65,10 +67,12 @@ const KeywordBuilder = (props) => {
   //    device loading.
   const handleSeeMore = (numberOfProducts, results) => {
       const newProductSearch = props.productSearch.productDisplay.concat(results.slice(0, numberOfProducts))
+      const newDisplayBank = results
+      newDisplayBank.splice(0, numberOfProducts)
     props.setProductSearch(
       {
         productDisplay: newProductSearch,
-        displayBank: results.slice(numberOfProducts, results.length)
+        displayBank: newDisplayBank
       }
     )
   }
@@ -225,7 +229,14 @@ const KeywordBuilder = (props) => {
     searchResults.push(starWarsHiking.search_results)
     
     //Invoke function from ranking.js to distill which products to display
-    const rankedResults = ranking(searchResults, props.person.budget, keywordSplit)
+    const processedResults = processSearch(searchResults)
+    setResultsBank(
+      processedResults
+    )
+    const filteredResults = priceFilter(processedResults, props.person.budget)
+    const rankedResults = ranking(filteredResults, props.person.budget, keywordSplit)
+
+
 
     
     //displayResults is what we want to show, but resultsBank has the rest if the user wishes to see more
