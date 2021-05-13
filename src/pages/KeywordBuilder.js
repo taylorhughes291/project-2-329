@@ -82,30 +82,21 @@ const KeywordBuilder = (props) => {
   const handleKeywordChange1 = (event) => {
         let person = {
             ...props.person,
-            keywordText: {
-              ...props.person.keywordText,
-              keyword1: event.target.value
-            }
+            keywordText1: event.target.value
         }
         props.setPerson(person)
   }
   const handleKeywordChange2 = (event) => {
         let person = {
             ...props.person,
-            keywordText: {
-              ...props.person.keywordText,
-              keyword2: event.target.value
-            }
+            keywordText2: event.target.value
         }
         props.setPerson(person)
   }
   const handleKeywordChange3 = (event) => {
         let person = {
             ...props.person,
-            keywordText: {
-              ...props.person.keywordText,
-              keyword3: event.target.value
-            }
+            keywordText3: event.target.value
         }
         props.setPerson(person)
   }
@@ -131,10 +122,10 @@ const KeywordBuilder = (props) => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   function LoadingModal() {
-    const isReadyToSearch = props.person.budget !== "" && props.person.name !== "" && props.person.keywordText !== ""
+    const isReadyToSearch = props.person.budget !== "" && props.person.name !== "" && (props.person.keywordText1 !== "" || props.person.keywordText2 !== ""  || props.person.keywordText3 !== "" )
     return (
       <>
-        <Button onClick={isReadyToSearch ? () => handleClick(props.person.keywordText) : () => handleShow()}>
+        <Button onClick={isReadyToSearch ? () => handleClick(props.person.keywordText1, props.person.keywordText2, props.person.keywordText3) : () => handleShow()}>
           Search for Gifts
         </Button>
   
@@ -182,15 +173,15 @@ const KeywordBuilder = (props) => {
 //    - Calls a separate "ranking" function in order to try and rank the search results by most relevant
 //    - Takes those results and separates them into what will be displayed, and what results will be in the "bank"
 //        to be viewed later if the user wishes to see more
-  const handleClick = async (rawKeywords) => {
+  const handleClick = async (keyword1, keyword2, keyword3) => {
       // You now want to initiate the loading state, so that the customer doesn't attempt to call the API
       //    again or think it's not working
       handleShow();
 
       //This splits the keyword text into the comma separated array
-      let keywordSplit = [rawKeywords.keyword1, rawKeywords.keyword2, rawKeywords.keyword3]
-      keywordSplit = keywordSplit.filter((item,index) => {
-        return(
+      let keywordSplit = [keyword1, keyword2, keyword3]
+      keywordSplit = keywordSplit.filter((item, index) => {
+        return (
           item !== ""
         )
       })

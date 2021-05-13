@@ -17,11 +17,9 @@ function App() {
     name: "",
     budget: "",
     keywords: [],
-    keywordText: [{
-      keyword1: "",
-      keyword2: "",
-      keyword3: ""
-    }],
+    keywordText1: "",
+    keywordText2: "",
+    keywordText3: "",
     selectedProducts: []
   })
 
