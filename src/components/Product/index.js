@@ -69,7 +69,7 @@ const Product = (props) => {
         )
     }
 
-    const handleDelete = (asin) => {
+    const handleDelete = (asin, price) => {
         // Need to first delete the product from the person useState at selectedProduct
         const newSelectedProducts = props.person.selectedProducts.filter((item, index) => {
             return (
@@ -80,12 +80,10 @@ const Product = (props) => {
             ...props.person,
             selectedProducts: newSelectedProducts
         }
-        props.setPerson(
-            person
-        )
+
 
         // Now we must toggle the class of the data object selected to selected = false
-        const newProductDisplay = props.data.productDisplay.map((item, index) => {
+        const newResultsBank = props.resultsBank.map((item, index) => {
             if (item.asin === asin) {
                 return ({
                     ...item,
@@ -97,11 +95,24 @@ const Product = (props) => {
                 )
             }
         })
+
+        const newBudget = props.person.budget + price - props.sumTotal()
+        const filteredArray = priceFilter(newResultsBank, newBudget)
+        const rankedArray = ranking(filteredArray, newBudget, props.person.keywords)
+        const newProductDisplay = rankedArray.splice(0, numberResults)
         props.setProductSearch(
             {
                 productDisplay: newProductDisplay,
-                displayBank: props.data.displayBank
+                displayBank: rankedArray
             }
+        )
+
+        props.setResultsBank(
+            newResultsBank
+        )
+
+        props.setPerson(
+            person
         )
     }
 
@@ -163,7 +174,7 @@ const Product = (props) => {
                                 <Button 
                                     variant="primary"
                                     className={item.selected ? "selected btn btn-primary" : "hidden btn btn-primary"}
-                                    onClick={() => handleDelete(item.asin)}
+                                    onClick={() => handleDelete(item.asin, item.price.value)}
                                 >Delete Item</Button>
                             </div>
                         </Card.Body>
