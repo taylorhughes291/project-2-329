@@ -275,12 +275,29 @@ const KeywordBuilder = (props) => {
                     onChange={handleBudgetChange}
                 ></input>
                 <h5>Enter up to 3 Keywords below:</h5>
-                <input 
-                    type="text" 
-                    placeholder="Coffee, Star Wars, Succulents"
-                    value={props.person.keywordText}
-                    onChange={handleKeywordChange}
-                ></input>
+                <div className="keywords">
+                  <input 
+                      type="text"
+                      className="keyword"
+                      placeholder="Coffee"
+                      value={props.person.keywordText}
+                      onChange={handleKeywordChange}
+                  ></input>
+                  <input 
+                      type="text" 
+                      className="keyword"
+                      placeholder="Star Wars"
+                      value={props.person.keywordText}
+                      onChange={handleKeywordChange}
+                  ></input>
+                  <input 
+                      type="text" 
+                      className="keyword"
+                      placeholder="Succulents"
+                      value={props.person.keywordText}
+                      onChange={handleKeywordChange}
+                  ></input>
+                </div>
                 <LoadingModal /> 
             </form>
             <ProductCarousel 

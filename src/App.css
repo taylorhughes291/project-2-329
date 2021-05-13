@@ -176,6 +176,16 @@ div.keyword-cont h5 {
   color: #786870;
 }
 
+div.keyword-cont div.keywords {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+div.keyword-cont input.keyword {
+  width: 32%;
+}
+
 div.keyword-cont button {
   margin: 10px 0 0;
   background-color: #AFD5BD;
