@@ -50,8 +50,8 @@ const Product = (props) => {
             }
         })
 
-        const newBudget = props.person.budget - obj.price
-        let filteredArray = priceFilter(newResultsBank, newBudget)
+        const newBudget = props.person.budget - obj.price - props.sumTotal()
+        const filteredArray = priceFilter(newResultsBank, newBudget)
         const rankedArray = ranking(filteredArray, newBudget, props.person.keywords)
         const newProductDisplay = rankedArray.splice(0, numberResults)
         props.setProductSearch(

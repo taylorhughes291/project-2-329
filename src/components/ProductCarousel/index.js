@@ -46,6 +46,7 @@ const ProductCarousel = (props) => {
                             resultsBank={props.resultsBank}
                             setResultsBank={props.setResultsBank}
                             handleSeeMore={props.handleSeeMore}
+                            sumTotal={sumTotal}
                         />
                     </Row>
                 </Container>

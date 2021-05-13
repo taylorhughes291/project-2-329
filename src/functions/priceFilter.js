@@ -4,6 +4,7 @@ const priceFilter = (arr, cost) => {
             item.price.value <= cost || item.selected
         )
     })
+    console.log(priceArr)
     return priceArr
 }
 
