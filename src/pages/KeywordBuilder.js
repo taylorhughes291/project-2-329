@@ -79,17 +79,35 @@ const KeywordBuilder = (props) => {
 
 // The following function handles changes the user inputs to the Keyword Field.
 //    It also doesn't allow the user to type in more than 3 keywords.
-  const handleKeywordChange = (event) => {
-    const keywordSplit = props.person.keywordText.split(",")
-
-    if (keywordSplit.length <= 3 || event.nativeEvent.inputType === "deleteContentBackward") {
+  const handleKeywordChange1 = (event) => {
         let person = {
             ...props.person,
-            keywordText: event.target.value
+            keywordText: {
+              ...props.person.keywordText,
+              keyword1: event.target.value
+            }
         }
         props.setPerson(person)
-        
-    }
+  }
+  const handleKeywordChange2 = (event) => {
+        let person = {
+            ...props.person,
+            keywordText: {
+              ...props.person.keywordText,
+              keyword2: event.target.value
+            }
+        }
+        props.setPerson(person)
+  }
+  const handleKeywordChange3 = (event) => {
+        let person = {
+            ...props.person,
+            keywordText: {
+              ...props.person.keywordText,
+              keyword3: event.target.value
+            }
+        }
+        props.setPerson(person)
   }
 
   // This function handles the API call to Rainforest.
@@ -170,7 +188,12 @@ const KeywordBuilder = (props) => {
       handleShow();
 
       //This splits the keyword text into the comma separated array
-      const keywordSplit = rawKeywords.split(",", 3)
+      let keywordSplit = [rawKeywords.keyword1, rawKeywords.keyword2, rawKeywords.keyword3]
+      keywordSplit = keywordSplit.filter((item,index) => {
+        return(
+          item !== ""
+        )
+      })
       const person = {
           ...props.person,
           keywords: keywordSplit
@@ -280,22 +303,22 @@ const KeywordBuilder = (props) => {
                       type="text"
                       className="keyword"
                       placeholder="Coffee"
-                      value={props.person.keywordText}
-                      onChange={handleKeywordChange}
+                      value={props.person.keywordText1}
+                      onChange={handleKeywordChange1}
                   ></input>
                   <input 
                       type="text" 
                       className="keyword"
                       placeholder="Star Wars"
-                      value={props.person.keywordText}
-                      onChange={handleKeywordChange}
+                      value={props.person.keywordText2}
+                      onChange={handleKeywordChange2}
                   ></input>
                   <input 
                       type="text" 
                       className="keyword"
                       placeholder="Succulents"
-                      value={props.person.keywordText}
-                      onChange={handleKeywordChange}
+                      value={props.person.keywordText3}
+                      onChange={handleKeywordChange3}
                   ></input>
                 </div>
                 <LoadingModal /> 
