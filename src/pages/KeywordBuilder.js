@@ -8,13 +8,13 @@ import priceFilter from "../functions/priceFilter.js"
 import processSearch from "../functions/processSearch.js"
 
 // Comment this out if you want to turn off demo mode
-// import coffeeData from "../data/coffeeData.js"
-// import coffeeHikingData from "../data/coffeeHikingData.js"
-// import hikingData from "../data/hikingData.js"
-// import starWarsCoffeeData from "../data/starWarsCoffeeData.js"
-// import starWarsCoffeeHikingData from "../data/starWarsCoffeeHikingData.js"
-// import starWarsData from "../data/starWarsData.js"
-// import starWarsHikingData from "../data/starWarsHikingData.js"
+import coffeeData from "../data/coffeeData.js"
+import coffeeHikingData from "../data/coffeeHikingData.js"
+import hikingData from "../data/hikingData.js"
+import starWarsCoffeeData from "../data/starWarsCoffeeData.js"
+import starWarsCoffeeHikingData from "../data/starWarsCoffeeHikingData.js"
+import starWarsData from "../data/starWarsData.js"
+import starWarsHikingData from "../data/starWarsHikingData.js"
 
 const KeywordBuilder = (props) => {
   ////////////////////////
@@ -208,25 +208,25 @@ const KeywordBuilder = (props) => {
     // Please only activate this when you're ready to go live.
 
     
-    for (const search of searchTerms) {
-        searchResults.push(await getProducts(search))
-    }
+    // for (const search of searchTerms) {
+    //     searchResults.push(await getProducts(search))
+    // }
 
     // The below is for the purposes of development only, and should be switched back to the code above when you are ready to present.
-    // const coffee = coffeeData
-    // searchResults.push(coffee.search_results)
-    // const coffeeHiking = coffeeHikingData
-    // searchResults.push(coffeeHiking.search_results)
-    // const hiking = hikingData
-    // searchResults.push(hiking.search_results)
-    // const starWarsCoffee = starWarsCoffeeData
-    // searchResults.push(starWarsCoffee.search_results)
-    // const starWarsCoffeeHiking = starWarsCoffeeHikingData
-    // searchResults.push(starWarsCoffeeHiking.search_results)
-    // const starWars = starWarsData
-    // searchResults.push(starWars.search_results)
-    // const starWarsHiking = starWarsHikingData
-    // searchResults.push(starWarsHiking.search_results)
+    const coffee = coffeeData
+    searchResults.push(coffee.search_results)
+    const coffeeHiking = coffeeHikingData
+    searchResults.push(coffeeHiking.search_results)
+    const hiking = hikingData
+    searchResults.push(hiking.search_results)
+    const starWarsCoffee = starWarsCoffeeData
+    searchResults.push(starWarsCoffee.search_results)
+    const starWarsCoffeeHiking = starWarsCoffeeHikingData
+    searchResults.push(starWarsCoffeeHiking.search_results)
+    const starWars = starWarsData
+    searchResults.push(starWars.search_results)
+    const starWarsHiking = starWarsHikingData
+    searchResults.push(starWarsHiking.search_results)
     
     //Invoke function from ranking.js to distill which products to display
     const processedResults = processSearch(searchResults)
