@@ -20,7 +20,8 @@ function App() {
     keywordText1: "",
     keywordText2: "",
     keywordText3: "",
-    selectedProducts: []
+    selectedProducts: [],
+    searched: false
   })
 
   const [productSearch, setProductSearch] = useState({

@@ -187,7 +187,8 @@ const KeywordBuilder = (props) => {
       })
       const person = {
           ...props.person,
-          keywords: keywordSplit
+          keywords: keywordSplit,
+          searched: true
       }
       props.setPerson(person)
    
@@ -265,13 +266,42 @@ const KeywordBuilder = (props) => {
     handleClose()
   }
 
+  // Need to have a sum total of selected items.
+  const sumTotal = () => {
+    let sum = 0
+    for (const obj of props.person.selectedProducts) {
+        sum = sum + obj.price
+    }
+    return parseFloat(Math.trunc(sum*100)/100).toFixed(2)
+  }
+
+  const handleEdit = () => {
+    const person = {
+      ...props.person,
+      searched: false
+    }
+    props.setPerson(person)
+  }
+
   ////////////////////////
   // Render
   ////////////////////////
 
     return (
         <div className="keyword-cont">
-            <form>
+          <div className={props.person.searched ? "completed-form" : "completed-form hidden"}>
+            <h5>Recipient: {props.person.name}</h5>
+            <h5
+              className={sumTotal() > props.person.budget ? "sum-total over" : "sum-total"}
+            >Budget: ${sumTotal()} / ${props.person.budget}</h5>
+            <h5>Keywords: {props.person.keywordText1} {props.person.keywordText2 && ` / ${props.person.keywordText2}`}{props.person.keywordText3 && ` / ${props.person.keywordText3}`}</h5>
+            <button
+              onClick={handleEdit}
+            >Edit</button>
+          </div>
+            <form
+              className={props.person.searched ? "hidden" : ""}
+            >
                 <h5>Gift Recipient:</h5>
                 <input 
                     type="text" 
@@ -322,6 +352,7 @@ const KeywordBuilder = (props) => {
                 handleSeeMore={handleSeeMore}
                 resultsBank={resultsBank}
                 setResultsBank={setResultsBank}
+                sumTotal={sumTotal}
             />
             <Link to="/finalcart">
                 <button className="finalize btn btn-primary">Finalize Cart</button>

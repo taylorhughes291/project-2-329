@@ -133,6 +133,26 @@ div.keyword-cont {
   font-family: 'Josefin Sans', sans-serif;
 }
 
+div.keyword-cont div.completed-form {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0 0;
+}
+
+div.keyword-cont div.completed-form h5 {
+  margin: 0 25px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  padding: 1px 0 0;
+}
+
+div.keyword-cont div.completed-form button {
+  margin: 0;
+  text-align: center;
+  padding-top: 1px;
+}
+
 div.keyword-cont input {
   width: 100%;
   height: 50px;
