@@ -127,6 +127,32 @@ const Product = (props) => {
 
     const loaded = () => {
     const products = props.data.productDisplay.map((item, index) => {
+        const roundedRating = Math.round(item.rating * 2) / 2
+        const ratingArray = []
+        for (let i = 1; i <= 5; i+= 1) {
+            if (roundedRating >= i) {
+                ratingArray.push(1)
+            } else if (roundedRating > i - 1) {
+                ratingArray.push(0.5)
+            } else {
+                ratingArray.push(0)
+            }
+        }
+        const ratingRender = ratingArray.map((item, index) => {
+            if (item === 1) {
+                return (
+                    <i className="fas fa-star" ></i>
+                )
+            } else if (item === 0) {
+                return (
+                    <i className="far fa-star" ></i>
+                )
+            } else if (item === 0.5) {
+                return (
+                    <i className="fas fa-star-half-alt" ></i>
+                )
+            }
+        })
         return (
             <Col
                 key={index}
@@ -160,6 +186,12 @@ const Product = (props) => {
                             </div>
                             <div className="price-button-cont">
                                 <Card.Title>{`$${parseFloat(Math.trunc(item.price.value*100)/100).toFixed(2)}`}</Card.Title>
+                                <div className="ratings-cont">
+                                    <div className="stars-cont">
+                                    {item.ratings_total > 0 && ratingRender}
+                                    </div>
+                                    <p>({item.ratings_total})</p>                                    
+                                </div>
                                 <Button 
                                     variant="primary"
                                     onClick={() => handleSelect({
