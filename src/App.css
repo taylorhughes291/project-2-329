@@ -49,7 +49,6 @@
 
 /* BODY */
 body {
-  background-color: #FBE489 !important;
   font-family: 'Josefin Sans', sans-serif;
 }
 
@@ -245,9 +244,7 @@ div.sum-total-cont .over {
 
 div.product-carousel {
   border-radius: 10px;
-  border: 2px solid #847178;
   margin: 40px 2px 20px;
-  background-color: #F7BFB4;
   padding: 0 0 0 0;
   display: flex;
   flex-direction: column;
@@ -295,12 +292,16 @@ div.row {
   justify-content: space-around;
 }
 
+div.product {
+  width: 100%;
+  padding: 0;
+}
+
 div.card {
   margin: 0 auto;
-  height: 610px;
-  border-radius: 10px;
-  border: 2px solid #79B990;
-  
+  width: 100% !important;
+  border: 0px solid !important;
+  flex-direction: row;
 }
 
 div.card p.card-text {
@@ -310,8 +311,14 @@ div.card p.card-text {
 }
 
 div.product {
-  margin: 20px 0 0;
+  margin: 20px 2px 0;
+  padding: 4px;
   border-radius: 10px;
+  flex-basis: auto;
+  border: 1px solid;
+  height: 290px;
+  display: flex;
+  align-items: center;
 }
 
 div.product div.overlay {
@@ -336,18 +343,26 @@ div.product div.selected {
   z-index: 1;
 }
 
-div.product div.img-cont {
-  width: 286px;
-  height: 300px;
+div.product div.img-button-cont {
+  width: 50%;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+div.product div.img-cont {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   position: relative;
 }
 
 div.product div.img-cont img {
-  max-width: 95%;
-  max-height: 95%;
+  max-width: 100%;
+  max-height: 140px;
   width: auto;
   height: auto;
   cursor: pointer;
@@ -364,20 +379,28 @@ div.product div.img-cont div.img-link-overlay {
 }
 
 div.product div.card-body {
+  width: 50%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 0;
 }
 
 div.product div.card-body div.text-cont {
-  position: relative;
   padding: 0;
   z-index: 2;
 }
 
 div.product div.card-body p.card-text {
+  text-align: left;
   z-index: 2;
-  position: absolute;
+  margin: 0 0 7px 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4; /* number of lines to show */
+  -webkit-box-orient: vertical;
 }
 
 div.product div.card-body p:hover {
@@ -411,14 +434,31 @@ div.product div.ratings-cont p {
 div.product div.price-button-cont {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
 }
 
-div.product div.price-button-cont button {
+div.product div.price-button-cont div.shipping-delivery-cont {
+  margin: 0 0 20px;
+}
+
+div.product div.price-button-cont div.shipping-delivery-cont p {
+  text-align: left;
+  margin: 0;
+  color: #787885;
+}
+
+div.product img.prime-logo {
+  width: 45px;
+  padding: 15px 0 20px;
+}
+
+div.product button {
   background-color: #AFD5BD;
   color: #63545A;
   font-weight: 700;
   border: 2px solid #AFD5BD;
   z-index: 2;
+  width: 95%;
 }
 
 div.product div.price-button-cont button.selected {

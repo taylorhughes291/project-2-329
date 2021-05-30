@@ -5,6 +5,7 @@ import Col from "react-bootstrap/Col"
 import priceFilter from "../../functions/priceFilter.js"
 import ranking from "../../functions/ranking.js"
 import {useMediaQuery} from "react-responsive"
+import primeLogo from "../../assets/Prime_0.png"
 
 const Product = (props) => {
     
@@ -164,6 +165,7 @@ const Product = (props) => {
                     <div 
                         className={item.selected ? "selected overlay" : "not-selected overlay"}
                     ></div>
+                    <div className="img-button-cont">
                     <div className="img-cont">
                         <Card.Img 
                             variant="top" 
@@ -173,6 +175,23 @@ const Product = (props) => {
                             className="img-link-overlay"
                             onClick={() => handleProductLink(item.link)}
                         ></div>
+                    </div>
+                        <Button 
+                            variant="primary"
+                            onClick={() => handleSelect({
+                                title: item.title,
+                                price: item.price.value,
+                                image: item.image,
+                                url: item.link,
+                                asin: item.asin
+                            })}
+                            className={item.selected ? "selected hidden btn btn-primary" : "btn btn-primary"}
+                        >Select Item</Button>
+                        <Button 
+                            variant="primary"
+                            className={item.selected ? "selected btn btn-primary" : "hidden btn btn-primary"}
+                            onClick={() => handleDelete(item.asin, item.price.value)}
+                        >Delete Item</Button>
                     </div>
                         <Card.Body>
                             <div className="text-cont">
@@ -186,28 +205,18 @@ const Product = (props) => {
                             </div>
                             <div className="price-button-cont">
                                 <Card.Title>{`$${parseFloat(Math.trunc(item.price.value*100)/100).toFixed(2)}`}</Card.Title>
+                                {item.is_prime && <img className="prime-logo" src={primeLogo} alt="Amazon Prime Logo" />}
+                                <div className="shipping-delivery-cont">
+                                    <p className="shipping">{item.delivery.price.raw}</p>
+                                    <p className="delivery">{item.delivery.tagline}</p>
+                                </div>
                                 <div className="ratings-cont">
                                     <div className="stars-cont">
                                     {item.ratings_total > 0 && ratingRender}
                                     </div>
                                     <p>({item.ratings_total})</p>                                    
                                 </div>
-                                <Button 
-                                    variant="primary"
-                                    onClick={() => handleSelect({
-                                        title: item.title,
-                                        price: item.price.value,
-                                        image: item.image,
-                                        url: item.link,
-                                        asin: item.asin
-                                    })}
-                                    className={item.selected ? "selected hidden btn btn-primary" : "btn btn-primary"}
-                                >Select Item</Button>
-                                <Button 
-                                    variant="primary"
-                                    className={item.selected ? "selected btn btn-primary" : "hidden btn btn-primary"}
-                                    onClick={() => handleDelete(item.asin, item.price.value)}
-                                >Delete Item</Button>
+
                             </div>
                         </Card.Body>
                 </Card>
