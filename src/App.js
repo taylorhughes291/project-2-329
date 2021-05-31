@@ -5,6 +5,7 @@ import FinalCart from "./pages/FinalCart"
 import {Route, Switch} from "react-router-dom"
 import {useState} from "react"
 import 'bootstrap/dist/css/bootstrap.min.css'
+import LandingPage from "./pages/LandingPage"
 
 function App() {
   ////////////////////////
@@ -54,7 +55,12 @@ function App() {
         handleReset={handleReset}
       />
       <Switch>
-        <Route exact path="/">
+        <Route
+          exact path="/"
+        >
+          <LandingPage />
+        </Route>
+        <Route path="/giftsearch">
           <KeywordBuilder 
             person={person}
             setPerson={setPerson}
