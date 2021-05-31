@@ -122,6 +122,72 @@ const Product = (props) => {
         window.open(url)
     }
 
+    //Need to declare a function that handles favoriting an item
+    const handleFavorite = (asin) => {
+        // We must change the results bank to show this one item isFavorite = true
+        // Then we must re-rank all products so that it gets sorted to the top.
+        const newResultsBank = props.resultsBank.map((item, index) => {
+            if (item.asin === asin) {
+                return ({
+                    ...item,
+                    isFavorite: true
+                })
+            } else {
+                return (
+                    item
+                )
+            }
+        })
+
+        const newBudget = props.person.budget - props.sumTotal()
+        const filteredArray = priceFilter(newResultsBank, newBudget)
+        const rankedArray = ranking(filteredArray, newBudget, props.person.keywords)
+        const newProductDisplay = rankedArray.splice(0, numberResults)
+        props.setProductSearch(
+            {
+                productDisplay: newProductDisplay,
+                displayBank: rankedArray
+            }
+        )
+
+        props.setResultsBank(
+            newResultsBank
+        )
+    }
+
+    //Need to declare a function that handles un-favoriting an item
+    const handleUnfavorite = (asin) => {
+        // We must change the results bank to show this one item isFavorite = true
+        // Then we must re-rank all products so that it gets sorted to the top.
+        const newResultsBank = props.resultsBank.map((item, index) => {
+            if (item.asin === asin) {
+                return ({
+                    ...item,
+                    isFavorite: false
+                })
+            } else {
+                return (
+                    item
+                )
+            }
+        })
+
+        const newBudget = props.person.budget - props.sumTotal()
+        const filteredArray = priceFilter(newResultsBank, newBudget)
+        const rankedArray = ranking(filteredArray, newBudget, props.person.keywords)
+        const newProductDisplay = rankedArray.splice(0, numberResults)
+        props.setProductSearch(
+            {
+                productDisplay: newProductDisplay,
+                displayBank: rankedArray
+            }
+        )
+
+        props.setResultsBank(
+            newResultsBank
+        )
+    }
+
     //////////////////////////
     // Render
     //////////////////////////
@@ -192,6 +258,14 @@ const Product = (props) => {
                             className={item.selected ? "selected btn btn-primary" : "hidden btn btn-primary"}
                             onClick={() => handleDelete(item.asin, item.price.value)}
                         >Delete Item</Button>
+                        <Button
+                            className={item.isFavorite ? "isFavorite hidden btn btn-primary" : "btn btn-primary"}
+                            onClick={() => handleFavorite(item.asin)}
+                        >Favorite Item</Button>
+                        <Button
+                            className={item.isFavorite ? "isFavorite btn btn-primary" : "hidden btn btn-primary"}
+                            onClick={() => handleUnfavorite(item.asin)}
+                        >Un-favorite</Button>
                     </div>
                         <Card.Body>
                             <div className="text-cont">
