@@ -2,12 +2,12 @@ import './App.css';
 import Nav from "./components/Nav"
 import KeywordBuilder from "./pages/KeywordBuilder"
 import FinalCart from "./pages/FinalCart"
-import {Route, Switch} from "react-router-dom"
+import {Route, Switch, withRouter} from "react-router-dom"
 import {useState} from "react"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import LandingPage from "./pages/LandingPage"
 
-function App() {
+function App(props) {
   ////////////////////////
   // Constants
   ////////////////////////
@@ -45,15 +45,20 @@ function App() {
     setProductSearch([])
   }
 
+  console.log(props.location.pathname)
   ////////////////////////
   // Render
   ////////////////////////
 
   return (
     <div className="App">
-      <Nav 
-        handleReset={handleReset}
-      />
+      <div
+        className={props.location.pathname === "/" ? "hidden" : ""}
+      >
+        <Nav 
+          handleReset={handleReset}
+        />
+      </div>
       <Switch>
         <Route
           exact path="/"
@@ -82,4 +87,4 @@ function App() {
   );
 }
 
-export default App;
+export default withRouter(App);
