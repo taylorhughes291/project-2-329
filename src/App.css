@@ -64,15 +64,23 @@ button {
 /* Nav bar */
 div.container-fluid {
   padding: 0;
-  background-color: #F7BFB4;
+  background-color: none;
   display: flex;
   justify-content: center;
 }
+
 div.nav {
-  background-color: #F7BFB4;
-  padding: 5px 0 5px;
+  background-color: #3C5068;
+  padding: 0 0 17px 0;
   max-width: 961px;
   width: 100%;
+}
+
+div.nav h1 {
+  margin: 57px 0 0 16px;
+  color: white;
+  font-size: 25px;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 
@@ -85,14 +93,14 @@ div.mobileCont {
 }
 
 div.hamburger-cont {
- padding: 30px;
+ margin: 50px 25px 0 0;
  display: flex;
  justify-content: center;
  align-items: center;
 }
 
 div.nav i {
-  color: #786870;
+  color: #FFFFFF;
 }
 
 div.options-cont {
