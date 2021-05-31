@@ -142,15 +142,15 @@ const Product = (props) => {
         const ratingRender = ratingArray.map((item, index) => {
             if (item === 1) {
                 return (
-                    <i className="fas fa-star" ></i>
+                    <i className="fas fa-star" key={index} ></i>
                 )
             } else if (item === 0) {
                 return (
-                    <i className="far fa-star" ></i>
+                    <i className="far fa-star" key={index} ></i>
                 )
             } else if (item === 0.5) {
                 return (
-                    <i className="fas fa-star-half-alt" ></i>
+                    <i className="fas fa-star-half-alt" key={index} ></i>
                 )
             }
         })
@@ -159,12 +159,12 @@ const Product = (props) => {
                 key={index}
                 className="product"
             >
+                <div 
+                    className={item.selected ? "selected overlay" : "not-selected overlay"}
+                ></div>
                 <Card 
                     style={{ width: '18rem' }}
                 >
-                    <div 
-                        className={item.selected ? "selected overlay" : "not-selected overlay"}
-                    ></div>
                     <div className="img-button-cont">
                     <div className="img-cont">
                         <Card.Img 
@@ -206,10 +206,10 @@ const Product = (props) => {
                             <div className="price-button-cont">
                                 <Card.Title>{`$${parseFloat(Math.trunc(item.price.value*100)/100).toFixed(2)}`}</Card.Title>
                                 {item.is_prime && <img className="prime-logo" src={primeLogo} alt="Amazon Prime Logo" />}
-                                <div className="shipping-delivery-cont">
+                                {item.delivery && <div className="shipping-delivery-cont">
                                     <p className="shipping">{item.delivery.price.raw}</p>
                                     <p className="delivery">{item.delivery.tagline}</p>
-                                </div>
+                                </div>}
                                 <div className="ratings-cont">
                                     <div className="stars-cont">
                                     {item.ratings_total > 0 && ratingRender}
