@@ -30,6 +30,7 @@ const processSearch = (arr) => {
 
     for (const item of processedArray) {
         Object.assign(item, {selected: false})
+        Object.assign(item, {isFavorite: false})
     }
 
     return processedArray

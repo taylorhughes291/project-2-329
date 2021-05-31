@@ -20,7 +20,7 @@ const ranking = (arr, cost, keywords) => {
     sortedArray = sortedArray.sort((a, b) => {
         const n = b.ranking - a.ranking
         const p = b.ratings_total - a.ratings_total
-        return (a.selected === b.selected) ? (n === 0 ? p : n) : a.selected ? -1 : 1
+        return (a.selected === b.selected) ? ((a.isFavorite === b.isFavorite) ? (n === 0 ? p : n) : a.isFavorite ? -1 : 1) : a.selected ? -1 : 1
 
     })
 
