@@ -242,30 +242,32 @@ const Product = (props) => {
                             onClick={() => handleProductLink(item.link)}
                         ></div>
                     </div>
-                        <Button 
-                            variant="primary"
-                            onClick={() => handleSelect({
-                                title: item.title,
-                                price: item.price.value,
-                                image: item.image,
-                                url: item.link,
-                                asin: item.asin
-                            })}
-                            className={item.selected ? "selected hidden btn btn-primary" : "btn btn-primary"}
-                        >Select Item</Button>
-                        <Button 
-                            variant="primary"
-                            className={item.selected ? "selected btn btn-primary" : "hidden btn btn-primary"}
-                            onClick={() => handleDelete(item.asin, item.price.value)}
-                        >Delete Item</Button>
-                        <Button
-                            className={item.isFavorite ? "isFavorite hidden btn btn-primary" : "btn btn-primary"}
-                            onClick={() => handleFavorite(item.asin)}
-                        >Favorite Item</Button>
-                        <Button
-                            className={item.isFavorite ? "isFavorite btn btn-primary" : "hidden btn btn-primary"}
-                            onClick={() => handleUnfavorite(item.asin)}
-                        >Un-favorite</Button>
+                        <div className="button-cont">
+                            <Button 
+                                variant="primary"
+                                onClick={() => handleSelect({
+                                    title: item.title,
+                                    price: item.price.value,
+                                    image: item.image,
+                                    url: item.link,
+                                    asin: item.asin
+                                })}
+                                className={item.selected ? "selected hidden btn btn-primary" : "btn btn-primary"}
+                            >Select Item</Button>
+                            <Button 
+                                variant="primary"
+                                className={item.selected ? "selected btn btn-primary" : "hidden btn btn-primary"}
+                                onClick={() => handleDelete(item.asin, item.price.value)}
+                            >Delete Item</Button>
+                            <Button
+                                className={item.isFavorite ? "isFavorite hidden btn btn-primary" : "btn btn-primary"}
+                                onClick={() => handleFavorite(item.asin)}
+                            >Favorite Item</Button>
+                            <Button
+                                className={item.isFavorite ? "isFavorite btn btn-primary" : "hidden btn btn-primary"}
+                                onClick={() => handleUnfavorite(item.asin)}
+                            >Un-favorite</Button>
+                        </div>
                     </div>
                         <Card.Body>
                             <div className="text-cont">
