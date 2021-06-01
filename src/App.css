@@ -63,6 +63,10 @@ button {
 }
 
 /* Nav bar */
+div.nav-cont {
+  width: 100%;
+}
+
 div.container-fluid {
   padding: 0;
   background-color: none;
@@ -133,9 +137,9 @@ div.nav svg {
 }
 
 /* Landing Nav bar */
-div.container-fluid {
+div.landing-nav-cont {
   padding: 0;
-  background-color: none;
+  background-color: #E2F0E6;
   display: flex;
   justify-content: center;
 }

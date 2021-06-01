@@ -5,7 +5,7 @@ import {Container, Modal, Button} from "react-bootstrap"
 
 const LandingPage = (props) => {
     return (
-        <Container fluid>
+        <Container fluid className="landing-nav-cont">
             <div className="landing-nav">
                 <div className="mobileCont">
                     <h1>GIFTHALLA</h1>
