@@ -50,7 +50,8 @@
 
 /* BODY */
 body {
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: 'Varta', sans-serif !important;
+  background-color: #E2F0E6 !important;
 }
 
 button {
@@ -75,7 +76,6 @@ div.container-fluid {
 }
 
 div.nav {
-  background-color: #3C5068;
   padding: 0 0 17px 0;
   max-width: 961px;
   width: 100%;
@@ -83,7 +83,7 @@ div.nav {
 
 div.nav h1 {
   margin: 57px 0 0 16px;
-  color: white;
+  color: #181F25;
   font-size: 25px;
   font-family: 'Josefin Sans', sans-serif;
 }
@@ -105,7 +105,7 @@ div.hamburger-cont {
 }
 
 div.nav i {
-  color: #FFFFFF;
+  color: #181F25;
 }
 
 div.options-cont {
@@ -136,50 +136,33 @@ div.nav svg {
   fill: #282c34
 }
 
-/* Landing Nav bar */
-div.landing-nav-cont {
-  padding: 0;
-  background-color: #E2F0E6;
+/* Landing Page */
+div.landing-cont h1.hero {
+  padding: 35px 34px;
+  font-size: 30px;
+  line-height: 44px;;
+}
+
+div.landing-cont a.carousel-control-prev, div.landing-cont a.carousel-control-next {
+  display: none;
+}
+
+div.landing-cont div.subtext-marketplace-cont {
+  padding: 30px 34px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
 }
 
-div.landing-nav {
-  padding: 0 0 17px 0;
-  max-width: 961px;
-  width: 100%;
+div.landing-cont div.subtext-marketplace-cont p {
+  margin: 0 0 40px;
 }
 
-div.landing-nav h1 {
-  margin: 57px 0 0 16px;
-  color: #3C5068;
-  font-size: 25px;
-  font-family: 'Josefin Sans', sans-serif;
-}
-
-div.landing-nav div.hamburger-cont {
- margin: 45px 25px 0 0;
- display: flex;
- justify-content: center;
- align-items: center;
-}
-
-div.landing-nav button {
-  font-family: 'Varta', sans-serif;
-  font-weight: bold;
-  line-height: 17px;
-  width: 96px;
-  height: 23px;
-  color: #FFFFFF;
-  font-size: 12px;
-  background-color: #F386A2;
-  border: none;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 4px;
+div.landing-cont div.subtext-marketplace-cont div.markets-cont {
+  margin: 0 42px;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  vertical-align: middle;
+  mix-blend-mode: luminosity;
 }
 
 /* Keyword Builder  */

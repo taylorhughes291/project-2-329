@@ -52,13 +52,9 @@ function App(props) {
 
   return (
     <div className="App">
-      <div
-        className={props.location.pathname === "/" ? "hidden nav-cont" : "nav-cont"}
-      >
-        <Nav 
-          handleReset={handleReset}
-        />
-      </div>
+      <Nav 
+        handleReset={handleReset}
+      />
       <Switch>
         <Route
           exact path="/"
