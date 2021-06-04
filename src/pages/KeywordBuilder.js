@@ -77,30 +77,6 @@ const KeywordBuilder = (props) => {
     )
   }
 
-// The following function handles changes the user inputs to the Keyword Field.
-//    It also doesn't allow the user to type in more than 3 keywords.
-  const handleKeywordChange1 = (event) => {
-        let person = {
-            ...props.person,
-            keywordText1: event.target.value
-        }
-        props.setPerson(person)
-  }
-  const handleKeywordChange2 = (event) => {
-        let person = {
-            ...props.person,
-            keywordText2: event.target.value
-        }
-        props.setPerson(person)
-  }
-  const handleKeywordChange3 = (event) => {
-        let person = {
-            ...props.person,
-            keywordText3: event.target.value
-        }
-        props.setPerson(person)
-  }
-
   // This function handles the API call to Rainforest.
   const getProducts = async (searchTerm) => {
     const apiKey = process.env.REACT_APP_RAINFOREST_API_KEY
@@ -325,21 +301,21 @@ const KeywordBuilder = (props) => {
                       className="keyword"
                       placeholder="Coffee"
                       value={props.person.keywordText1}
-                      onChange={handleKeywordChange1}
+                      onChange={props.handleKeywordChange1}
                   ></input>
                   <input 
                       type="text" 
                       className="keyword"
                       placeholder="Star Wars"
                       value={props.person.keywordText2}
-                      onChange={handleKeywordChange2}
+                      onChange={props.handleKeywordChange2}
                   ></input>
                   <input 
                       type="text" 
                       className="keyword"
                       placeholder="Succulents"
                       value={props.person.keywordText3}
-                      onChange={handleKeywordChange3}
+                      onChange={props.handleKeywordChange3}
                   ></input>
                 </div>
                 <LoadingModal /> 

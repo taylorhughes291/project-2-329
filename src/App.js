@@ -45,7 +45,29 @@ function App(props) {
     setProductSearch([])
   }
 
-  console.log(props.location.pathname)
+  // The following function handles changes the user inputs to the Keyword Field.
+//    It also doesn't allow the user to type in more than 3 keywords.
+const handleKeywordChange1 = (event) => {
+  let newPerson = {
+      ...person,
+      keywordText1: event.target.value
+  }
+  setPerson(newPerson)
+}
+const handleKeywordChange2 = (event) => {
+  let newPerson = {
+      ...person,
+      keywordText2: event.target.value
+  }
+  setPerson(newPerson)
+}
+const handleKeywordChange3 = (event) => {
+  let newPerson = {
+      ...person,
+      keywordText3: event.target.value
+  }
+  setPerson(newPerson)
+}
   ////////////////////////
   // Render
   ////////////////////////
@@ -59,7 +81,12 @@ function App(props) {
         <Route
           exact path="/"
         >
-          <LandingPage />
+          <LandingPage
+            person={person}
+            handleKeywordChange1={handleKeywordChange1}
+            handleKeywordChange2={handleKeywordChange2}
+            handleKeywordChange3={handleKeywordChange3}
+          />
         </Route>
         <Route path="/giftsearch">
           <KeywordBuilder 
@@ -67,6 +94,9 @@ function App(props) {
             setPerson={setPerson}
             productSearch={productSearch}
             setProductSearch={setProductSearch}
+            handleKeywordChange1={handleKeywordChange1}
+            handleKeywordChange2={handleKeywordChange2}
+            handleKeywordChange3={handleKeywordChange3}
           />
         </Route>
         <Route path="/finalcart">

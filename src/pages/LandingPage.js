@@ -48,10 +48,28 @@ const LandingPage = (props) => {
                 <div className="search">
                     <p>Our search results are based on keywords. Just tell us three things your giftee likes!</p>
                     <form>
-                        <input type="text" placeholder="Coffee"></input>
-                        <input type="text" placeholder="Star Wars"></input>
-                        <input type="text" placeholder="Succulents"></input>
-                        <input type="submit" value="CONTINUE"></input>
+                        <input 
+                            type="text" 
+                            placeholder="Coffee"
+                            value={props.person.keywordText1}
+                            onChange={props.handleKeywordChange1}
+                        ></input>
+                        <input 
+                            type="text" 
+                            placeholder="Star Wars"
+                            value={props.person.keywordText2}
+                            onChange={props.handleKeywordChange2}
+                        ></input>
+                        <input 
+                            type="text" 
+                            placeholder="Succulents"
+                            value={props.person.keywordText3}
+                            onChange={props.handleKeywordChange3}
+                        ></input>
+                        <input 
+                            type="submit" 
+                            value="CONTINUE"
+                        ></input>
                     </form>
                 </div>
             </div>
