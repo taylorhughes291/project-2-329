@@ -1,10 +1,46 @@
-import React from "react"
+import React, {useState} from "react"
 import {Carousel, Jumbotron, Container} from "react-bootstrap"
+import LandingModal from "../components/LandingModal"
 import amazonLogo from "../assets/amazon.png"
 import ebayLogo from "../assets/ebay.png"
 import etsyLogo from "../assets/etsy.png"
 
 const LandingPage = (props) => {
+
+    /////////////////////////////
+    // Constants
+    /////////////////////////////
+    
+    const { person, handleKeywordChange1, handleKeywordChange2, handleKeywordChange3, handleBudgetChange } = props
+    const [modalShow, setModalShow] = useState(false);
+    const [processFlow, setProcessFlow] = useState({
+        keywords: false,
+        budget: false,
+        name: false
+    })
+
+    /////////////////////////////
+    // Functions
+    /////////////////////////////
+
+   
+    
+    const handleContinue = (event) => {
+        event.preventDefault()
+        if (person.keywordText1 != "" || person.keywordText2 != "" || person.keywordText3 != "") {
+            setProcessFlow({
+                ...processFlow,
+                keywords: true
+            })
+        }
+        setModalShow(true)
+    }
+      
+
+    /////////////////////////////
+    // Render
+    /////////////////////////////
+
     return (
         <div className="landing-cont">
             <div className="landing-page-cont">
@@ -47,7 +83,9 @@ const LandingPage = (props) => {
                 </div>
                 <div className="search">
                     <p>Our search results are based on keywords. Just tell us three things your giftee likes!</p>
-                    <form>
+                    <form
+                        onSubmit={handleContinue}
+                    >
                         <input 
                             type="text" 
                             placeholder="Coffee"
@@ -71,6 +109,17 @@ const LandingPage = (props) => {
                             value="CONTINUE"
                         ></input>
                     </form>
+                    <LandingModal 
+                        processFlow={processFlow}
+                        handleContinue={handleContinue}
+                        person={person}
+                        handleKeywordChange1={handleKeywordChange1}
+                        handleKeywordChange2={handleKeywordChange2}
+                        handleKeywordChange3={handleKeywordChange3}
+                        handleBudgetChange={handleBudgetChange}
+                        modalShow={modalShow}
+                        setModalShow={setModalShow}
+                    />
                 </div>
             </div>
             <div className="footer-image">

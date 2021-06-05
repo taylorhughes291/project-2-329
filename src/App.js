@@ -46,28 +46,37 @@ function App(props) {
   }
 
   // The following function handles changes the user inputs to the Keyword Field.
-//    It also doesn't allow the user to type in more than 3 keywords.
-const handleKeywordChange1 = (event) => {
-  let newPerson = {
-      ...person,
-      keywordText1: event.target.value
+  //    It also doesn't allow the user to type in more than 3 keywords.
+  const handleKeywordChange1 = (event) => {
+    let newPerson = {
+        ...person,
+        keywordText1: event.target.value
+    }
+    setPerson(newPerson)
   }
-  setPerson(newPerson)
-}
-const handleKeywordChange2 = (event) => {
-  let newPerson = {
-      ...person,
-      keywordText2: event.target.value
+  const handleKeywordChange2 = (event) => {
+    let newPerson = {
+        ...person,
+        keywordText2: event.target.value
+    }
+    setPerson(newPerson)
   }
-  setPerson(newPerson)
-}
-const handleKeywordChange3 = (event) => {
-  let newPerson = {
-      ...person,
-      keywordText3: event.target.value
+  const handleKeywordChange3 = (event) => {
+    let newPerson = {
+        ...person,
+        keywordText3: event.target.value
+    }
+    setPerson(newPerson)
   }
-  setPerson(newPerson)
-}
+
+  // The following function handles updates when the user changes the Budget field.
+  const handleBudgetChange = (event) => {
+    let newPerson = {
+        ...person,
+        budget: parseFloat(event.target.value)
+    }
+    setPerson(newPerson)
+  }
   ////////////////////////
   // Render
   ////////////////////////
@@ -86,6 +95,7 @@ const handleKeywordChange3 = (event) => {
             handleKeywordChange1={handleKeywordChange1}
             handleKeywordChange2={handleKeywordChange2}
             handleKeywordChange3={handleKeywordChange3}
+            handleBudgetChange={handleBudgetChange}
           />
         </Route>
         <Route path="/giftsearch">
@@ -97,6 +107,7 @@ const handleKeywordChange3 = (event) => {
             handleKeywordChange1={handleKeywordChange1}
             handleKeywordChange2={handleKeywordChange2}
             handleKeywordChange3={handleKeywordChange3}
+            handleBudgetChange={handleBudgetChange}
           />
         </Route>
         <Route path="/finalcart">

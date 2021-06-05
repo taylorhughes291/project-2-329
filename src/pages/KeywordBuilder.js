@@ -52,14 +52,7 @@ const KeywordBuilder = (props) => {
     props.setPerson(person)
   }
 
-  // The following function handles updates when the user changes the Budget field.
-  const handleBudgetChange = (event) => {
-    let person = {
-        ...props.person,
-        budget: parseFloat(event.target.value)
-    }
-    props.setPerson(person)
-  }
+
 
   //Invoking this function will enable the user to see more products than what is displayed. It is invoked both
   //    in the initial product search, where numberOfProducts is passed depending on the device size.
@@ -292,7 +285,7 @@ const KeywordBuilder = (props) => {
                     className="budget"
                     placeholder="75"
                     value={props.person.budget}
-                    onChange={handleBudgetChange}
+                    onChange={props.handleBudgetChange}
                 ></input>
                 <h5>Enter up to 3 Keywords below:</h5>
                 <div className="keywords">
