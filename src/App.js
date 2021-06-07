@@ -82,15 +82,22 @@ function App(props) {
   ////////////////////////
 
   return (
-    <div className="App">
+    <div 
+      className="App"
+      key="app"
+    >
       <Nav 
         handleReset={handleReset}
       />
-      <Switch>
+      <Switch
+        key="switch-1"
+      >
         <Route
           exact path="/"
+          key="route-landing-page"
         >
           <LandingPage
+            key="landing-page-1"
             person={person}
             handleKeywordChange1={handleKeywordChange1}
             handleKeywordChange2={handleKeywordChange2}

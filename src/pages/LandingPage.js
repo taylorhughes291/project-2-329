@@ -27,7 +27,7 @@ const LandingPage = (props) => {
     
     const handleContinue = (event) => {
         event.preventDefault()
-        if (person.keywordText1 != "" || person.keywordText2 != "" || person.keywordText3 != "") {
+        if (person.keywordText1 !== "" || person.keywordText2 !== "" || person.keywordText3 !== "") {
             setProcessFlow({
                 ...processFlow,
                 keywords: true
@@ -42,7 +42,10 @@ const LandingPage = (props) => {
     /////////////////////////////
 
     return (
-        <div className="landing-cont">
+        <div 
+            className="landing-cont"
+            key="landing-cont-1"
+        >
             <div className="landing-page-cont">
                 <h1 className="hero">Find a glorious gift in just a few clicks!</h1>
                 <Carousel>
@@ -77,11 +80,17 @@ const LandingPage = (props) => {
                     <img src={etsyLogo} alt="Etsy logo" />
                 </div>
             </div>
-            <div className="search-cont">
+            <div 
+                className="search-cont"
+                key="search-cont-div-1"
+            >
                 <div className="search-title">
                     <h2>SEARCH GIFTS</h2>
                 </div>
-                <div className="search">
+                <div 
+                    className="search"
+                    key="search-div"
+                >
                     <p>Our search results are based on keywords. Just tell us three things your giftee likes!</p>
                     <form
                         onSubmit={handleContinue}
@@ -109,7 +118,8 @@ const LandingPage = (props) => {
                             value="CONTINUE"
                         ></input>
                     </form>
-                    <LandingModal 
+                    <LandingModal
+                        key="landing-modal-1"
                         processFlow={processFlow}
                         handleContinue={handleContinue}
                         person={person}
