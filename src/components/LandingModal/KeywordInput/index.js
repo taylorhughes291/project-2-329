@@ -1,6 +1,9 @@
-import React, {useState} from "react"
+import React, {useState, useContext} from "react"
+import {setPersonContext} from "../../../App"
 
-function KeywordInput ({person, processFlow}) {
+
+
+function KeywordInput ({person, setProcessFlow, processFlow}) {
     
     /////////////////////////
     // Constants
@@ -11,13 +14,16 @@ function KeywordInput ({person, processFlow}) {
         keywordText2: person.keywordText2,
         keywordText3: person.keywordText3
     })
+
+    const personContext = useContext(setPersonContext)
+    console.log(personContext);
+    const setPerson = personContext.setPerson
     
     /////////////////////////
     // Functions
     /////////////////////////
 
     const handleKeywordChange = (event) => {
-        console.log(event.target.name)
         setKeywords({
             ...keywords,
             [event.target.name]: event.target.value
@@ -26,7 +32,14 @@ function KeywordInput ({person, processFlow}) {
 
     const handleContinue = (event) => {
         event.preventDefault()
-
+        setProcessFlow({
+            ...processFlow,
+            keywords: true
+        })
+        setPerson({
+            ...person,
+            ...keywords
+        })
     }
     
     /////////////////////////

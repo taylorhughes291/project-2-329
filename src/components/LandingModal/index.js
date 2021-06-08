@@ -42,6 +42,7 @@ const LandingModal = ({processFlow, setProcessFlow, person, handleContinue, hand
             {!processFlow.keywords && <KeywordInput 
               person={person}
               handleContinue={handleContinue}
+              processFlow={processFlow}
               setProcessFlow={setProcessFlow}
             />}
               {(processFlow.keywords && !processFlow.budget) && <InputBudget budgetValue={person.budget} handleBudgetChange={handleBudgetChange} />}

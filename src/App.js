@@ -3,9 +3,11 @@ import Nav from "./components/Nav"
 import KeywordBuilder from "./pages/KeywordBuilder"
 import FinalCart from "./pages/FinalCart"
 import {Route, Switch, withRouter} from "react-router-dom"
-import {useState} from "react"
+import {useState, createContext} from "react"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import LandingPage from "./pages/LandingPage"
+
+export const setPersonContext = createContext(null)
 
 function App(props) {
   ////////////////////////
@@ -29,6 +31,8 @@ function App(props) {
     productDisplay: [],
     displayBank: []
   })
+
+  
   
   ////////////////////////
   // Functions
@@ -96,14 +100,16 @@ function App(props) {
           exact path="/"
           key="route-landing-page"
         >
-          <LandingPage
-            key="landing-page-1"
-            person={person}
-            handleKeywordChange1={handleKeywordChange1}
-            handleKeywordChange2={handleKeywordChange2}
-            handleKeywordChange3={handleKeywordChange3}
-            handleBudgetChange={handleBudgetChange}
-          />
+          <setPersonContext.Provider value={{setPerson}}>
+            <LandingPage
+              key="landing-page-1"
+              person={person}
+              handleKeywordChange1={handleKeywordChange1}
+              handleKeywordChange2={handleKeywordChange2}
+              handleKeywordChange3={handleKeywordChange3}
+              handleBudgetChange={handleBudgetChange}
+            />
+          </setPersonContext.Provider>
         </Route>
         <Route path="/giftsearch">
           <KeywordBuilder 
