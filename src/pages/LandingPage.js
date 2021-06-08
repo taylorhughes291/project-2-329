@@ -121,6 +121,7 @@ const LandingPage = (props) => {
                     <LandingModal
                         key="landing-modal-1"
                         processFlow={processFlow}
+                        setProcessFlow={setProcessFlow}
                         handleContinue={handleContinue}
                         person={person}
                         handleKeywordChange1={handleKeywordChange1}
