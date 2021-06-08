@@ -1,28 +1,7 @@
 import React from "react"
 import {Modal} from "react-bootstrap"
 import KeywordInput from "./KeywordInput"
-
-const InputBudget = ({budgetValue, handleBudgetChange}) => (
-    <>
-        <h4>How much can you afford to spend? You can select multiple products to fit within your budget.</h4>
-        <form
-            key="form-2"
-        >
-            <input 
-                type="number"
-                placeholder="$75"
-                value={budgetValue}
-                onChange={handleBudgetChange}
-                key="5"
-            ></input>
-            <input
-                type="submit"
-                value="CONTINUE"
-                key="6"
-            ></input>
-        </form>
-    </>
-)
+import BudgetInput from "./BudgetInput"
 
 const LandingModal = ({processFlow, setProcessFlow, person, handleContinue, handleKeywordChange1, handleKeywordChange2, handleKeywordChange3, handleBudgetChange, modalShow, setModalShow}) => {
 
@@ -41,11 +20,14 @@ const LandingModal = ({processFlow, setProcessFlow, person, handleContinue, hand
           >
             {!processFlow.keywords && <KeywordInput 
               person={person}
-              handleContinue={handleContinue}
               processFlow={processFlow}
               setProcessFlow={setProcessFlow}
             />}
-              {(processFlow.keywords && !processFlow.budget) && <InputBudget budgetValue={person.budget} handleBudgetChange={handleBudgetChange} />}
+            {(processFlow.keywords && !processFlow.budget) && <BudgetInput
+              person={person}
+              processFlow={processFlow}
+              setProcessFlow={setProcessFlow}
+            />}
           </Modal.Body>
         </Modal>
       );

@@ -16,7 +16,6 @@ function KeywordInput ({person, setProcessFlow, processFlow}) {
     })
 
     const personContext = useContext(setPersonContext)
-    console.log(personContext);
     const setPerson = personContext.setPerson
     
     /////////////////////////
