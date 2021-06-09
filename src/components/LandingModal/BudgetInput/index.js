@@ -33,6 +33,12 @@ function BudgetInput ({person, setProcessFlow, processFlow}) {
             budget: budget
         })
     }
+
+    const handleBack = () => {
+        setProcessFlow({
+            keywords: false
+        })
+    }
     
     /////////////////////////
     // Render
@@ -55,8 +61,14 @@ function BudgetInput ({person, setProcessFlow, processFlow}) {
                 ></input>
                 <input
                     type="submit"
-                    value="CONTINUE"
+                    value="Finish Search"
                     key="6"
+                ></input>
+                <input
+                    type="button"
+                    value="Back"
+                    key="7"
+                    onClick={handleBack}
                 ></input>
             </form>
         </>

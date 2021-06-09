@@ -5,16 +5,9 @@ import ranking from "../functions/ranking.js"
 import {useMediaQuery} from "react-responsive"
 import {Modal, Button} from "react-bootstrap"
 import priceFilter from "../functions/priceFilter.js"
-import processSearch from "../functions/processSearch.js"
+import processKeywords from "../functions/processKeywords"
 
-// Comment this out if you want to turn off demo mode
-import coffeeData from "../data/coffeeData.js"
-import coffeeHikingData from "../data/coffeeHikingData.js"
-import hikingData from "../data/hikingData.js"
-import starWarsCoffeeData from "../data/starWarsCoffeeData.js"
-import starWarsCoffeeHikingData from "../data/starWarsCoffeeHikingData.js"
-import starWarsData from "../data/starWarsData.js"
-import starWarsHikingData from "../data/starWarsHikingData.js"
+
 
 const KeywordBuilder = (props) => {
   ////////////////////////
@@ -70,17 +63,6 @@ const KeywordBuilder = (props) => {
     )
   }
 
-  // This function handles the API call to Rainforest.
-  const getProducts = async (searchTerm) => {
-    const apiKey = process.env.REACT_APP_RAINFOREST_API_KEY
-    const associateId = "taylorhughe05-20"
-    const url = `https://api.rainforestapi.com/request?api_key=${apiKey}&type=search&amazon_domain=amazon.com&associate_id=${associateId}&search_term=${searchTerm}`
-    
-    const response = await fetch(url)
-    const data = await response.json()
-    return data.search_results
-  }
-
   // The following code is adopted from React-bootstrap in order to render a Modal so that the customer
   //    knows that their content is loading! It creates the Modal and the button that must be clicked
   //    for the modal to pop up, which is rendered down below in the "Render" area
@@ -130,6 +112,8 @@ const KeywordBuilder = (props) => {
       </>
     );
   }
+
+
   
   
 // This function is pretty huge. This function:
@@ -143,86 +127,22 @@ const KeywordBuilder = (props) => {
 //    - Takes those results and separates them into what will be displayed, and what results will be in the "bank"
 //        to be viewed later if the user wishes to see more
   const handleClick = async (keyword1, keyword2, keyword3) => {
-      // You now want to initiate the loading state, so that the customer doesn't attempt to call the API
-      //    again or think it's not working
-      handleShow();
-
-      //This splits the keyword text into the comma separated array
-      let keywordSplit = [keyword1, keyword2, keyword3]
-      keywordSplit = keywordSplit.filter((item, index) => {
-        return (
-          item !== ""
-        )
-      })
-      const person = {
-          ...props.person,
-          keywords: keywordSplit,
-          searched: true
-      }
-      props.setPerson(person)
-   
-    // The below is for generating every combination of search terms from the user input.
-    let searchTerms = []
-    for (let i = 0; i < keywordSplit.length; i += 1) {
-        for (let j = i; j < keywordSplit.length; j += 1) {
-            if (i === j) {
-                searchTerms.push(keywordSplit[i])
-            } else {
-                searchTerms.push(`${keywordSplit[i]} ${keywordSplit[j]}`)
-            }
-            if (j - i === keywordSplit.length - 1) {
-                let array = []
-                for (let k = i; k < keywordSplit.length; k += 1) {
-                    array.push(keywordSplit[k])
-                }
-                array = array.join(" ")
-                searchTerms.push(array)
-            }
-        }
+    // You now want to initiate the loading state, so that the customer doesn't attempt to call the API
+    //    again or think it's not working
+    handleShow();    
+    const processedObject = await processKeywords(keyword1, keyword2, keyword3)
+    console.log(processedObject);
+    const person = {
+      ...props.person,
+      keywords: processedObject.keywordSplit,
+      searched: true
     }
-
-    // Please note that the below was adopted from https://dev.to/clairecodes/how-to-create-an-array-of-unique-values-in-javascript-using-sets-5dg6
-    // The below creates only unique values of searchTerms
-    searchTerms = [...new Set(searchTerms)]
-
-    // This array will contain all of your API response data.
-    const searchResults = []
-
-    // The below is for sending an API request for all search terms to Rainforest API Product Search
-    // Please only activate this when you're ready to go live.
-
-    
-    // for (const search of searchTerms) {
-    //     searchResults.push(await getProducts(search))
-    // }
-
-    // The below is for the purposes of development only, and should be switched back to the code above when you are ready to present.
-    const coffee = coffeeData
-    searchResults.push(coffee.search_results)
-    const coffeeHiking = coffeeHikingData
-    searchResults.push(coffeeHiking.search_results)
-    const hiking = hikingData
-    searchResults.push(hiking.search_results)
-    const starWarsCoffee = starWarsCoffeeData
-    searchResults.push(starWarsCoffee.search_results)
-    const starWarsCoffeeHiking = starWarsCoffeeHikingData
-    searchResults.push(starWarsCoffeeHiking.search_results)
-    const starWars = starWarsData
-    searchResults.push(starWars.search_results)
-    const starWarsHiking = starWarsHikingData
-    searchResults.push(starWarsHiking.search_results)
-    
-    //Invoke function from ranking.js to distill which products to display
-    const processedResults = processSearch(searchResults)
+    props.setPerson(person)
     setResultsBank(
-      processedResults
+      processedObject.processedResults
     )
-    const filteredResults = priceFilter(processedResults, props.person.budget)
-    const rankedResults = ranking(filteredResults, props.person.budget, keywordSplit)
-
-
-
-    
+    const filteredResults = priceFilter(processedObject.processedResults, props.person.budget)
+    const rankedResults = ranking(filteredResults, props.person.budget, processedObject.keywordSplit)
     //displayResults is what we want to show, but resultsBank has the rest if the user wishes to see more
     // I am going to make the number of results dynamic upon which device is being used. Note that
     //      numberResults is a variable declared in the above constants section depending on the size of 
@@ -230,8 +150,6 @@ const KeywordBuilder = (props) => {
     // Note that I have to call this callback function in order for state to set properly.
     handleSeeMore(numberResults, rankedResults)
 
-
-     //You may now take down the loading state
     handleClose()
   }
 

@@ -15,8 +15,7 @@ const LandingPage = (props) => {
     const [modalShow, setModalShow] = useState(false);
     const [processFlow, setProcessFlow] = useState({
         keywords: false,
-        budget: false,
-        name: false
+        budget: false
     })
 
     /////////////////////////////
