@@ -12,8 +12,9 @@ function KeywordInput ({person, setProcessFlow, processFlow}) {
     const [keywords, setKeywords] = useState({
         keywordText1: person.keywordText1,
         keywordText2: person.keywordText2,
-        keywordText3: person.keywordText3
+        keywordText3: person.keywordText3,
     })
+    const [notifyCustomer, setNotifyCustomer] = useState(false)
 
     const personContext = useContext(setPersonContext)
     const setPerson = personContext.setPerson
@@ -31,14 +32,20 @@ function KeywordInput ({person, setProcessFlow, processFlow}) {
 
     const handleContinue = (event) => {
         event.preventDefault()
-        setProcessFlow({
-            ...processFlow,
-            keywords: true
-        })
-        setPerson({
-            ...person,
-            ...keywords
-        })
+        if (keywords.keywordText1 !== "" || keywords.keywordText2 !== "" || keywords.keywordText3 !== "") {
+            setProcessFlow({
+                ...processFlow,
+                keywords: true
+            })
+            setPerson({
+                ...person,
+                ...keywords
+            })
+            setNotifyCustomer(false)
+        } else {
+            setNotifyCustomer(true)
+        }
+
     }
     
     /////////////////////////
@@ -48,6 +55,7 @@ function KeywordInput ({person, setProcessFlow, processFlow}) {
     return (
         <>
             <h4>Our search results are based on keywords. Just tell us three things your giftee likes!</h4>
+            {notifyCustomer && <p className="alert">Please input at least one option below.</p>}
             <form
                 onSubmit={handleContinue}
                 key="keyword-modal-text"

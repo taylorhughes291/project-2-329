@@ -13,6 +13,7 @@ function BudgetInput (props) {
     /////////////////////////
 
     const [budget, setBudget] = useState(person.budget)
+    const [notifyCustomer, setNotifyCustomer] = useState(false)
 
     const personContext = useContext(setPersonContext)
     const setPerson = personContext.setPerson
@@ -27,22 +28,27 @@ function BudgetInput (props) {
 
     const handleContinue = async (event) => {
         event.preventDefault()
-        setProcessFlow({
-            ...processFlow,
-            budget: true
-        })
+        if (budget !== 0 && budget !== "") {
+            setProcessFlow({
+                ...processFlow,
+                budget: true
+            })
+    
+            const processedObject = await processKeywords(person.keywordText1, person.keywordText2, person.keywordText3)
+    
+            setPerson({
+                ...person,
+                budget: budget
+            })
+            
+            props.history.push({
+                pathname: '/giftsearch',
+                state: {searchResults: processedObject}
+            })
+        } else {
+            setNotifyCustomer(true)
+        }
 
-        const processedObject = await processKeywords(person.keywordText1, person.keywordText2, person.keywordText3)
-
-        setPerson({
-            ...person,
-            budget: budget
-        })
-        
-        props.history.push({
-            pathname: '/giftsearch',
-            state: {searchResults: processedObject}
-        })
     }
 
     const handleBack = () => {
@@ -58,6 +64,7 @@ function BudgetInput (props) {
     return (
         <>
             <h4>How much can you afford to spend? You can select multiple products to fit within your budget.</h4>
+            {notifyCustomer && <p className="alert">Please input a budget amount.</p>}
             <form
                 key="form-2"
                 onSubmit={handleContinue}

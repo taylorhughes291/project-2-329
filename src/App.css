@@ -260,6 +260,11 @@ div.modal-body img {
   margin: 10px 0 24px;
 }
 
+div.modal p.alert {
+  color: red;
+  padding: 10px 0 0;
+}
+
 /* Keyword Builder  */
 
 div.keyword-cont {
