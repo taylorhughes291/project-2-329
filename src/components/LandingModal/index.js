@@ -14,6 +14,8 @@ const LandingModal = ({processFlow, setProcessFlow, person, handleContinue, hand
           aria-labelledby="contained-modal-title-vcenter"
           animation={false}
           key="modal-1"
+          backdrop="static"
+          keyboard={false}
         >
           <Modal.Body
               key="modal-body"
@@ -29,10 +31,8 @@ const LandingModal = ({processFlow, setProcessFlow, person, handleContinue, hand
               setProcessFlow={setProcessFlow}
             />}
             {!processFlow.budget && <div className="page-indicator-cont">
-              <i className={processFlow.keywords ? "far fa-circle" : "far fa-circle hidden"}></i>
-              <i className={processFlow.keywords ? "hidden fas fa-circle" : "fas fa-circle"}></i>
-              <i className={processFlow.keywords ? "far fa-circle hidden" : "far fa-circle"}></i>
-              <i className={processFlow.keywords ? "fas fa-circle" : "fas fa-circle hidden"}></i>
+              <i className={processFlow.keywords ? "fas fa-circle discolor" : "fas fa-circle"}></i>
+              <i className={processFlow.keywords ? "fas fa-circle " : "fas fa-circle discolor"}></i>
             </div>}
             {(processFlow.keywords && processFlow.budget) && <>
               <h2>SUCCESS!</h2>

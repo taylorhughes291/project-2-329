@@ -240,6 +240,22 @@ div.landing-cont div.jumbotron h2 {
   margin: 0 16px;
 }
 
+div.modal-body h2 {
+  font-size: 36px;
+  color: #F87093;
+  margin: 0;
+  vertical-align: middle;
+}
+
+div.modal {
+  margin: 51px 0;
+  width: 100%;
+}
+
+div.modal-body img {
+  margin: 10px 0 24px;
+}
+
 /* Keyword Builder  */
 
 div.keyword-cont {

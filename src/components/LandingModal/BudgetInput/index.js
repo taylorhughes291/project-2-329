@@ -2,7 +2,7 @@ import React, {useState, useContext} from "react"
 import {setPersonContext} from "../../../App"
 import processKeywords from "../../../functions/processKeywords"
 import {withRouter} from "react-router-dom"
-
+import "./styles.css"
 
 
 function BudgetInput (props) {
@@ -61,6 +61,7 @@ function BudgetInput (props) {
             <form
                 key="form-2"
                 onSubmit={handleContinue}
+                className="budget-form"
             >
                 <input 
                     type="number"
@@ -70,17 +71,19 @@ function BudgetInput (props) {
                     onChange={handleBudgetChange}
                     key="5"
                 ></input>
-                <input
-                    type="submit"
-                    value="Finish Search"
-                    key="6"
-                ></input>
-                <input
-                    type="button"
-                    value="Back"
-                    key="7"
-                    onClick={handleBack}
-                ></input>
+                <div className="buttons">
+                    <input
+                        type="submit"
+                        value="Finish Search"
+                        key="6"
+                    ></input>
+                    <input
+                        type="button"
+                        value="Back"
+                        key="7"
+                        onClick={handleBack}
+                    ></input>
+                </div>
             </form>
         </>
     )

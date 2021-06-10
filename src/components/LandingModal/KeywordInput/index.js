@@ -1,6 +1,6 @@
 import React, {useState, useContext} from "react"
 import {setPersonContext} from "../../../App"
-
+import "./styles.css"
 
 
 function KeywordInput ({person, setProcessFlow, processFlow}) {
@@ -51,6 +51,7 @@ function KeywordInput ({person, setProcessFlow, processFlow}) {
             <form
                 onSubmit={handleContinue}
                 key="keyword-modal-text"
+                className="keyword-form"
             >
                 <input 
                     type="text"
