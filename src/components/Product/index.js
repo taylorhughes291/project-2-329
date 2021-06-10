@@ -214,7 +214,7 @@ const Product = (props) => {
                 return (
                     <i className="far fa-star" key={index} ></i>
                 )
-            } else if (item === 0.5) {
+            } else {
                 return (
                     <i className="fas fa-star-half-alt" key={index} ></i>
                 )

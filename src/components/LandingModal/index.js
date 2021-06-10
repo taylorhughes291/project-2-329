@@ -29,10 +29,10 @@ const LandingModal = ({processFlow, setProcessFlow, person, handleContinue, hand
               setProcessFlow={setProcessFlow}
             />}
             {!processFlow.budget && <div className="page-indicator-cont">
-              <i class={processFlow.keywords ? "far fa-circle" : "far fa-circle hidden"}></i>
-              <i class={processFlow.keywords ? "hidden fas fa-circle" : "fas fa-circle"}></i>
-              <i class={processFlow.keywords ? "far fa-circle hidden" : "far fa-circle"}></i>
-              <i class={processFlow.keywords ? "fas fa-circle" : "fas fa-circle hidden"}></i>
+              <i className={processFlow.keywords ? "far fa-circle" : "far fa-circle hidden"}></i>
+              <i className={processFlow.keywords ? "hidden fas fa-circle" : "fas fa-circle"}></i>
+              <i className={processFlow.keywords ? "far fa-circle hidden" : "far fa-circle"}></i>
+              <i className={processFlow.keywords ? "fas fa-circle" : "fas fa-circle hidden"}></i>
             </div>}
             {(processFlow.keywords && processFlow.budget) && <>
               <h2>SUCCESS!</h2>

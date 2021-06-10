@@ -1,9 +1,12 @@
 import React, {useState, useContext} from "react"
 import {setPersonContext} from "../../../App"
+import processKeywords from "../../../functions/processKeywords"
+import {withRouter} from "react-router-dom"
 
 
 
-function BudgetInput ({person, setProcessFlow, processFlow}) {
+function BudgetInput (props) {
+    const {person, setProcessFlow, processFlow} = props
     
     /////////////////////////
     // Constants
@@ -22,15 +25,23 @@ function BudgetInput ({person, setProcessFlow, processFlow}) {
         setBudget(event.target.value)
     }
 
-    const handleContinue = (event) => {
+    const handleContinue = async (event) => {
         event.preventDefault()
         setProcessFlow({
             ...processFlow,
             budget: true
         })
+
+        const processedObject = await processKeywords(person.keywordText1, person.keywordText2, person.keywordText3)
+
         setPerson({
             ...person,
             budget: budget
+        })
+        
+        props.history.push({
+            pathname: '/giftsearch',
+            state: {searchResults: processedObject}
         })
     }
 
@@ -75,4 +86,4 @@ function BudgetInput ({person, setProcessFlow, processFlow}) {
     )
 }
 
-export default BudgetInput
+export default withRouter(BudgetInput)

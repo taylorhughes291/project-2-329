@@ -1,5 +1,5 @@
-import React, {useState} from "react"
-import {Link} from "react-router-dom"
+import React, {useState, useEffect} from "react"
+import {Link, useLocation} from "react-router-dom"
 import ProductCarousel from "../components/ProductCarousel"
 import ranking from "../functions/ranking.js"
 import {useMediaQuery} from "react-responsive"
@@ -27,6 +27,9 @@ const KeywordBuilder = (props) => {
   if (props.person.budget !== "") {
     isFilled = true
   }
+
+  const landingPageResults = useLocation()
+  console.log(landingPageResults);
 
   //The following state will keep track of the remaining products in the case that you want to add more
   //     if the user so desires. This array will get filled in the handleClick function below.
@@ -113,25 +116,7 @@ const KeywordBuilder = (props) => {
     );
   }
 
-
-  
-  
-// This function is pretty huge. This function:
-//    - Invokes the function that forces the modal to pop up, which doesn't allow the user to navigate away
-//        or try to click the product search button again thinking that it didn't work
-//    - Splits the keywords by commas and then updates person state with an array of their keywords
-//    - Generates a new array that contains every single possible combination of the keywords to search
-//        - Only preserves unique values of that keyword combination
-//    - Sends a request to the API for each search term combination
-//    - Calls a separate "ranking" function in order to try and rank the search results by most relevant
-//    - Takes those results and separates them into what will be displayed, and what results will be in the "bank"
-//        to be viewed later if the user wishes to see more
-  const handleClick = async (keyword1, keyword2, keyword3) => {
-    // You now want to initiate the loading state, so that the customer doesn't attempt to call the API
-    //    again or think it's not working
-    handleShow();    
-    const processedObject = await processKeywords(keyword1, keyword2, keyword3)
-    console.log(processedObject);
+  const handleStates = (processedObject) => {
     const person = {
       ...props.person,
       keywords: processedObject.keywordSplit,
@@ -149,6 +134,24 @@ const KeywordBuilder = (props) => {
     //      the screen using media queries from react-responsive
     // Note that I have to call this callback function in order for state to set properly.
     handleSeeMore(numberResults, rankedResults)
+  }
+
+// This function is pretty huge. This function:
+//    - Invokes the function that forces the modal to pop up, which doesn't allow the user to navigate away
+//        or try to click the product search button again thinking that it didn't work
+//    - Splits the keywords by commas and then updates person state with an array of their keywords
+//    - Generates a new array that contains every single possible combination of the keywords to search
+//        - Only preserves unique values of that keyword combination
+//    - Sends a request to the API for each search term combination
+//    - Calls a separate "ranking" function in order to try and rank the search results by most relevant
+//    - Takes those results and separates them into what will be displayed, and what results will be in the "bank"
+//        to be viewed later if the user wishes to see more
+  const handleClick = async (keyword1, keyword2, keyword3) => {
+    // You now want to initiate the loading state, so that the customer doesn't attempt to call the API
+    //    again or think it's not working
+    handleShow();    
+    const processedObject = await processKeywords(keyword1, keyword2, keyword3)
+    handleStates(processedObject)
 
     handleClose()
   }
@@ -173,6 +176,14 @@ const KeywordBuilder = (props) => {
   ////////////////////////
   // Render
   ////////////////////////
+
+  useEffect(() => {
+    if (landingPageResults.state) {
+      handleStates(landingPageResults.state.searchResults)
+    } else {
+      return null
+    }
+  }, [])
 
     return (
         <div className="keyword-cont">
