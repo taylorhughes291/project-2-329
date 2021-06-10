@@ -139,7 +139,7 @@ div.nav svg {
 
 /* Landing Page */
 div.landing-cont h1.hero {
-  padding: 35px 34px;
+  padding: 35px 34px 15px;
   font-size: 30px;
   line-height: 44px;;
 }
@@ -177,6 +177,10 @@ div.landing-cont div.search-title {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+div.landing-cont div.carousel-cont {
+  height: 365px;
 }
 
 div.landing-cont h2 {
