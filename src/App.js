@@ -17,7 +17,6 @@ function App(props) {
   // initialize state to capture person profile
 
   const [person, setPerson] = useState({
-    name: "",
     budget: "",
     keywords: [],
     keywordText1: "",
@@ -40,7 +39,6 @@ function App(props) {
 
   const handleReset = () => {
     setPerson({
-      name: "",
       budget: "",
       keywords: [],
       keywordText: "",

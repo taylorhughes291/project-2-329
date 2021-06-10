@@ -39,17 +39,6 @@ const KeywordBuilder = (props) => {
   // Functions
   ////////////////////////
 
-  // The following function handles updating State when the user changes the Gift Recipient field.
-  const handleNameChange = (event) => {
-    let person = {
-        ...props.person,
-        name: event.target.value
-    }
-    props.setPerson(person)
-  }
-
-
-
   //Invoking this function will enable the user to see more products than what is displayed. It is invoked both
   //    in the initial product search, where numberOfProducts is passed depending on the device size.
   //    It is invoked again when the user clicks "See More Products" at the bottom of the page, after initial 
@@ -76,7 +65,7 @@ const KeywordBuilder = (props) => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   function LoadingModal() {
-    const isReadyToSearch = props.person.budget !== "" && props.person.name !== "" && (props.person.keywordText1 !== "" || props.person.keywordText2 !== ""  || props.person.keywordText3 !== "" )
+    const isReadyToSearch = props.person.budget !== "" && (props.person.keywordText1 !== "" || props.person.keywordText2 !== ""  || props.person.keywordText3 !== "" )
     return (
       <>
         <Button onClick={isReadyToSearch ? () => handleClick(props.person.keywordText1, props.person.keywordText2, props.person.keywordText3) : () => handleShow()}>
@@ -188,7 +177,6 @@ const KeywordBuilder = (props) => {
     return (
         <div className="keyword-cont">
           <div className={props.person.searched ? "completed-form" : "completed-form hidden"}>
-            <h5>Recipient: {props.person.name}</h5>
             <h5
               className={sumTotal() > props.person.budget ? "sum-total over" : "sum-total"}
             >Budget: ${sumTotal()} / ${props.person.budget}</h5>
@@ -200,13 +188,6 @@ const KeywordBuilder = (props) => {
             <form
               className={props.person.searched ? "hidden" : ""}
             >
-                <h5>Gift Recipient:</h5>
-                <input 
-                    type="text" 
-                    placeholder="Tiny Tim"
-                    value={props.person.name}
-                    onChange={handleNameChange}
-                ></input>
                 <h5>Budget:</h5>
                 <span className={isFilled ? "dollar-filled" : "dollar"}>$</span>
                 <input 
