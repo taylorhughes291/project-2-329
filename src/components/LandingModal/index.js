@@ -2,7 +2,7 @@ import React from "react"
 import {Modal} from "react-bootstrap"
 import KeywordInput from "./KeywordInput"
 import BudgetInput from "./BudgetInput"
-import ship from "./assets/ship.png"
+import ship from "../../assets/ship.png"
 
 const LandingModal = ({processFlow, setProcessFlow, person, handleContinue, handleKeywordChange1, handleKeywordChange2, handleKeywordChange3, handleBudgetChange, modalShow, setModalShow}) => {
 

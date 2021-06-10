@@ -6,7 +6,7 @@ import {useMediaQuery} from "react-responsive"
 import {Modal, Button} from "react-bootstrap"
 import priceFilter from "../functions/priceFilter.js"
 import processKeywords from "../functions/processKeywords"
-
+import ship from "../assets/ship.png"
 
 
 const KeywordBuilder = (props) => {
@@ -79,11 +79,10 @@ const KeywordBuilder = (props) => {
             backdrop="static"
             keyboard={false}
           >
-            <Modal.Header>
-              <Modal.Title>Your Gift Recommendations are Loading!</Modal.Title>
-            </Modal.Header>
             <Modal.Body>
-              Give us a few more seconds to help you find the perfect gift. It could take us a minute to think of something great!
+              <h2>SUCCESS!</h2>
+              <img src={ship} alt="ship loading icon" />
+              <p>One moment while we gather your search results...</p>
             </Modal.Body>
           </Modal>
         </>}
