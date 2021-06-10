@@ -2,11 +2,14 @@ import './App.css';
 import Nav from "./components/Nav"
 import KeywordBuilder from "./pages/KeywordBuilder"
 import FinalCart from "./pages/FinalCart"
-import {Route, Switch} from "react-router-dom"
-import {useState} from "react"
+import {Route, Switch, withRouter} from "react-router-dom"
+import {useState, createContext} from "react"
 import 'bootstrap/dist/css/bootstrap.min.css'
+import LandingPage from "./pages/LandingPage"
 
-function App() {
+export const setPersonContext = createContext(null)
+
+function App(props) {
   ////////////////////////
   // Constants
   ////////////////////////
@@ -28,6 +31,8 @@ function App() {
     productDisplay: [],
     displayBank: []
   })
+
+  
   
   ////////////////////////
   // Functions
@@ -44,22 +49,80 @@ function App() {
     setProductSearch([])
   }
 
+  // The following function handles changes the user inputs to the Keyword Field.
+  //    It also doesn't allow the user to type in more than 3 keywords.
+  const handleKeywordChange1 = (event) => {
+    let newPerson = {
+        ...person,
+        keywordText1: event.target.value
+    }
+    setPerson(newPerson)
+  }
+  const handleKeywordChange2 = (event) => {
+    let newPerson = {
+        ...person,
+        keywordText2: event.target.value
+    }
+    setPerson(newPerson)
+  }
+  const handleKeywordChange3 = (event) => {
+    let newPerson = {
+        ...person,
+        keywordText3: event.target.value
+    }
+    setPerson(newPerson)
+  }
+
+  // The following function handles updates when the user changes the Budget field.
+  const handleBudgetChange = (event) => {
+    let newPerson = {
+        ...person,
+        budget: parseFloat(event.target.value)
+    }
+    setPerson(newPerson)
+  }
+
+
   ////////////////////////
   // Render
   ////////////////////////
 
   return (
-    <div className="App">
+    <div 
+      className="App"
+      key="app"
+    >
       <Nav 
         handleReset={handleReset}
       />
-      <Switch>
-        <Route exact path="/">
+      <Switch
+        key="switch-1"
+      >
+        <Route
+          exact path="/"
+          key="route-landing-page"
+        >
+          <setPersonContext.Provider value={{setPerson}}>
+            <LandingPage
+              key="landing-page-1"
+              person={person}
+              handleKeywordChange1={handleKeywordChange1}
+              handleKeywordChange2={handleKeywordChange2}
+              handleKeywordChange3={handleKeywordChange3}
+              handleBudgetChange={handleBudgetChange}
+            />
+          </setPersonContext.Provider>
+        </Route>
+        <Route path="/giftsearch">
           <KeywordBuilder 
             person={person}
             setPerson={setPerson}
             productSearch={productSearch}
             setProductSearch={setProductSearch}
+            handleKeywordChange1={handleKeywordChange1}
+            handleKeywordChange2={handleKeywordChange2}
+            handleKeywordChange3={handleKeywordChange3}
+            handleBudgetChange={handleBudgetChange}
           />
         </Route>
         <Route path="/finalcart">
@@ -76,4 +139,4 @@ function App() {
   );
 }
 
-export default App;
+export default withRouter(App);

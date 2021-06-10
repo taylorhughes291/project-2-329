@@ -70,7 +70,7 @@ const Nav = (props) => {
         <Container fluid>
             <div className="nav">
                 <div className="mobileCont">
-                    <img src="https://i.imgur.com/b3520VX.png?1" alt="wrappd logo"/>
+                    <h1>GIFTHALLA</h1>
                     {!isTablet && <div className="hamburger-cont">
                         <i 
                             className="fas fa-bars fa-2x"
