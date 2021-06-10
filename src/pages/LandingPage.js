@@ -36,9 +36,15 @@ const LandingPage = (props) => {
         setModalShow(true)
     }
 
-    const imageRandomizer = () => {
+
+    const selectionArray = []
+    let counter = 0
+    while (counter < 3) {
         const selection = Math.floor(Math.random() * landingImages.length)
-        return selection
+        if (!selectionArray.includes(selection)) {
+            selectionArray.push(selection)
+            counter += 1
+        }
     }
       
 
@@ -53,29 +59,31 @@ const LandingPage = (props) => {
         >
             <div className="landing-page-cont">
                 <h1 className="hero">Find a glorious gift in just a few clicks!</h1>
-                <Carousel>
-                    <Carousel.Item interval={5000}>
-                        <img
-                        className="d-block w-100"
-                        src={landingImages[imageRandomizer()]}
-                        alt="First slide"
-                        />
-                    </Carousel.Item>
-                    <Carousel.Item interval={5000}>
-                        <img
-                        className="d-block w-100"
-                        src="https://placeimg.com/300/300/any"
-                        alt="Second slide"
-                        />
-                    </Carousel.Item>
-                    <Carousel.Item interval={5000}>
-                        <img
-                        className="d-block w-100"
-                        src="https://placeimg.com/300/300/any"
-                        alt="Third slide"
-                        />
-                    </Carousel.Item>
+                <div className="carousel-cont">
+                    <Carousel>
+                        <Carousel.Item interval={5000}>
+                            <img
+                            className="d-block w-100"
+                            src={landingImages[selectionArray[0]]}
+                            alt="First slide"
+                            />
+                        </Carousel.Item>
+                        <Carousel.Item interval={5000}>
+                            <img
+                            className="d-block w-100"
+                            src={landingImages[selectionArray[1]]}
+                            alt="Second slide"
+                            />
+                        </Carousel.Item>
+                        <Carousel.Item interval={5000}>
+                            <img
+                            className="d-block w-100"
+                            src={landingImages[11]}
+                            alt="Third slide"
+                            />
+                        </Carousel.Item>
                     </Carousel>
+                </div>
             </div>
             <div className="subtext-marketplace-cont">
                 <p>Find the best products from your favorite marketplaces.</p>
