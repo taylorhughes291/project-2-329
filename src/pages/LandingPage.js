@@ -4,6 +4,7 @@ import LandingModal from "../components/LandingModal"
 import amazonLogo from "../assets/amazon.png"
 import ebayLogo from "../assets/ebay.png"
 import etsyLogo from "../assets/etsy.png"
+import landingImages from "../assets/landingImages.js"
 
 const LandingPage = (props) => {
 
@@ -34,6 +35,11 @@ const LandingPage = (props) => {
         }
         setModalShow(true)
     }
+
+    const imageRandomizer = () => {
+        const selection = Math.floor(Math.random() * landingImages.length)
+        return selection
+    }
       
 
     /////////////////////////////
@@ -51,7 +57,7 @@ const LandingPage = (props) => {
                     <Carousel.Item interval={5000}>
                         <img
                         className="d-block w-100"
-                        src="https://placeimg.com/300/300/any"
+                        src={landingImages[imageRandomizer()]}
                         alt="First slide"
                         />
                     </Carousel.Item>
