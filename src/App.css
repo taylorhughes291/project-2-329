@@ -80,11 +80,13 @@ div.nav {
   padding: 0 0 17px 0;
   max-width: 961px;
   width: 100%;
+  background-color: #3C5068;
+  color: #FFFFFF;
+  ;
 }
 
 div.nav h1 {
   margin: 57px 0 0 16px;
-  color: #181F25;
   font-size: 25px;
   font-family: 'Josefin Sans', sans-serif;
 }
@@ -103,10 +105,6 @@ div.hamburger-cont {
  display: flex;
  justify-content: center;
  align-items: center;
-}
-
-div.nav i {
-  color: #181F25;
 }
 
 div.options-cont {
