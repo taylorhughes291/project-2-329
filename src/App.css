@@ -432,9 +432,7 @@ div.sum-total-cont .over {
 }
 
 div.product-carousel {
-  border-top: 1px solid rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
-  margin: 20px 2px 20px;
+  margin: 0 2px 20px;
   padding: 0 0 0 0;
   display: flex;
   flex-direction: column;
@@ -448,7 +446,6 @@ div.product-carousel div.see-more {
   justify-content: center;
   align-items: center;
   background-color: #554D56;
-  border: 5px solid #554D56;
   border-radius: 7px;
   margin: 10px 0 0;
   cursor: pointer;
@@ -485,7 +482,6 @@ div.card {
   margin: 0 auto;
   width: 100% !important;
   height: 100%;
-  border: 0px solid !important;
   flex-direction: row;
 }
 
@@ -497,12 +493,12 @@ div.card p.card-text {
 div.product {
   width: 100%;
   margin: 0 2px 0;
-  padding: 15px 0;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
   flex-basis: auto;
   height: 320px;
   display: flex;
   align-items: center;
+  padding: 0;
 }
 
 div.product div.overlay {
@@ -701,7 +697,6 @@ div.selectedProduct {
   height: 215px;
   margin: 0 4px;
   padding: 0 5px;
-  border: 2px solid #79676E;
   border-bottom: 0;
   grid-gap: 11px;
 }
@@ -810,7 +805,7 @@ div.selectedProduct h5 {
   /* Product Carousel */
   div.product-carousel {
     width: 90%;
-    margin: 40px auto 20px;
+    margin: 0 auto 20px;
   }
 
   /* Final Cart */
@@ -855,13 +850,8 @@ div.selectedProduct h5 {
     width: 100%;
   }
 
-  div.product-carousel {
-    border: 1px solid black;
-    margin: 40px 0 20px 0;
-    width: 100%
-  }
 
-    /* Final Cart */
+/* Final Cart */
 div.cart-cont .title {
   font-size: 50px;
 }
