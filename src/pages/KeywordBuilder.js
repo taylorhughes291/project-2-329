@@ -176,13 +176,16 @@ const KeywordBuilder = (props) => {
     return (
         <div className="keyword-cont">
           <div className={props.person.searched ? "completed-form" : "completed-form hidden"}>
-            <h5
-              className={sumTotal() > props.person.budget ? "sum-total over" : "sum-total"}
-            >Budget: ${sumTotal()} / ${props.person.budget}</h5>
-            <h5>Keywords: {props.person.keywordText1} {props.person.keywordText2 && ` / ${props.person.keywordText2}`}{props.person.keywordText3 && ` / ${props.person.keywordText3}`}</h5>
-            <button
-              onClick={handleEdit}
-            >Edit</button>
+            <div className="keywords-cont">
+              <div className="keyword-cont"><h5>{props.person.keywordText1}</h5></div>
+              <div className="keyword-cont"><h5>{props.person.keywordText2}</h5></div>
+              <div className="keyword-cont"><h5>{props.person.keywordText3}</h5></div>
+            </div>
+            <div className="datas-cont">
+              <div className="data-cont"><h4>Sort</h4></div>
+              <div className="data-cont"><h4 className={sumTotal() > props.person.budget ? "sum-total over" : "sum-total"}>${sumTotal()} / ${props.person.budget}</h4></div>
+              <div className="data-cont">icon</div>
+            </div>
           </div>
             <form
               className={props.person.searched ? "hidden" : ""}

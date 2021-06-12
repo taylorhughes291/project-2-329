@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Varta:wght@700&display=swap');
 
 
@@ -60,7 +59,6 @@ button {
   border-color: #99E9FF;
   background-color: #99E9FF;
   color: #847178;
-  font-family: 'Josefin Sans', sans-serif;
   font-weight: 700;
 }
 
@@ -88,7 +86,6 @@ div.nav {
 div.nav h1 {
   margin: 57px 0 0 16px;
   font-size: 25px;
-  font-family: 'Josefin Sans', sans-serif;
 }
 
 
@@ -125,7 +122,6 @@ div.options-cont li {
   list-style: none;
   padding: 5px 0;
   color: #786870;
-  font-family: 'Josefin Sans', sans-serif;
   font-weight: 700;
   font-size: 20px;
 }
@@ -277,26 +273,56 @@ div.modal p.alert {
 /* Keyword Builder  */
 
 div.keyword-cont {
-  padding: 15px 0 30px;;
+  padding: 0 0 30px;;
   max-width: 961px;
   width: 100%;
-  font-family: 'Josefin Sans', sans-serif;
 }
 
 div.keyword-cont div.completed-form {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0 10px;
   align-items: flex-start;
 }
 
-div.keyword-cont div.completed-form h5 {
-  text-align: left;
-  margin: 0 0 10px;
+div.keyword-cont div.completed-form div.keywords-cont {
   display: flex;
+  width: 100%;
+}
+
+div.keyword-cont div.completed-form div.keywords-cont div.keyword-cont {
+  width: 33%;
+  display: flex;
+  justify-content: center;
   align-items: center;
-  padding: 1px 0 0;
+  height: 32px;
+  padding: 0 8px 0;
+  margin: 0px 4px 0 0;
+  background: #FFFFFF;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+div.keyword-cont div.completed-form div.keywords-cont div.keyword-cont h5 {
+  font-size: 13px;
+  margin: 0;
+}
+
+div.keyword-cont div.datas-cont {
+  display: flex;
+  width: 100%;
+  padding: 13px 0;
+}
+
+div.keyword-cont div.datas-cont div.data-cont {
+  width: 33%;
+  justify-content: center;
+  align-items: center;
+}
+
+div.keyword-cont div.datas-cont div.data-cont h4 {
+  font-size: 17px;
+  color: #1D1F22;
+  margin: 0;
 }
 
 div.keyword-cont div.completed-form button {
@@ -455,7 +481,6 @@ div.card {
 
 div.card p.card-text {
   font-size: 15px;
-  font-family: 'Josefin Sans', sans-serif;
   cursor: pointer;
 }
 
@@ -619,7 +644,6 @@ div.product div.price-button-cont button.selected {
 }
 
 div.product div.price-button-cont div.h5 {
-  font-family: 'Josefin Sans', sans-serif;
   font-weight: 700;
   font-size: 30px;
 }
@@ -631,7 +655,6 @@ div.product div.price-button-cont div.card-title {
 /* Cart */
 div.cart-cont {
   margin: 20px 0;
-  font-family: 'Josefin Sans', sans-serif;
   color: #584B50;
   max-width: 961px;
 }
