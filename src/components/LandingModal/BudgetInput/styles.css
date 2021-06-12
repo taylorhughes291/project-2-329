@@ -1,4 +1,4 @@
-div.modal-body div.buttons input, div.modal-body div.buttons input {
+div.modal-body div.buttons input {
     margin-top: 7px;
     width: 120px;
     height: 23px;
@@ -12,5 +12,6 @@ div.modal-body div.buttons input, div.modal-body div.buttons input {
 div.modal-body div.buttons {
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    grid-gap: 30px;
 }

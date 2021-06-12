@@ -94,12 +94,16 @@ const LandingPage = (props) => {
                 </div>
             </div>
             <div 
+                className="search-title"
+                onClick={handleContinue}
+            >
+                    <h2>SEARCH GIFTS</h2>
+            </div>
+            <div 
                 className="search-cont"
                 key="search-cont-div-1"
             >
-                <div className="search-title">
-                    <h2>SEARCH GIFTS</h2>
-                </div>
+
                 <div 
                     className="search"
                     key="search-div"

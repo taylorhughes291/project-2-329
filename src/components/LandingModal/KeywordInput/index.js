@@ -3,7 +3,7 @@ import {setPersonContext} from "../../../App"
 import "./styles.css"
 
 
-function KeywordInput ({person, setProcessFlow, processFlow}) {
+function KeywordInput ({person, setProcessFlow, processFlow, setModalShow}) {
     
     /////////////////////////
     // Constants
@@ -85,11 +85,19 @@ function KeywordInput ({person, setProcessFlow, processFlow}) {
                     onChange={handleKeywordChange}
                     key="3"
                 ></input>
-                <input 
-                    type="submit" 
-                    value="CONTINUE"
-                    key="4"
-                ></input>
+                <div className="buttons">
+                    <input 
+                        type="submit" 
+                        value="CONTINUE"
+                        key="4"
+                    ></input>
+                    <input
+                        type="button"
+                        value="BACK"
+                        key="7"
+                        onClick={() => setModalShow(false)}
+                    ></input>
+                </div>
             </form>
         </>
     )
