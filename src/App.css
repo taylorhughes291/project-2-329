@@ -309,20 +309,30 @@ div.keyword-cont div.completed-form div.keywords-cont div.keyword-cont h5 {
 
 div.keyword-cont div.datas-cont {
   display: flex;
+  flex-direction: row;
+  align-items: center;
   width: 100%;
   padding: 13px 0;
 }
 
 div.keyword-cont div.datas-cont div.data-cont {
   width: 33%;
+  display: flex;
   justify-content: center;
   align-items: center;
+}
+
+div.keyword-cont div.datas-cont div.data-cont i {
+  margin: 0 0 0 10px;
 }
 
 div.keyword-cont div.datas-cont div.data-cont h4 {
   font-size: 17px;
   color: #1D1F22;
-  margin: 0;
+  margin: 3px 0 0 0;
+  vertical-align: middle;
+  display: flex;
+  align-items: center;
 }
 
 div.keyword-cont div.completed-form button {

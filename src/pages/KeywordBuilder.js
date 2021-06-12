@@ -7,6 +7,7 @@ import {Modal, Button} from "react-bootstrap"
 import priceFilter from "../functions/priceFilter.js"
 import processKeywords from "../functions/processKeywords"
 import ship from "../assets/ship.png"
+import cart from "../assets/cart.png"
 
 
 const KeywordBuilder = (props) => {
@@ -182,9 +183,12 @@ const KeywordBuilder = (props) => {
               <div className="keyword-cont"><h5>{props.person.keywordText3}</h5></div>
             </div>
             <div className="datas-cont">
-              <div className="data-cont"><h4>Sort</h4></div>
+              <div className="data-cont">
+                <h4>Sort</h4>
+                <i class="fas fa-chevron-down"></i>
+              </div>
               <div className="data-cont"><h4 className={sumTotal() > props.person.budget ? "sum-total over" : "sum-total"}>${sumTotal()} / ${props.person.budget}</h4></div>
-              <div className="data-cont">icon</div>
+              <div className="data-cont"><img src={cart} alt="cart icon" /></div>
             </div>
           </div>
             <form
