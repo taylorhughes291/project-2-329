@@ -51,7 +51,7 @@
 /* BODY */
 body {
   font-family: 'Varta', sans-serif !important;
-  background-color: #E2F0E6 !important;
+  background: linear-gradient(180deg, #FEFCF4 0%, #EFEDE6 100%);
 }
 
 button {
@@ -69,7 +69,6 @@ div.nav-cont {
 
 div.container-fluid {
   padding: 0;
-  background-color: none;
   display: flex;
   justify-content: center;
 }
@@ -88,6 +87,10 @@ div.nav h1 {
   font-size: 25px;
 }
 
+div.home-page {
+  color: #2D2B26;
+  background-color: inherit;
+}
 
 div.mobileCont {
   display: flex;
@@ -199,6 +202,10 @@ div.landing-cont h2 {
   text-align: center;
   color: #FFFFFF;
   margin: 0;
+}
+
+div.search {
+  background-color: #FFFFFF;
 }
 
 div.landing-cont div.search p {

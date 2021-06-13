@@ -19,6 +19,8 @@ const LandingPage = (props) => {
         budget: false
     })
 
+    console.log(props.history);
+
     /////////////////////////////
     // Functions
     /////////////////////////////
