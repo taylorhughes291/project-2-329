@@ -191,6 +191,16 @@ div.landing-cont div.carousel-cont {
   height: 365px;
 }
 
+div.landing-cont div.carousel-cont div.carousel-slide {
+  max-height: 100%;
+}
+
+div.landing-cont div.carousel-inner img {
+  max-height: 357px;
+  width: auto !important;
+  height: 100%;
+}
+
 div.landing-cont h2 {
   font-family: Varta;
   font-style: normal;
@@ -206,6 +216,11 @@ div.landing-cont h2 {
 
 div.search {
   background-color: #FFFFFF;
+  padding: 40px 0 0;
+}
+
+div.search img {
+  margin-bottom: 30px;
 }
 
 div.landing-cont div.search p {
@@ -228,14 +243,46 @@ div.landing-cont div.search form input {
 
 div.landing-cont div.search form input:nth-of-type(4) {
   margin: 20px 0 80px;
-  height: 23px;
-  width: 120px;
+  height: 32px;
   background-color: #F386A2;
   color: #FFFFFF;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 4px;
   border: none;
-  font-size: 14px;
+  font-size: 16px;
+}
+
+div.landing-cont div.explore-banner{
+  height: 73px;
+  width: 100%;
+  background-color: #3C5068;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+div.landing-cont h3 {
+  font-size: 24px;
+  color: #FFFFFF;
+  margin: 0;
+  line-height: 35px;
+}
+
+div.landing-cont div.first-inspiration-banner {
+  height: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+div.landing-cont div.first-inspiration-banner div.inspiration-img-cont {
+  height: 178px;
+  width: 156px;
+}
+
+div.landing-cont div.first-inspiration-banner div.inspiration-img-cont img {
+  max-height: 100%;
+  margin: 20px 0;
 }
 
 div.landing-cont div.jumbotron {

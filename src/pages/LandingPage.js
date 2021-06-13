@@ -1,10 +1,12 @@
 import React, {useState} from "react"
 import {Carousel, Jumbotron, Container} from "react-bootstrap"
+import {Link} from "react-router-dom"
 import LandingModal from "../components/LandingModal"
 import amazonLogo from "../assets/amazon.png"
 import ebayLogo from "../assets/ebay.png"
 import etsyLogo from "../assets/etsy.png"
 import landingImages from "../assets/landingImages.js"
+import search from "../assets/search.png"
 
 const LandingPage = (props) => {
 
@@ -41,7 +43,7 @@ const LandingPage = (props) => {
 
     const selectionArray = []
     let counter = 0
-    while (counter < 3) {
+    while (counter < 5) {
         const selection = Math.floor(Math.random() * landingImages.length)
         if (!selectionArray.includes(selection)) {
             selectionArray.push(selection)
@@ -110,6 +112,7 @@ const LandingPage = (props) => {
                     className="search"
                     key="search-div"
                 >
+                    <img src={search} alt="search icon" />
                     <p>Our search results are based on keywords. Just tell us three things your giftee likes!</p>
                     <form
                         onSubmit={handleContinue}
@@ -150,6 +153,16 @@ const LandingPage = (props) => {
                         modalShow={modalShow}
                         setModalShow={setModalShow}
                     />
+                </div>
+            </div>
+            <div className="explore-banner">
+                <h3>Need Some Inspiration?</h3>
+            </div>
+            <div className="first-inspiration-banner">
+                <div className="inspiration-img-cont">
+                    <img src={landingImages[selectionArray[3]]} alt="generic product" />
+                    <h5>Gifts for the person who has everything</h5>
+                    <Link><h5>Explore gifts</h5></Link>
                 </div>
             </div>
             <div className="footer-image">
