@@ -169,6 +169,7 @@ div.landing-cont div.subtext-marketplace-cont div.markets-cont {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  mix-blend-mode: luminosity;
 }
 
 div.landing-cont div.search-cont {
@@ -324,11 +325,20 @@ div.landing-cont div.inspiration-banner.third {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  grid-gap: 0;
+  grid-gap: 16px;
+  height: 270px;
 }
 
 div.landing-cont div.inspiration-banner.third div {
   max-width: 50%;
+  width: 100%;
+}
+
+div.landing-cont div.inspiration-banner.third p {
+  font-size: 12px;
+  line-height: 17.6px;
+  margin: 0;
+  font-weight: normal;
   width: 100%;
 }
 
@@ -348,7 +358,19 @@ div.landing-cont div.inspiration-banner.third div.testimonial-cont {
   align-items: flex-start;
   justify-content: center;
   text-align: left;
-  padding: 0 10px 0 0;
+  padding: 0 5px 0 0;
+  grid-gap: 10px;
+}
+
+div.landing-cont div.inspiration-banner.third div.testimonial-author {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 100%;
+}
+
+.bold {
+  font-weight: bold;
 }
 
 div.landing-cont div.jumbotron {
@@ -358,6 +380,8 @@ div.landing-cont div.jumbotron {
   display: flex;
   align-items: center;
   background-size: 100% auto;
+  background-color: #404D5B;
+  background-blend-mode: luminosity;
 }
 
 div.landing-cont div.jumbotron div.container {
@@ -390,7 +414,7 @@ div.landing-cont footer {
 div.landing-cont footer p {
   margin: 0;
   color:#FFFFFF;
- 
+  font-size: 12px; 
 }
 
 div.modal-body h2 {
