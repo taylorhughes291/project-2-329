@@ -268,28 +268,91 @@ div.landing-cont h3 {
   line-height: 35px;
 }
 
-div.landing-cont div.first-inspiration-banner {
+div.landing-cont div.inspiration-banner {
   height: 320px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  grid-gap: 15px;
 }
 
-div.landing-cont div.first-inspiration-banner div.inspiration-img-cont {
-  height: 178px;
-  width: 156px;
+div.landing-cont div.inspiration-banner.second {
+  background: #ADABA4;
 }
 
-div.landing-cont div.first-inspiration-banner div.inspiration-img-cont img {
+div.landing-cont div.inspiration-banner.second a {
+  color: #FEFCF4;
+
+}
+
+div.landing-cont div.inspiration-banner div.inspiration-img-cont {
+  max-height: 178px;
+  height: 100%;
+  width: auto;
+  margin: 15px 0 7px;
+}
+
+div.landing-cont div.inspiration-banner div.inspiration-img-cont img {
   max-height: 100%;
-  margin: 20px 0;
+}
+
+div.landing-cont div.inspiration-banner h5 {
+  max-width: 169px;
+  margin: 0;
+}
+
+div.landing-cont div.inspiration-banner div.link-cont {
+  display: flex;
+  align-items: center;
+  grid-gap: 8px;
+}
+
+div.landing-cont div.inspiration-banner div.link-cont h5 {
+  margin: 3px 0 0 0;
+}
+
+div.landing-cont div.inspiration-banner a {
+  color: #F87093;
+}
+
+div.landing-cont div.inspiration-banner.third {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  grid-gap: 0;
+}
+
+div.landing-cont div.inspiration-banner.third div {
+  max-width: 50%;
+  width: 100%;
+}
+
+div.landing-cont div.inspiration-banner.third div.inspiration-img-cont {
+  max-height: 192px;
+}
+
+div.landing-cont div.inspiration-banner.third img {
+  width: 152px;
+  height: 192px !important;
+}
+
+div.landing-cont div.inspiration-banner.third div.testimonial-cont {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  text-align: left;
+  padding: 0 10px 0 0;
 }
 
 div.landing-cont div.jumbotron {
   background-image: url("./assets/Walhalla.jpg");
   height: 354px;
-  mix-blend-mode: luminosity;
+  mix-blend-mode: color;
   margin: 0;
+  will-change: opacity;
 }
 
 div.landing-cont div.jumbotron h2 {
@@ -466,7 +529,7 @@ div.keyword-cont button:hover {
 div.keyword-cont button.finalize {
   width: 400px;
   font-size: 30px;
-  weight: 700;
+  font-weight: 700;
 }
 
 /* Product Carousel */

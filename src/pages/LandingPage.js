@@ -7,6 +7,8 @@ import ebayLogo from "../assets/ebay.png"
 import etsyLogo from "../assets/etsy.png"
 import landingImages from "../assets/landingImages.js"
 import search from "../assets/search.png"
+import rightArrow from "../assets/right-arrow.png"
+import testimonialOne from "../assets/testimonial-1.jpg"
 
 const LandingPage = (props) => {
 
@@ -50,7 +52,7 @@ const LandingPage = (props) => {
             counter += 1
         }
     }
-      
+     console.log(selectionArray); 
 
     /////////////////////////////
     // Render
@@ -82,7 +84,7 @@ const LandingPage = (props) => {
                         <Carousel.Item interval={5000}>
                             <img
                             className="d-block w-100"
-                            src={landingImages[11]}
+                            src={landingImages[selectionArray[2]]}
                             alt="Third slide"
                             />
                         </Carousel.Item>
@@ -158,11 +160,38 @@ const LandingPage = (props) => {
             <div className="explore-banner">
                 <h3>Need Some Inspiration?</h3>
             </div>
-            <div className="first-inspiration-banner">
+            <div className="first inspiration-banner">
                 <div className="inspiration-img-cont">
                     <img src={landingImages[selectionArray[3]]} alt="generic product" />
-                    <h5>Gifts for the person who has everything</h5>
-                    <Link><h5>Explore gifts</h5></Link>
+                </div>
+                <h5>Gifts for the person who has everything</h5>
+                <Link to="/">
+                    <div className="link-cont">
+                        <h5>Explore gifts</h5>
+                        <img src={rightArrow} alt="right arrow indicating a link to another page" /> 
+                    </div>
+                </Link>
+            </div>
+            <div className="second inspiration-banner">
+                <div className="inspiration-img-cont">
+                    <img src={landingImages[selectionArray[4]]} alt="generic product" />
+                </div>
+                <h5>Gifts for the person who has everything</h5>
+                <Link to="/">
+                    <div className="link-cont">
+                        <h5>Explore gifts</h5>
+                        <img src={rightArrow} alt="right arrow indicating a link to another page" /> 
+                    </div>
+                </Link>
+            </div>
+            <div className="third inspiration-banner">
+                <div className="inspiration-img-cont">
+                    <img src={testimonialOne} alt="generic product" />
+                </div>
+                <div className="testimonial-cont">
+                    <h6>I thought Mother’s Day was next weekend! Thank Odin I found Gifthalla. Mom loves the lavender candle and Poo-Pourri.</h6>
+                    <h6 className="bold">Sam Nusbaum</h6>
+                    <h6>Real Gifthalla User</h6>
                 </div>
             </div>
             <div className="footer-image">
