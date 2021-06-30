@@ -1,10 +1,14 @@
 import React, {useState} from "react"
 import {Carousel, Jumbotron, Container} from "react-bootstrap"
+import {Link} from "react-router-dom"
 import LandingModal from "../components/LandingModal"
 import amazonLogo from "../assets/amazon.png"
 import ebayLogo from "../assets/ebay.png"
 import etsyLogo from "../assets/etsy.png"
 import landingImages from "../assets/landingImages.js"
+import search from "../assets/search.png"
+import rightArrow from "../assets/right-arrow.png"
+import testimonialOne from "../assets/testimonial-1.jpg"
 
 const LandingPage = (props) => {
 
@@ -18,6 +22,8 @@ const LandingPage = (props) => {
         keywords: false,
         budget: false
     })
+
+    console.log(props.history);
 
     /////////////////////////////
     // Functions
@@ -39,14 +45,14 @@ const LandingPage = (props) => {
 
     const selectionArray = []
     let counter = 0
-    while (counter < 3) {
+    while (counter < 5) {
         const selection = Math.floor(Math.random() * landingImages.length)
         if (!selectionArray.includes(selection)) {
             selectionArray.push(selection)
             counter += 1
         }
     }
-      
+     console.log(selectionArray); 
 
     /////////////////////////////
     // Render
@@ -57,40 +63,42 @@ const LandingPage = (props) => {
             className="landing-cont"
             key="landing-cont-1"
         >
-            <div className="landing-page-cont">
-                <h1 className="hero">Find a glorious gift in just a few clicks!</h1>
-                <div className="carousel-cont">
-                    <Carousel>
-                        <Carousel.Item interval={5000}>
-                            <img
-                            className="d-block w-100"
-                            src={landingImages[selectionArray[0]]}
-                            alt="First slide"
-                            />
-                        </Carousel.Item>
-                        <Carousel.Item interval={5000}>
-                            <img
-                            className="d-block w-100"
-                            src={landingImages[selectionArray[1]]}
-                            alt="Second slide"
-                            />
-                        </Carousel.Item>
-                        <Carousel.Item interval={5000}>
-                            <img
-                            className="d-block w-100"
-                            src={landingImages[11]}
-                            alt="Third slide"
-                            />
-                        </Carousel.Item>
-                    </Carousel>
+            <div className="top-background">
+                <div className="landing-page-cont">
+                    <h1 className="hero">Find a glorious gift in just a few clicks!</h1>
+                    <div className="carousel-cont">
+                        <Carousel slide={false} fade={false}>
+                            <Carousel.Item interval={5000}>
+                                <img
+                                className="d-block w-100"
+                                src={landingImages[selectionArray[0]]}
+                                alt="First slide"
+                                />
+                            </Carousel.Item>
+                            <Carousel.Item interval={5000}>
+                                <img
+                                className="d-block w-100"
+                                src={landingImages[selectionArray[1]]}
+                                alt="Second slide"
+                                />
+                            </Carousel.Item>
+                            <Carousel.Item interval={5000}>
+                                <img
+                                className="d-block w-100"
+                                src={landingImages[selectionArray[2]]}
+                                alt="Third slide"
+                                />
+                            </Carousel.Item>
+                        </Carousel>
+                    </div>
                 </div>
-            </div>
-            <div className="subtext-marketplace-cont">
-                <p>Find the best products from your favorite marketplaces.</p>
-                <div className="markets-cont">
-                    <img src={amazonLogo} alt="Amazon logo" />
-                    <img src={ebayLogo} alt="eBay logo" />
-                    <img src={etsyLogo} alt="Etsy logo" />
+                <div className="subtext-marketplace-cont">
+                    <p>Find the best products from your favorite marketplaces.</p>
+                    <div className="markets-cont">
+                        <img src={amazonLogo} alt="Amazon logo" />
+                        <img src={ebayLogo} alt="eBay logo" />
+                        <img src={etsyLogo} alt="Etsy logo" />
+                    </div>
                 </div>
             </div>
             <div 
@@ -108,6 +116,7 @@ const LandingPage = (props) => {
                     className="search"
                     key="search-div"
                 >
+                    <img src={search} alt="search icon" />
                     <p>Our search results are based on keywords. Just tell us three things your giftee likes!</p>
                     <form
                         onSubmit={handleContinue}
@@ -150,6 +159,43 @@ const LandingPage = (props) => {
                     />
                 </div>
             </div>
+            <div className="explore-banner">
+                <h3>Need Some Inspiration?</h3>
+            </div>
+            <div className="first inspiration-banner">
+                <div className="inspiration-img-cont">
+                    <img src={landingImages[selectionArray[3]]} alt="generic product" />
+                </div>
+                <h5>Gifts for the person who has everything</h5>
+                <Link to="/">
+                    <div className="link-cont">
+                        <h5>Explore gifts</h5>
+                        <img src={rightArrow} alt="right arrow indicating a link to another page" /> 
+                    </div>
+                </Link>
+            </div>
+            <div className="second inspiration-banner">
+                <div className="inspiration-img-cont">
+                    <img src={landingImages[selectionArray[4]]} alt="generic product" />
+                </div>
+                <h5>Gifts for the person who has everything</h5>
+                <Link to="/">
+                    <div className="link-cont">
+                        <h5>Explore gifts</h5>
+                        <img src={rightArrow} alt="right arrow indicating a link to another page" /> 
+                    </div>
+                </Link>
+            </div>
+            <div className="third inspiration-banner">
+                <div className="inspiration-img-cont">
+                    <img src={testimonialOne} alt="generic product" />
+                </div>
+                <div className="testimonial-cont">
+                    <h6>I thought Mother’s Day was next weekend! Thank Odin I found Gifthalla. Mom loves the lavender candle and Poo-Pourri.</h6>
+                    <h6 className="bold">Sam Nusbaum</h6>
+                    <h6>Real Gifthalla User</h6>
+                </div>
+            </div>
             <div className="footer-image">
             <Jumbotron fluid>
                 <Container>
@@ -157,6 +203,10 @@ const LandingPage = (props) => {
                 </Container>
             </Jumbotron>
             </div>
+            <footer>
+                <p>Designed By Funky Fresh Design  |  &copy; Gifthalla, LLC</p>
+                <p>All Rights Reserved</p>
+            </footer>
         </div>
 
     )

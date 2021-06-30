@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import {Link} from "react-router-dom"
+import {Link, withRouter} from "react-router-dom"
 import {useMediaQuery} from "react-responsive"
 import {Container, Modal, Button} from "react-bootstrap"
 
@@ -68,7 +68,7 @@ const Nav = (props) => {
 
     return (
         <Container fluid>
-            <div className="nav">
+            <div className={props.history.location.pathname === "/" ? "nav home-page" : "nav"}>
                 <div className="mobileCont">
                     <h1>GIFTHALLA</h1>
                     {!isTablet && <div className="hamburger-cont">
@@ -92,4 +92,4 @@ const Nav = (props) => {
     )
 }
 
-export default Nav
+export default withRouter(Nav)
