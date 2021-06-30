@@ -8,6 +8,7 @@ import etsyLogo from "../assets/etsy.png"
 import landingImages from "../assets/landingImages.js"
 import search from "../assets/search.png"
 import rightArrow from "../assets/right-arrow.png"
+import rightArrow2 from "../assets/right-arrow-2.png"
 import testimonialOne from "../assets/testimonial-1.jpg"
 
 const LandingPage = (props) => {
@@ -182,7 +183,7 @@ const LandingPage = (props) => {
                 <Link to="/">
                     <div className="link-cont">
                         <h5>Explore gifts</h5>
-                        <img src={rightArrow} alt="right arrow indicating a link to another page" /> 
+                        <img src={rightArrow2} alt="right arrow indicating a link to another page" /> 
                     </div>
                 </Link>
             </div>
@@ -191,9 +192,11 @@ const LandingPage = (props) => {
                     <img src={testimonialOne} alt="generic product" />
                 </div>
                 <div className="testimonial-cont">
-                    <h6>I thought Mother’s Day was next weekend! Thank Odin I found Gifthalla. Mom loves the lavender candle and Poo-Pourri.</h6>
-                    <h6 className="bold">Sam Nusbaum</h6>
-                    <h6>Real Gifthalla User</h6>
+                    <p>I thought Mother’s Day was next weekend! Thank Odin I found Gifthalla. Mom loves the lavender candle and Poo-Pourri.</p>
+                    <div className="testimonial-author">
+                        <p className="bold">Sam Nusbaum</p>
+                        <p>Real Gifthalla User</p>
+                    </div>
                 </div>
             </div>
             <div className="footer-image">
