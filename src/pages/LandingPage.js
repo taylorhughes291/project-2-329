@@ -63,40 +63,42 @@ const LandingPage = (props) => {
             className="landing-cont"
             key="landing-cont-1"
         >
-            <div className="landing-page-cont">
-                <h1 className="hero">Find a glorious gift in just a few clicks!</h1>
-                <div className="carousel-cont">
-                    <Carousel>
-                        <Carousel.Item interval={5000}>
-                            <img
-                            className="d-block w-100"
-                            src={landingImages[selectionArray[0]]}
-                            alt="First slide"
-                            />
-                        </Carousel.Item>
-                        <Carousel.Item interval={5000}>
-                            <img
-                            className="d-block w-100"
-                            src={landingImages[selectionArray[1]]}
-                            alt="Second slide"
-                            />
-                        </Carousel.Item>
-                        <Carousel.Item interval={5000}>
-                            <img
-                            className="d-block w-100"
-                            src={landingImages[selectionArray[2]]}
-                            alt="Third slide"
-                            />
-                        </Carousel.Item>
-                    </Carousel>
+            <div className="top-background">
+                <div className="landing-page-cont">
+                    <h1 className="hero">Find a glorious gift in just a few clicks!</h1>
+                    <div className="carousel-cont">
+                        <Carousel slide={false} fade={false}>
+                            <Carousel.Item interval={5000}>
+                                <img
+                                className="d-block w-100"
+                                src={landingImages[selectionArray[0]]}
+                                alt="First slide"
+                                />
+                            </Carousel.Item>
+                            <Carousel.Item interval={5000}>
+                                <img
+                                className="d-block w-100"
+                                src={landingImages[selectionArray[1]]}
+                                alt="Second slide"
+                                />
+                            </Carousel.Item>
+                            <Carousel.Item interval={5000}>
+                                <img
+                                className="d-block w-100"
+                                src={landingImages[selectionArray[2]]}
+                                alt="Third slide"
+                                />
+                            </Carousel.Item>
+                        </Carousel>
+                    </div>
                 </div>
-            </div>
-            <div className="subtext-marketplace-cont">
-                <p>Find the best products from your favorite marketplaces.</p>
-                <div className="markets-cont">
-                    <img src={amazonLogo} alt="Amazon logo" />
-                    <img src={ebayLogo} alt="eBay logo" />
-                    <img src={etsyLogo} alt="Etsy logo" />
+                <div className="subtext-marketplace-cont">
+                    <p>Find the best products from your favorite marketplaces.</p>
+                    <div className="markets-cont">
+                        <img src={amazonLogo} alt="Amazon logo" />
+                        <img src={ebayLogo} alt="eBay logo" />
+                        <img src={etsyLogo} alt="Etsy logo" />
+                    </div>
                 </div>
             </div>
             <div 
@@ -201,6 +203,10 @@ const LandingPage = (props) => {
                 </Container>
             </Jumbotron>
             </div>
+            <footer>
+                <p>Designed By Funky Fresh Design  |  &copy; Gifthalla, LLC</p>
+                <p>All Rights Reserved</p>
+            </footer>
         </div>
 
     )

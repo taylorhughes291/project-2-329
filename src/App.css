@@ -36,22 +36,20 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
 /* //////////////////// */
 /* Custom Styles */
 /* //////////////////// */
 
 /* BODY */
+
+body, html {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 body {
   font-family: 'Varta', sans-serif !important;
-  background: linear-gradient(180deg, #FEFCF4 0%, #EFEDE6 100%);
+  /* background: linear-gradient(180deg, #FEFCF4 0%, #EFEDE6 100%); */
 }
 
 button {
@@ -71,6 +69,7 @@ div.container-fluid {
   padding: 0;
   display: flex;
   justify-content: center;
+  background: #FEFCF4;
 }
 
 div.nav {
@@ -138,6 +137,11 @@ div.nav svg {
 
 div.landing-cont {
   margin: 0 0 80px 0;
+  max-width: 100%;
+}
+
+div.landing-cont div.top-background {
+  background: linear-gradient(180deg, #FEFCF4 0%, #EFEDE6 100%);
 }
 
 div.landing-cont h1.hero {
@@ -165,7 +169,6 @@ div.landing-cont div.subtext-marketplace-cont div.markets-cont {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  mix-blend-mode: luminosity;
 }
 
 div.landing-cont div.search-cont {
@@ -188,7 +191,8 @@ div.landing-cont div.search-title {
 }
 
 div.landing-cont div.carousel-cont {
-  height: 365px;
+  max-height: 365px;
+  max-width: 100%;
 }
 
 div.landing-cont div.carousel-cont div.carousel-slide {
@@ -350,20 +354,43 @@ div.landing-cont div.inspiration-banner.third div.testimonial-cont {
 div.landing-cont div.jumbotron {
   background-image: url("./assets/Walhalla.jpg");
   height: 354px;
-  mix-blend-mode: color;
   margin: 0;
-  will-change: opacity;
+  display: flex;
+  align-items: center;
+  background-size: 100% auto;
+}
+
+div.landing-cont div.jumbotron div.container {
+  display: flex;
+  justify-content: center;
 }
 
 div.landing-cont div.jumbotron h2 {
   font-family: Varta;
   font-style: normal;
-  font-weight: normal;
-  font-size: 24px;
-  line-height: 35px;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 52px;
   color: #FFFFFF;
-  text-align: left;
+  text-align: center;
   margin: 0 16px;
+  width: 251px;
+
+}
+
+div.landing-cont footer {
+  height: 101px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #3C5068;
+}
+
+div.landing-cont footer p {
+  margin: 0;
+  color:#FFFFFF;
+ 
 }
 
 div.modal-body h2 {
