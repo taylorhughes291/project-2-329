@@ -165,7 +165,6 @@ div.landing-cont div.subtext-marketplace-cont p {
 }
 
 div.landing-cont div.subtext-marketplace-cont div.markets-cont {
-  margin: 0 42px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -192,8 +191,11 @@ div.landing-cont div.search-title {
 }
 
 div.landing-cont div.carousel-cont {
-  max-height: 365px;
+  height: 365px;
   max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 div.landing-cont div.carousel-cont div.carousel-slide {
@@ -202,8 +204,8 @@ div.landing-cont div.carousel-cont div.carousel-slide {
 
 div.landing-cont div.carousel-inner img {
   max-height: 357px;
+  max-width: 100%;
   width: auto !important;
-  height: 100%;
 }
 
 div.landing-cont h2 {
