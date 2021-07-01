@@ -3,17 +3,21 @@ import {Link, useLocation} from "react-router-dom"
 import ProductCarousel from "../components/ProductCarousel"
 import ranking from "../functions/ranking.js"
 import {useMediaQuery} from "react-responsive"
-import {Modal, Button} from "react-bootstrap"
 import priceFilter from "../functions/priceFilter.js"
-import processKeywords from "../functions/processKeywords"
-import ship from "../assets/ship.png"
 import cart from "../assets/cart.png"
+import LandingModal from "../components/LandingModal"
 
 
 const KeywordBuilder = (props) => {
   ////////////////////////
   // Constants
   ////////////////////////
+
+  const [modalShow, setModalShow] = useState(false);
+  const [processFlow, setProcessFlow] = useState({
+      keywords: false,
+      budget: false
+  })
 
   const isTablet = useMediaQuery({query: '(min-width: 768px)'})
   const isDesktop = useMediaQuery({query: '(min-width: 961px)'})
@@ -22,11 +26,6 @@ const KeywordBuilder = (props) => {
     numberResults = 8
   } else if (isDesktop) {
     numberResults = 12
-  }
-
-  let isFilled = false
-  if (props.person.budget !== "") {
-    isFilled = true
   }
 
   const landingPageResults = useLocation()
@@ -54,55 +53,6 @@ const KeywordBuilder = (props) => {
         displayBank: newDisplayBank
       }
     )
-  }
-
-  // The following code is adopted from React-bootstrap in order to render a Modal so that the customer
-  //    knows that their content is loading! It creates the Modal and the button that must be clicked
-  //    for the modal to pop up, which is rendered down below in the "Render" area
-  //    - This function also checks to make sure that the form is all filled out before searching.
-  //        - The purpose of this is so the user makes the most robust search possible and doesn't waste an API call.
-
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-  function LoadingModal() {
-    const isReadyToSearch = props.person.budget !== "" && (props.person.keywordText1 !== "" || props.person.keywordText2 !== ""  || props.person.keywordText3 !== "" )
-    return (
-      <>
-        <Button onClick={isReadyToSearch ? () => handleClick(props.person.keywordText1, props.person.keywordText2, props.person.keywordText3) : () => handleShow()}>
-          Search for Gifts
-        </Button>
-  
-        {isReadyToSearch && <>
-          <Modal
-            show={show}
-            onHide={handleClose}
-            backdrop="static"
-            keyboard={false}
-          >
-            <Modal.Body>
-              <h2>SUCCESS!</h2>
-              <img src={ship} alt="ship loading icon" />
-              <p>One moment while we gather your search results...</p>
-            </Modal.Body>
-          </Modal>
-        </>}
-
-        {!isReadyToSearch && <>
-          <Modal show={show} onHide={handleClose}>
-            <Modal.Header closeButton>
-              <Modal.Title>Please make sure all fields are entered</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>You're so close to great gift recommendations, just a few more fields to fill out!</Modal.Body>
-            <Modal.Footer>
-              <Button variant="secondary" onClick={handleClose}>
-                Close
-              </Button>
-            </Modal.Footer>
-          </Modal>
-        </>}
-      </>
-    );
   }
 
   const handleStates = (processedObject) => {
@@ -135,15 +85,7 @@ const KeywordBuilder = (props) => {
 //    - Calls a separate "ranking" function in order to try and rank the search results by most relevant
 //    - Takes those results and separates them into what will be displayed, and what results will be in the "bank"
 //        to be viewed later if the user wishes to see more
-  const handleClick = async (keyword1, keyword2, keyword3) => {
-    // You now want to initiate the loading state, so that the customer doesn't attempt to call the API
-    //    again or think it's not working
-    handleShow();    
-    const processedObject = await processKeywords(keyword1, keyword2, keyword3)
-    handleStates(processedObject)
 
-    handleClose()
-  }
 
   // Need to have a sum total of selected items.
   const sumTotal = () => {
@@ -154,13 +96,21 @@ const KeywordBuilder = (props) => {
     return parseFloat(Math.trunc(sum*100)/100).toFixed(2)
   }
 
-  const handleEdit = () => {
-    const person = {
-      ...props.person,
-      searched: false
+  const handleEdit = (name) => {
+    if (name === "keywords") {
+      setProcessFlow({
+        keywords: false,
+        budget: false
+      })
+    } else if (name === "budget") {
+      setProcessFlow({
+        keywords: true,
+        budget: false
+      })
     }
-    props.setPerson(person)
+    setModalShow(true)
   }
+
 
   ////////////////////////
   // Render
@@ -172,12 +122,15 @@ const KeywordBuilder = (props) => {
     } else {
       return null
     }
-  }, [])
+  }, [landingPageResults.state])
 
     return (
         <div className="keyword-cont">
-          <div className={props.person.searched ? "completed-form" : "completed-form hidden"}>
-            <div className="keywords-cont">
+          <div className="completed-form">
+            <div 
+              className="keywords-cont"
+              onClick={() => handleEdit('keywords')}
+            >
               <div className="keyword-cont"><h5>{props.person.keywordText1}</h5></div>
               <div className="keyword-cont"><h5>{props.person.keywordText2}</h5></div>
               <div className="keyword-cont"><h5>{props.person.keywordText3}</h5></div>
@@ -185,50 +138,20 @@ const KeywordBuilder = (props) => {
             <div className="datas-cont">
               <div className="data-cont">
                 <h4>Sort</h4>
-                <i class="fas fa-chevron-down"></i>
+                <i className="fas fa-chevron-down"></i>
               </div>
-              <div className="data-cont"><h4 className={sumTotal() > props.person.budget ? "sum-total over" : "sum-total"}>${sumTotal()} / ${props.person.budget}</h4></div>
+              <div className="data-cont" onClick={() => handleEdit("budget")}><h4 className={sumTotal() > props.person.budget ? "sum-total over" : "sum-total"}>${sumTotal()} / ${props.person.budget}</h4></div>
               <div className="data-cont"><img src={cart} alt="cart icon" /></div>
             </div>
           </div>
-            <form
-              className={props.person.searched ? "hidden" : ""}
-            >
-                <h5>Budget:</h5>
-                <span className={isFilled ? "dollar-filled" : "dollar"}>$</span>
-                <input 
-                    type="number"
-                    className="budget"
-                    placeholder="75"
-                    value={props.person.budget}
-                    onChange={props.handleBudgetChange}
-                ></input>
-                <h5>Enter up to 3 Keywords below:</h5>
-                <div className="keywords">
-                  <input 
-                      type="text"
-                      className="keyword"
-                      placeholder="Coffee"
-                      value={props.person.keywordText1}
-                      onChange={props.handleKeywordChange1}
-                  ></input>
-                  <input 
-                      type="text" 
-                      className="keyword"
-                      placeholder="Star Wars"
-                      value={props.person.keywordText2}
-                      onChange={props.handleKeywordChange2}
-                  ></input>
-                  <input 
-                      type="text" 
-                      className="keyword"
-                      placeholder="Succulents"
-                      value={props.person.keywordText3}
-                      onChange={props.handleKeywordChange3}
-                  ></input>
-                </div>
-                <LoadingModal /> 
-            </form>
+            <LandingModal
+              key="landing-modal-1"
+              processFlow={processFlow}
+              setProcessFlow={setProcessFlow}
+              person={props.person}
+              modalShow={modalShow}
+              setModalShow={setModalShow}
+            />
             <ProductCarousel 
                 data={props.productSearch}
                 setProductSearch={props.setProductSearch}

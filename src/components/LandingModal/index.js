@@ -1,10 +1,10 @@
-import React from "react"
+import React, {useEffect} from "react"
 import {Modal} from "react-bootstrap"
 import KeywordInput from "./KeywordInput"
 import BudgetInput from "./BudgetInput"
 import ship from "../../assets/ship.png"
 
-const LandingModal = ({processFlow, setProcessFlow, person, handleContinue, handleKeywordChange1, handleKeywordChange2, handleKeywordChange3, handleBudgetChange, modalShow, setModalShow}) => {
+const LandingModal = ({processFlow, setProcessFlow, person, modalShow, setModalShow}) => {
 
   function MyVerticallyCenteredModal(props) {
       return (
@@ -44,6 +44,13 @@ const LandingModal = ({processFlow, setProcessFlow, person, handleContinue, hand
         </Modal>
       );
     }
+
+    useEffect(() => {
+      if (processFlow.budget) {
+          setModalShow(false)
+      }
+      
+  }, [processFlow.budget, setModalShow])
 
     return (
       <>

@@ -112,16 +112,18 @@ function App(props) {
           </setPersonContext.Provider>
         </Route>
         <Route path="/giftsearch">
-          <KeywordBuilder 
-            person={person}
-            setPerson={setPerson}
-            productSearch={productSearch}
-            setProductSearch={setProductSearch}
-            handleKeywordChange1={handleKeywordChange1}
-            handleKeywordChange2={handleKeywordChange2}
-            handleKeywordChange3={handleKeywordChange3}
-            handleBudgetChange={handleBudgetChange}
-          />
+          <setPersonContext.Provider value={{setPerson}}>
+            <KeywordBuilder 
+              person={person}
+              setPerson={setPerson}
+              productSearch={productSearch}
+              setProductSearch={setProductSearch}
+              handleKeywordChange1={handleKeywordChange1}
+              handleKeywordChange2={handleKeywordChange2}
+              handleKeywordChange3={handleKeywordChange3}
+              handleBudgetChange={handleBudgetChange}
+            />
+          </setPersonContext.Provider>
         </Route>
         <Route path="/finalcart">
           <FinalCart 

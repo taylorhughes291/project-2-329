@@ -29,16 +29,17 @@ function BudgetInput (props) {
     const handleContinue = async (event) => {
         event.preventDefault()
         if (budget !== 0 && budget !== "") {
-            setProcessFlow({
-                ...processFlow,
-                budget: true
+            setPerson({
+                ...person,
+                budget: budget
             })
     
             const processedObject = await processKeywords(person.keywordText1, person.keywordText2, person.keywordText3)
     
-            setPerson({
-                ...person,
-                budget: budget
+
+            setProcessFlow({
+                ...processFlow,
+                budget: true
             })
             
             props.history.push({
@@ -60,6 +61,8 @@ function BudgetInput (props) {
     /////////////////////////
     // Render
     /////////////////////////
+
+
     
     return (
         <>
