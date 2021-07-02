@@ -12,12 +12,9 @@ const KeywordBuilder = (props) => {
   ////////////////////////
   // Constants
   ////////////////////////
+  const {processFlow, setProcessFlow, productSearch, setProductSearch} = props
 
   const [modalShow, setModalShow] = useState(false);
-  const [processFlow, setProcessFlow] = useState({
-      keywords: false,
-      budget: false
-  })
 
   const isTablet = useMediaQuery({query: '(min-width: 768px)'})
   const isDesktop = useMediaQuery({query: '(min-width: 961px)'})
@@ -29,7 +26,6 @@ const KeywordBuilder = (props) => {
   }
 
   const landingPageResults = useLocation()
-  console.log(landingPageResults);
 
   //The following state will keep track of the remaining products in the case that you want to add more
   //     if the user so desires. This array will get filled in the handleClick function below.
@@ -43,36 +39,31 @@ const KeywordBuilder = (props) => {
   //    in the initial product search, where numberOfProducts is passed depending on the device size.
   //    It is invoked again when the user clicks "See More Products" at the bottom of the page, after initial 
   //    device loading.
-  const handleSeeMore = (numberOfProducts, results) => {
-      const newProductSearch = props.productSearch.productDisplay.concat(results.slice(0, numberOfProducts))
-      const newDisplayBank = results
-      newDisplayBank.splice(0, numberOfProducts)
-    props.setProductSearch(
+  const handleSeeMore = (numberOfProducts, results, isSearch) => {
+    console.log('results: ', results);
+    const newDisplayBank = results.slice()
+    const newProductSearch = productSearch.productDisplay.concat(newDisplayBank.splice(0, numberOfProducts))
+    setProductSearch(
       {
-        productDisplay: newProductSearch,
+        productDisplay: isSearch ? results.slice(0, numberOfProducts) : newProductSearch,
         displayBank: newDisplayBank
       }
     )
   }
 
   const handleStates = (processedObject) => {
-    const person = {
-      ...props.person,
-      keywords: processedObject.keywordSplit,
-      searched: true
-    }
-    props.setPerson(person)
     setResultsBank(
       processedObject.processedResults
     )
     const filteredResults = priceFilter(processedObject.processedResults, props.person.budget)
     const rankedResults = ranking(filteredResults, props.person.budget, processedObject.keywordSplit)
+    
     //displayResults is what we want to show, but resultsBank has the rest if the user wishes to see more
     // I am going to make the number of results dynamic upon which device is being used. Note that
     //      numberResults is a variable declared in the above constants section depending on the size of 
     //      the screen using media queries from react-responsive
     // Note that I have to call this callback function in order for state to set properly.
-    handleSeeMore(numberResults, rankedResults)
+    handleSeeMore(numberResults, rankedResults, true)
   }
 
 // This function is pretty huge. This function:
@@ -117,10 +108,8 @@ const KeywordBuilder = (props) => {
   ////////////////////////
 
   useEffect(() => {
-    if (landingPageResults.state) {
+    if (processFlow.budget) {
       handleStates(landingPageResults.state.searchResults)
-    } else {
-      return null
     }
   }, [landingPageResults.state])
 
@@ -153,8 +142,8 @@ const KeywordBuilder = (props) => {
               setModalShow={setModalShow}
             />
             <ProductCarousel 
-                data={props.productSearch}
-                setProductSearch={props.setProductSearch}
+                data={productSearch}
+                setProductSearch={setProductSearch}
                 person={props.person}
                 setPerson={props.setPerson}
                 handleSeeMore={handleSeeMore}

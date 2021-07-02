@@ -17,14 +17,9 @@ const LandingPage = (props) => {
     // Constants
     /////////////////////////////
     
-    const { person } = props
+    const { person, processFlow, setProcessFlow } = props
     const [modalShow, setModalShow] = useState(false);
-    const [processFlow, setProcessFlow] = useState({
-        keywords: false,
-        budget: false
-    })
 
-    console.log(props.history);
 
     /////////////////////////////
     // Functions
@@ -53,7 +48,6 @@ const LandingPage = (props) => {
             counter += 1
         }
     }
-     console.log(selectionArray); 
 
     /////////////////////////////
     // Render

@@ -31,6 +31,11 @@ function App(props) {
     displayBank: []
   })
 
+  const [processFlow, setProcessFlow] = useState({
+    keywords: false,
+    budget: false
+  })
+
   
   
   ////////////////////////
@@ -108,6 +113,8 @@ function App(props) {
               handleKeywordChange2={handleKeywordChange2}
               handleKeywordChange3={handleKeywordChange3}
               handleBudgetChange={handleBudgetChange}
+              processFlow={processFlow}
+              setProcessFlow={setProcessFlow}
             />
           </setPersonContext.Provider>
         </Route>
@@ -122,6 +129,8 @@ function App(props) {
               handleKeywordChange2={handleKeywordChange2}
               handleKeywordChange3={handleKeywordChange3}
               handleBudgetChange={handleBudgetChange}
+              processFlow={processFlow}
+              setProcessFlow={setProcessFlow}
             />
           </setPersonContext.Provider>
         </Route>

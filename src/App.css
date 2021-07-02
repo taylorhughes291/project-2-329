@@ -145,7 +145,8 @@ div.landing-cont div.top-background {
 }
 
 div.landing-cont h1.hero {
-  padding: 35px 34px 15px;
+  padding: 35px 34px 0;
+  margin: 0;
   font-size: 30px;
   line-height: 44px;;
 }
