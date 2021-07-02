@@ -31,9 +31,6 @@ const processSearch = (arr) => {
     for (const item of processedArray) {
         Object.assign(item, {selected: false})
         Object.assign(item, {isFavorite: false})
-        if (!('price' in item.delivery) ) {
-            console.log(item.asin);
-        }
     }
 
     return processedArray

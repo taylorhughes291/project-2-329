@@ -283,7 +283,7 @@ const Product = (props) => {
                                 <Card.Title>{`$${parseFloat(Math.trunc(item.price.value*100)/100).toFixed(2)}`}</Card.Title>
                                 {item.is_prime && <img className="prime-logo" src={primeLogo} alt="Amazon Prime Logo" />}
                                 {item.delivery && <div className="shipping-delivery-cont">
-                                    {item.delivery.price.raw && <p className="shipping">{item.delivery.price.raw}</p>}
+                                    {item.delivery.price && <p className="shipping">{item.delivery.price.raw}</p>}
                                     {item.delivery.tagline && <p className="delivery">{item.delivery.tagline}</p>}
                                 </div>}
                                 <div className="ratings-cont">
