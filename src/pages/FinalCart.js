@@ -1,6 +1,7 @@
 import React from "react"
 import SelectedProduct from "../components/SelectedProduct"
 import {Link} from "react-router-dom"
+import arrowBack from "../assets/arrow-back.png"
 
 const FinalCart = (props) => {
 
@@ -44,10 +45,19 @@ const FinalCart = (props) => {
 
     return (
         <div className="cart-cont">
-            <h2 className="title">{`${props.person.name}'s Gifts`}</h2>
-            <Link to="/">
-                <h4 className="return">{`< Return to Product Selection`}</h4>
-            </Link>
+            <div>
+                <Link to="/giftsearch">
+                    <img src={arrowBack} alt="go back to product page" />
+                </Link>
+                <h2>Shopping Cart</h2>
+            </div>
+            <h3>Subtotal: {`$${sumTotal()}`}</h3>
+            <p>Once you are happy with your cart, we will send you to your marketplace account(s) to complete your purchase. Your Gifthalla items will already be in your cart for checkout!</p>
+            <div 
+                className="search-title"
+            >
+                <h2>PROCEED TO CHECKOUT</h2>
+            </div>
             <SelectedProduct 
                 person={props.person}
                 setPerson={props.setPerson}

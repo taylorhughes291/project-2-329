@@ -177,7 +177,7 @@ div.landing-cont div.search-cont {
   flex-direction: column;
 }
 
-div.landing-cont div.search-title {
+div.search-title {
   height: 80px;
   background-color: #F386A2;
   display: flex;

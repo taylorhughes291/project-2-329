@@ -100,7 +100,7 @@ const LandingPage = (props) => {
                 className="search-title"
                 onClick={handleContinue}
             >
-                    <h2>SEARCH GIFTS</h2>
+                <h2>SEARCH GIFTS</h2>
             </div>
             <div 
                 className="search-cont"
@@ -189,11 +189,11 @@ const LandingPage = (props) => {
                 </div>
             </div>
             <div className="footer-image">
-            <Jumbotron fluid>
-                <Container>
-                    <h2>Your quest for an awesome gift is over!</h2>
-                </Container>
-            </Jumbotron>
+                <Jumbotron fluid>
+                    <Container>
+                        <h2>Your quest for an awesome gift is over!</h2>
+                    </Container>
+                </Jumbotron>
             </div>
             <footer>
                 <p>Designed By Funky Fresh Design  |  &copy; Gifthalla, LLC</p>
