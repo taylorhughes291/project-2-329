@@ -566,7 +566,6 @@ div.keyword-cont input.keyword {
 }
 
 div.keyword-cont button {
-  margin: 10px 0 0;
   background-color: #AFD5BD;
   color: #63545A;
   font-weight: 700;
@@ -666,7 +665,7 @@ div.product {
   margin: 0 2px 0;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
   flex-basis: auto;
-  height: 320px;
+  height: 264px;
   display: flex;
   align-items: center;
   padding: 0;
@@ -692,12 +691,12 @@ div.product div.img-button-cont {
   width: 47%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
 div.product div.img-cont {
   width: 100%;
-  height: auto;
+  height: 140px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -715,6 +714,31 @@ div.product div.img-cont img {
 
 div.product div.button-cont {
   z-index: 2;
+  margin: 10px 0 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  grid-gap: 10px;
+}
+
+div.product div.button-cont button {
+  font-size: 14px !important;
+  height: 31px !important;
+  width: 120px !important;
+  padding: 0;
+  border: 0;
+}
+
+div.product div.button-cont button.pink {
+  background: #F87093;
+  color: #FFFFFF;
+}
+
+div.product div.button-cont button.white {
+  background: #FFFFFF;
+  border: 1px solid #3C5068;
+  color: #3C5068;
 }
 
 div.product div.img-cont div.img-link-overlay {
@@ -744,8 +768,10 @@ div.product div.card-body div.text-cont {
 
 div.product div.card-body p.card-text {
   text-align: left;
+  font-size: 12px;
+  line-height: 18px;
   z-index: 3;
-  margin: 0 0 7px 0;
+  margin: 0 6px 7px 0;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -774,17 +800,22 @@ div.product div.ratings-cont {
 }
 
 div.product div.ratings-cont i {
-  color: gold;
+  color: #FB8200;
+
 }
 
 div.product div.ratings-cont p {
   margin: 0 0 0 4px;
+  font-size: 14px;
+  line-height: 22px;
+  color: #6E6C66;
 }
 
 div.product div.price-button-cont {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  margin: 7px 0 0;
 }
 
 div.product div.price-button-cont div.shipping-delivery-cont {
@@ -795,6 +826,7 @@ div.product div.price-button-cont div.shipping-delivery-cont p {
   text-align: left;
   margin: 0;
   color: #787885;
+  font-size: 10px;
 }
 
 div.product img.prime-logo {
@@ -818,7 +850,8 @@ div.product div.price-button-cont button.selected {
 
 div.product div.price-button-cont div.h5 {
   font-weight: 700;
-  font-size: 30px;
+  font-size: 16px;
+  line-height: 16px;
 }
 
 div.product div.price-button-cont div.card-title {
