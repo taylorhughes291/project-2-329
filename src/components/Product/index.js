@@ -252,21 +252,21 @@ const Product = (props) => {
                                     url: item.link,
                                     asin: item.asin
                                 })}
-                                className={item.selected ? "selected hidden btn btn-primary" : "btn btn-primary"}
-                            >Select Item</Button>
+                                className={item.selected ? "selected hidden btn btn-primary pink" : "btn btn-primary pink"}
+                            >ADD TO CART</Button>
                             <Button 
                                 variant="primary"
-                                className={item.selected ? "selected btn btn-primary" : "hidden btn btn-primary"}
+                                className={item.selected ? "selected btn btn-primary pink" : "hidden btn btn-primary pink"}
                                 onClick={() => handleDelete(item.asin, item.price.value)}
-                            >Delete Item</Button>
+                            >DELETE ITEM</Button>
                             <Button
-                                className={item.isFavorite ? "isFavorite hidden btn btn-primary" : "btn btn-primary"}
+                                className={item.isFavorite ? "isFavorite hidden btn btn-primary white" : "btn btn-primary white"}
                                 onClick={() => handleFavorite(item.asin)}
-                            >Favorite Item</Button>
+                            >SAVE FOR LATER</Button>
                             <Button
-                                className={item.isFavorite ? "isFavorite btn btn-primary" : "hidden btn btn-primary"}
+                                className={item.isFavorite ? "isFavorite btn btn-primary white" : "hidden btn btn-primary white"}
                                 onClick={() => handleUnfavorite(item.asin)}
-                            >Un-favorite</Button>
+                            >UN-SAVE</Button>
                         </div>
                     </div>
                         <Card.Body>
