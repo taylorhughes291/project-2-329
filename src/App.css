@@ -677,21 +677,13 @@ div.product div.overlay {
   top: 0px;
   left: 0px;
   background-color: rgba(85,77,86,0);
-  border-radius: 8px;
   width: 100%;
   height: 100%;
   z-index: 1;
 }
 
 div.product div.selected {
-  position: absolute;
-  top: 0px;
-  left: 0px;
   background-color: rgba(85,77,86,0.6);
-  border-radius: 8px;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
 }
 
 div.product div.img-button-cont {
@@ -721,6 +713,10 @@ div.product div.img-cont img {
   cursor: pointer;
 }
 
+div.product div.button-cont {
+  z-index: 2;
+}
+
 div.product div.img-cont div.img-link-overlay {
   position: absolute;
   top: 0px;
@@ -748,7 +744,7 @@ div.product div.card-body div.text-cont {
 
 div.product div.card-body p.card-text {
   text-align: left;
-  z-index: 2;
+  z-index: 3;
   margin: 0 0 7px 0;
   overflow: hidden;
   text-overflow: ellipsis;
