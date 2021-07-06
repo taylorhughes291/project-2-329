@@ -444,7 +444,6 @@ div.modal p.alert {
 /* Keyword Builder  */
 
 div.keyword-cont {
-  padding: 0 0 30px;;
   max-width: 961px;
   width: 100%;
 }
@@ -602,7 +601,7 @@ div.sum-total-cont .over {
 }
 
 div.product-carousel {
-  margin: 0 2px 20px;
+  margin: 0 2px 3px;
   padding: 0 0 0 0;
   display: flex;
   flex-direction: column;
@@ -616,13 +615,12 @@ div.product-carousel div.see-more {
   justify-content: center;
   align-items: center;
   background-color: #554D56;
-  border-radius: 7px;
-  margin: 10px 0 0;
   cursor: pointer;
+  border-radius: 3px;
 } 
 
 div.product-carousel div.see-more h5 {
-  color: #9CDCFC;
+  color: #FFFFFF;
   display: flex;
   margin: 0 0;
 }

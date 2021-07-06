@@ -129,7 +129,11 @@ const KeywordBuilder = (props) => {
                 <i className="fas fa-chevron-down"></i>
               </div>
               <div className="data-cont" onClick={() => handleEdit("budget")}><h4 className={sumTotal() > props.person.budget ? "sum-total over" : "sum-total"}>${sumTotal()} / ${props.person.budget}</h4></div>
-              <div className="data-cont"><img src={cart} alt="cart icon" /></div>
+              <div className="data-cont">
+                <Link to="/finalcart">
+                  <img src={cart} alt="cart icon" />
+                </Link>
+              </div>
             </div>
           </div>
             <LandingModal
@@ -150,9 +154,6 @@ const KeywordBuilder = (props) => {
                 setResultsBank={setResultsBank}
                 sumTotal={sumTotal}
             />
-            <Link to="/finalcart">
-                <button className="finalize btn btn-primary">Finalize Cart</button>
-            </Link>
         </div>
     )
 }
