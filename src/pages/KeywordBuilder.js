@@ -40,7 +40,6 @@ const KeywordBuilder = (props) => {
   //    It is invoked again when the user clicks "See More Products" at the bottom of the page, after initial 
   //    device loading.
   const handleSeeMore = (numberOfProducts, results, isSearch) => {
-    console.log('results: ', results);
     const newDisplayBank = results.slice()
     const newProductSearch = productSearch.productDisplay.concat(newDisplayBank.splice(0, numberOfProducts))
     setProductSearch(

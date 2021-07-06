@@ -1,5 +1,4 @@
 const ranking = (arr, cost, keywords) => {
-    console.log(keywords);
     let sortedArray = arr.map((item, index) => {
         let counter = 0
         for (const word of keywords) {
