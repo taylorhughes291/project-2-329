@@ -45,18 +45,23 @@ const FinalCart = (props) => {
 
     return (
         <div className="cart-cont">
-            <div>
+            <div className="return-title-cont">
                 <Link to="/giftsearch">
                     <img src={arrowBack} alt="go back to product page" />
                 </Link>
                 <h2>Shopping Cart</h2>
             </div>
-            <h3>Subtotal: {`$${sumTotal()}`}</h3>
-            <p>Once you are happy with your cart, we will send you to your marketplace account(s) to complete your purchase. Your Gifthalla items will already be in your cart for checkout!</p>
+            <div className="subtotal">
+                <h3>Subtotal: {`$${sumTotal()}`}</h3>
+            </div>
+            <div className="description">
+                <p>Once you are happy with your cart, we will send you to your marketplace account(s) to complete your purchase. Your Gifthalla items will already be in your cart for checkout!</p>
+            </div>
             <div 
                 className="search-title"
+                onClick={handleCheckout}
             >
-                <h2>PROCEED TO CHECKOUT</h2>
+                <h4>PROCEED TO CHECKOUT</h4>
             </div>
             <SelectedProduct 
                 person={props.person}
@@ -64,11 +69,6 @@ const FinalCart = (props) => {
                 productSearch={props.productSearch}
                 setProductSearch={props.setProductSearch}
             />
-            <h3 className="total-cost">Total Cost: {`$${sumTotal()}`}</h3>
-            <button
-                type="button"
-                onClick={handleCheckout}
-            >Take me to the Products</button>
         </div>
     )
 }

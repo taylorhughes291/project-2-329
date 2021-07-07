@@ -22,7 +22,7 @@ const SelectedProduct = (props) => {
         )
 
         // Now we must toggle the class of the data object selected to selected = false
-        const productDisplay = props.productSearch.map((item, index) => {
+        const productDisplay = props.productSearch.productDisplay.map((item, index) => {
             if (item.asin === asin) {
                 return ({
                     ...item,
@@ -34,9 +34,10 @@ const SelectedProduct = (props) => {
                 )
             }
         })
-        props.setProductSearch(
+        props.setProductSearch({
+            ...props.productSearch,
             productDisplay
-        )
+        })
     }
 
     // Next we need to declare a function that will open the browser to a new tab with the selected product.
@@ -73,34 +74,27 @@ const SelectedProduct = (props) => {
         })
         return (
             <Col
-            key={index}
-            className="product"
-        >
-            <div 
-                className={item.selected ? "selected overlay" : "not-selected overlay"}
-            ></div>
-            <Card 
-                style={{ width: '18rem' }}
+                key={index}
+                className="product"
             >
-                <div className="img-button-cont">
-                <div className="img-cont">
-                    <Card.Img 
-                        variant="top" 
-                        src={item.image}
-                    />
-                    <div 
-                        className="img-link-overlay"
-                        onClick={() => handleProductLink(item.link)}
-                    ></div>
-                </div>
-                    <div className="button-cont">
-                        <Button 
-                            variant="primary"
-                            className="btn btn-primary pink"
-                            onClick={() => handleDelete(item.asin, item.price.value)}
-                        >DELETE ITEM</Button>
+                <Card 
+                    style={{ width: '18rem' }}
+                >
+                    <div className="img-button-cont">
+                        <div className="img-cont">
+                            <Card.Img 
+                                variant="top" 
+                                src={item.image}
+                            />
+                        </div>
+                        <div className="button-cont">
+                            <Button 
+                                variant="primary"
+                                className="btn btn-primary pink"
+                                onClick={() => handleDelete(item.asin, item.price.value)}
+                            >DELETE ITEM</Button>
+                        </div>
                     </div>
-                </div>
                     <Card.Body>
                         <div className="text-cont">
                             <Card.Text>
@@ -127,8 +121,8 @@ const SelectedProduct = (props) => {
 
                         </div>
                     </Card.Body>
-            </Card>
-        </Col>
+                </Card>
+            </Col>
         )
     })
     return (
