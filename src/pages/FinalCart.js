@@ -73,19 +73,18 @@ const FinalCart = (props) => {
             <div 
                 className="search-title"
                 onClick={() => {
-                    setModalShow(true)
-                    setTimeout(() => {
-                        let urlParam = ""
-                        for (let i = 1; i <= asins.length; i += 1) {
-                            if (i !== 1) {
-                                urlParam = urlParam + "&"
-                            }
-                            urlParam = urlParam + `ASIN.${i}=${asins[i-1]}&Quantity.${i}=1`
+                    let urlParam = ""
+                    for (let i = 1; i <= asins.length; i += 1) {
+                        if (i !== 1) {
+                            urlParam = urlParam + "&"
                         }
-                        const url = `https://www.amazon.com/gp/aws/cart/add.html?${urlParam}&AssociateTag=taylorhughe05-20`
-                        window.open(url)
-                    }, 4000)
-                }}
+                        urlParam = urlParam + `ASIN.${i}=${asins[i-1]}&Quantity.${i}=1`
+                    }
+                    const url = `https://www.amazon.com/gp/aws/cart/add.html?${urlParam}&AssociateTag=taylorhughe05-20`
+                    window.open(url)
+                    setModalShow(true)
+                    }
+                }
             >
                 <h4>PROCEED TO CHECKOUT</h4>
             </div>
