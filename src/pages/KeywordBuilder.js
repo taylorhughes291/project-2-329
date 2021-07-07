@@ -81,7 +81,7 @@ const KeywordBuilder = (props) => {
   const sumTotal = () => {
     let sum = 0
     for (const obj of props.person.selectedProducts) {
-        sum = sum + obj.price
+        sum = sum + obj.price.value
     }
     return parseFloat(Math.trunc(sum*100)/100).toFixed(2)
   }
@@ -99,6 +99,13 @@ const KeywordBuilder = (props) => {
       })
     }
     setModalShow(true)
+  }
+
+  const handleProcessReset = () => {
+    setProcessFlow({
+      keywords: false,
+      budget: false
+    })
   }
 
 
@@ -131,7 +138,9 @@ const KeywordBuilder = (props) => {
               <div className="data-cont" onClick={() => handleEdit("budget")}><h4 className={sumTotal() > props.person.budget ? "sum-total over" : "sum-total"}>${sumTotal()} / ${props.person.budget}</h4></div>
               <div className="data-cont">
                 <Link to="/finalcart">
-                  <img src={cart} alt="cart icon" />
+                  <img 
+                    onClick={handleProcessReset}
+                    src={cart} alt="cart icon" />
                 </Link>
               </div>
             </div>
