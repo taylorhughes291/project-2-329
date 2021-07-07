@@ -81,7 +81,7 @@ const KeywordBuilder = (props) => {
   const sumTotal = () => {
     let sum = 0
     for (const obj of props.person.selectedProducts) {
-        sum = sum + obj.price
+        sum = sum + obj.price.value
     }
     return parseFloat(Math.trunc(sum*100)/100).toFixed(2)
   }
