@@ -11,7 +11,7 @@ const KeywordBuilder = (props) => {
   ////////////////////////
   // Constants
   ////////////////////////
-  const {setModalShow, setProcessFlow, productSearch, setProductSearch, resultsBank, setResultsBank} = props
+  const {setModalShow, processFlow, setProcessFlow, productSearch, setProductSearch, resultsBank, setResultsBank} = props
 
  
 
@@ -114,6 +114,12 @@ const KeywordBuilder = (props) => {
     window.scrollTo(0, 0)
     handleStates(resultsBank)
   }, [resultsBank])
+
+  useEffect(() => {
+    if (processFlow.budget) {
+        setModalShow(false)
+    }
+  }, [processFlow.budget])
 
     return (
         <div className="keyword-cont">

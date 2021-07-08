@@ -48,13 +48,6 @@ const LandingModal = ({processFlow, setProcessFlow, person, setPerson, modalShow
       );
     }
 
-    useEffect(() => {
-      if (processFlow.budget) {
-          setModalShow(false)
-      }
-      
-  }, [processFlow.budget, setModalShow])
-
     return (
       <>
           <MyVerticallyCenteredModal

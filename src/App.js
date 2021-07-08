@@ -96,6 +96,12 @@ function App(props) {
             keywords: true
         })
     }
+    if (processFlow.budget) {
+      setProcessFlow({
+        keywords: false,
+        budget: false
+    })
+    }
     setModalShow(true)
 }
 

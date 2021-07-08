@@ -26,7 +26,10 @@ function BudgetInput (props) {
         event.preventDefault()
         if (budget !== 0 && budget !== "") {
 
-    
+            setProcessFlow({
+                ...processFlow,
+                budget: true
+            })
             const processedObject = await processKeywords(person.keywordText1, person.keywordText2, person.keywordText3)
             setPerson({
                 ...person,
@@ -35,11 +38,6 @@ function BudgetInput (props) {
             })
 
             setResultsBank(processedObject.processedResults)
-
-            setProcessFlow({
-                ...processFlow,
-                budget: true
-            })
             
             props.history.push({
                 pathname: '/giftsearch',
