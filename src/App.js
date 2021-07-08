@@ -31,11 +31,12 @@ function App(props) {
     displayBank: []
   })
 
+  const [resultsBank, setResultsBank] = useState([])
+
   const [processFlow, setProcessFlow] = useState({
     keywords: false,
     budget: false
   })
-
   
   
   ////////////////////////
@@ -115,6 +116,7 @@ function App(props) {
               handleBudgetChange={handleBudgetChange}
               processFlow={processFlow}
               setProcessFlow={setProcessFlow}
+              setResultsBank={setResultsBank}
             />
           </setPersonContext.Provider>
         </Route>
@@ -131,6 +133,8 @@ function App(props) {
               handleBudgetChange={handleBudgetChange}
               processFlow={processFlow}
               setProcessFlow={setProcessFlow}
+              resultsBank={resultsBank}
+              setResultsBank={setResultsBank}
             />
           </setPersonContext.Provider>
         </Route>
@@ -140,6 +144,8 @@ function App(props) {
             setPerson={setPerson}
             productSearch={productSearch}
             setProductSearch={setProductSearch}
+            setResultsBank={setResultsBank}
+            resultsBank={resultsBank}
           />
         </Route>
       </Switch>

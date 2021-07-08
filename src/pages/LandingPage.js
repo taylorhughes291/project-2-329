@@ -1,4 +1,4 @@
-import React, {useState} from "react"
+import React, {useState, useEffect} from "react"
 import {Carousel, Jumbotron, Container} from "react-bootstrap"
 import {Link} from "react-router-dom"
 import LandingModal from "../components/LandingModal"
@@ -17,7 +17,7 @@ const LandingPage = (props) => {
     // Constants
     /////////////////////////////
     
-    const { person, processFlow, setProcessFlow } = props
+    const { person, processFlow, setProcessFlow, setResultsBank } = props
     const [modalShow, setModalShow] = useState(false);
 
 
@@ -52,6 +52,13 @@ const LandingPage = (props) => {
     /////////////////////////////
     // Render
     /////////////////////////////
+
+    useEffect(() => {
+        setProcessFlow({
+            keywords: false,
+            budget: false
+        })
+    }, [])
 
     return (
         <div 
@@ -146,6 +153,7 @@ const LandingPage = (props) => {
                         person={person}
                         modalShow={modalShow}
                         setModalShow={setModalShow}
+                        setResultsBank={setResultsBank}
                     />
                 </div>
             </div>

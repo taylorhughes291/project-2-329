@@ -27,6 +27,7 @@ const Product = (props) => {
     //////////////////////////
 
     const handleSelect = (obj) => {
+        window.scrollTo(0, 0)
         // Attach the product info to the person's final selection
         const person = {
             ...props.person,
@@ -50,17 +51,6 @@ const Product = (props) => {
                 )
             }
         })
-
-        const newBudget = props.person.budget - obj.price.value - props.sumTotal()
-        const filteredArray = priceFilter(newResultsBank, newBudget)
-        const rankedArray = ranking(filteredArray, newBudget, props.person.keywords)
-        const newProductDisplay = rankedArray.splice(0, numberResults)
-        props.setProductSearch(
-            {
-                productDisplay: newProductDisplay,
-                displayBank: rankedArray
-            }
-        )
 
         props.setResultsBank(
             newResultsBank
@@ -96,17 +86,6 @@ const Product = (props) => {
                 )
             }
         })
-
-        const newBudget = props.person.budget + price - props.sumTotal()
-        const filteredArray = priceFilter(newResultsBank, newBudget)
-        const rankedArray = ranking(filteredArray, newBudget, props.person.keywords)
-        const newProductDisplay = rankedArray.splice(0, numberResults)
-        props.setProductSearch(
-            {
-                productDisplay: newProductDisplay,
-                displayBank: rankedArray
-            }
-        )
 
         props.setResultsBank(
             newResultsBank

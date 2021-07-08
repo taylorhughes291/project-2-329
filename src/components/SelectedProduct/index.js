@@ -22,7 +22,7 @@ const SelectedProduct = (props) => {
         )
 
         // Now we must toggle the class of the data object selected to selected = false
-        const productDisplay = props.productSearch.productDisplay.map((item, index) => {
+        const resultsBank = props.resultsBank.map((item, index) => {
             if (item.asin === asin) {
                 return ({
                     ...item,
@@ -34,10 +34,7 @@ const SelectedProduct = (props) => {
                 )
             }
         })
-        props.setProductSearch({
-            ...props.productSearch,
-            productDisplay
-        })
+        props.setResultsBank(resultsBank)
     }
 
     // Next we need to declare a function that will open the browser to a new tab with the selected product.

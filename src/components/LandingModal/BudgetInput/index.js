@@ -6,7 +6,7 @@ import "./styles.css"
 
 
 function BudgetInput (props) {
-    const {person, setProcessFlow, processFlow} = props
+    const {person, setProcessFlow, processFlow, setResultsBank} = props
     
     /////////////////////////
     // Constants
@@ -37,6 +37,8 @@ function BudgetInput (props) {
                 budget: budget,
                 keywords: processedObject.keywordSplit
             })
+
+            setResultsBank(processedObject.processedResults)
 
             setProcessFlow({
                 ...processFlow,
