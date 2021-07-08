@@ -1148,10 +1148,41 @@ div.cart-cont div.button-cont {
     font-size: 16px;
   }
 
+  /* Products */
+
+  div.nav.non-home {
+    padding-bottom: 20px;
+  }
+
+  div.keyword-cont div.product-carousel {
+    align-items: center;
+    margin: 0 7px;
+  }
+
+  div.keyword-cont div.product-carousel div.container {
+    padding: 0;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  div.keyword-cont div.row {
+    max-width: 100%
+  }
+
+  div.keyword-cont div.product {
+    width: 40%;
+  }
+
+  div.keyword-cont div.see-more {
+    width: 100%;
+    margin: 7px 0;
+  }
+
   /* Final Cart */
 
 
-/* Selected Products */
+  /* Selected Products */
 
 }
 

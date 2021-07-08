@@ -24,7 +24,7 @@ const Nav = (props) => {
 
     return (
         <Container fluid>
-            <div className={props.history.location.pathname === "/" ? "nav home-page" : "nav"}>
+            <div className={props.history.location.pathname === "/" ? "nav home-page" : "nav non-home"}>
                 <div className="mobileCont">
                     <h1>GIFTHALLA</h1>
                     <div className="hamburger-cont">
