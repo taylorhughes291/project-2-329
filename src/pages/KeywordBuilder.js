@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react"
-import {Link, useLocation} from "react-router-dom"
+import {Link} from "react-router-dom"
 import ProductCarousel from "../components/ProductCarousel"
 import ranking from "../functions/ranking.js"
 import {useMediaQuery} from "react-responsive"
@@ -12,7 +12,7 @@ const KeywordBuilder = (props) => {
   ////////////////////////
   // Constants
   ////////////////////////
-  const {processFlow, setProcessFlow, productSearch, setProductSearch} = props
+  const {processFlow, setProcessFlow, productSearch, setProductSearch, resultsBank, setResultsBank} = props
 
   const [modalShow, setModalShow] = useState(false);
 
@@ -25,15 +25,23 @@ const KeywordBuilder = (props) => {
     numberResults = 12
   }
 
-  const landingPageResults = useLocation()
 
   //The following state will keep track of the remaining products in the case that you want to add more
   //     if the user so desires. This array will get filled in the handleClick function below.
-  const [resultsBank, setResultsBank] = useState([])
+ 
 
   ////////////////////////
   // Functions
   ////////////////////////
+
+  // Need to have a sum total of selected items.
+  const sumTotal = () => {
+    let sum = 0
+    for (const obj of props.person.selectedProducts) {
+        sum = sum + obj.price.value
+    }
+    return parseFloat(Math.trunc(sum*100)/100).toFixed(2)
+  }
 
   //Invoking this function will enable the user to see more products than what is displayed. It is invoked both
   //    in the initial product search, where numberOfProducts is passed depending on the device size.
@@ -50,12 +58,9 @@ const KeywordBuilder = (props) => {
     )
   }
 
-  const handleStates = (processedObject) => {
-    setResultsBank(
-      processedObject.processedResults
-    )
-    const filteredResults = priceFilter(processedObject.processedResults, props.person.budget)
-    const rankedResults = ranking(filteredResults, props.person.budget, processedObject.keywordSplit)
+  const handleStates = (bank) => {
+    const filteredResults = priceFilter(bank, props.person.budget - sumTotal())
+    const rankedResults = ranking(filteredResults, props.person.budget, props.person.keywords)
     
     //displayResults is what we want to show, but resultsBank has the rest if the user wishes to see more
     // I am going to make the number of results dynamic upon which device is being used. Note that
@@ -77,14 +82,7 @@ const KeywordBuilder = (props) => {
 //        to be viewed later if the user wishes to see more
 
 
-  // Need to have a sum total of selected items.
-  const sumTotal = () => {
-    let sum = 0
-    for (const obj of props.person.selectedProducts) {
-        sum = sum + obj.price.value
-    }
-    return parseFloat(Math.trunc(sum*100)/100).toFixed(2)
-  }
+
 
   const handleEdit = (name) => {
     if (name === "keywords") {
@@ -114,10 +112,9 @@ const KeywordBuilder = (props) => {
   ////////////////////////
 
   useEffect(() => {
-    if (processFlow.budget) {
-      handleStates(landingPageResults.state.searchResults)
-    }
-  }, [landingPageResults.state])
+    window.scrollTo(0, 0)
+    handleStates(resultsBank)
+  }, [resultsBank])
 
     return (
         <div className="keyword-cont">
@@ -152,6 +149,7 @@ const KeywordBuilder = (props) => {
               person={props.person}
               modalShow={modalShow}
               setModalShow={setModalShow}
+              setResultsBank={setResultsBank}
             />
             <ProductCarousel 
                 data={productSearch}

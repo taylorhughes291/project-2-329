@@ -97,6 +97,8 @@ const FinalCart = (props) => {
                 setPerson={props.setPerson}
                 productSearch={props.productSearch}
                 setProductSearch={props.setProductSearch}
+                setResultsBank={props.setResultsBank}
+                resultsBank={props.resultsBank}
             />
         </div>
     )
