@@ -1,6 +1,7 @@
 import React from "react"
 import {withRouter} from "react-router-dom"
 import {Container} from "react-bootstrap"
+import {useMediaQuery} from "react-responsive"
 
 const Nav = (props) => {
 
@@ -8,7 +9,7 @@ const Nav = (props) => {
     // Media Queries
     //////////////////////////
 
-
+    const isDesktop = useMediaQuery({query: '(min-width: 1024px)'})
     
 
     //////////////////////////
@@ -28,9 +29,12 @@ const Nav = (props) => {
                 <div className="mobileCont">
                     <h1>GIFTHALLA</h1>
                     <div className="hamburger-cont">
-                      <i 
-                          className="fas fa-bars fa-2x"
-                      ></i>
+                        {isDesktop && <button
+                            onClick={props.handleContinue}
+                        >SEARCH GIFTS</button>}
+                        <i 
+                            className="fas fa-bars fa-2x"
+                        ></i>
                     </div>
                 </div>
 

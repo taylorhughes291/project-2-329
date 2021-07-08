@@ -1,13 +1,15 @@
 import React, {useState, useEffect} from "react"
 import {Carousel, Jumbotron, Container} from "react-bootstrap"
 import {Link} from "react-router-dom"
-import LandingModal from "../components/LandingModal"
 import amazonLogo from "../assets/amazon.png"
 import ebayLogo from "../assets/ebay.png"
 import etsyLogo from "../assets/etsy.png"
 import amazonLogoTablet from "../assets/amazon-tablet.png"
 import ebayLogoTablet from "../assets/ebay-tablet.png"
 import etsyLogoTablet from "../assets/etsy-tablet.png"
+import amazonLogoDesktop from "../assets/amazon-desktop.png"
+import ebayLogoDesktop from "../assets/ebay-desktop.png"
+import etsyLogoDesktop from "../assets/etsy-desktop.png"
 import landingImages from "../assets/landingImages.js"
 import search from "../assets/search.png"
 import searchTablet from "../assets/search-tablet.png"
@@ -15,6 +17,7 @@ import rightArrow from "../assets/right-arrow.png"
 import rightArrow2 from "../assets/right-arrow-2.png"
 import testimonialOne from "../assets/testimonial-1.jpg"
 import testimonialTablet from "../assets/testimonial-tablet.jpg"
+import testimonialDesktop from "../assets/testimonial-desktop.jpg"
 import {useMediaQuery} from "react-responsive"
 
 const LandingPage = (props) => {
@@ -23,28 +26,15 @@ const LandingPage = (props) => {
     // Constants
     /////////////////////////////
     
-    const { person, processFlow, setProcessFlow, setResultsBank } = props
-    const [modalShow, setModalShow] = useState(false);
+    const { setProcessFlow, handleContinue } = props
 
     const isTablet = useMediaQuery({query: '(min-width: 768px)'})
+    const isDesktop = useMediaQuery({query: '(min-width: 1024px)'})
 
 
     /////////////////////////////
     // Functions
     /////////////////////////////
-
-   
-    
-    const handleContinue = (event) => {
-        event.preventDefault()
-        if (person.keywordText1 !== "" || person.keywordText2 !== "" || person.keywordText3 !== "") {
-            setProcessFlow({
-                ...processFlow,
-                keywords: true
-            })
-        }
-        setModalShow(true)
-    }
 
 
     const selectionArray = []
@@ -110,18 +100,17 @@ const LandingPage = (props) => {
                         <img src={ebayLogo} alt="eBay logo" />
                         <img src={etsyLogo} alt="Etsy logo" />
                     </div>}
-                    {isTablet && <div className="markets-cont">
+                    {(isTablet && !isDesktop) && <div className="markets-cont tablet">
                         <img src={amazonLogoTablet} alt="Amazon logo" />
                         <img src={ebayLogoTablet} alt="eBay logo" />
                         <img src={etsyLogoTablet} alt="Etsy logo" />
                     </div>}
+                    {isDesktop && <div className="markets-cont desktop">
+                        <img src={amazonLogoDesktop} alt="Amazon logo" />
+                        <img src={ebayLogoDesktop} alt="eBay logo" />
+                        <img src={etsyLogoDesktop} alt="Etsy logo" />
+                    </div>}
                 </div>
-            </div>
-            <div 
-                className="search-title"
-                onClick={handleContinue}
-            >
-                <h2>SEARCH GIFTS</h2>
             </div>
             <div 
                 className="search-cont"
@@ -161,15 +150,6 @@ const LandingPage = (props) => {
                             value="CONTINUE"
                         ></input>
                     </form>
-                    <LandingModal
-                        key="landing-modal-1"
-                        processFlow={processFlow}
-                        setProcessFlow={setProcessFlow}
-                        person={person}
-                        modalShow={modalShow}
-                        setModalShow={setModalShow}
-                        setResultsBank={setResultsBank}
-                    />
                 </div>
             </div>
             <div className="explore-banner">
@@ -206,10 +186,11 @@ const LandingPage = (props) => {
             <div className="third inspiration-banner">
                 <div className="inspiration-img-cont">
                     {!isTablet && <img src={testimonialOne} alt="generic product" />}
-                    {isTablet && <img src={testimonialTablet} alt="generic product" />}
+                    {(isTablet && !isDesktop) && <img src={testimonialTablet} alt="generic product" />}
+                    {isDesktop && <img src={testimonialDesktop} alt="generic product" />}
                 </div>
                 <div className="testimonial-cont">
-                    <p>I thought Mother’s Day was next weekend! Thank Odin I found Gifthalla. Mom loves the lavender candle and Poo-Pourri.</p>
+                    <p><span>I thought Mother’s Day was next weekend! Thank Odin I found Gifthalla. Mom loves the lavender candle and Poo-Pourri.</span></p>
                     <div className="testimonial-author">
                         <p className="bold">Sam Nusbaum</p>
                         <p>Real Gifthalla User</p>
@@ -227,6 +208,12 @@ const LandingPage = (props) => {
                         <img src={etsyLogoTablet} alt="Etsy logo" />
                     </div>}
                 </Jumbotron>
+            </div>
+            <div 
+                className="search-title"
+                onClick={handleContinue}
+            >
+                <h2>SEARCH GIFTS</h2>
             </div>
             <footer>
                 <p>Designed By Funky Fresh Design  |  &copy; Gifthalla, LLC</p>

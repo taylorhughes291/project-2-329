@@ -3,11 +3,11 @@ import Nav from "./components/Nav"
 import KeywordBuilder from "./pages/KeywordBuilder"
 import FinalCart from "./pages/FinalCart"
 import {Route, Switch, withRouter} from "react-router-dom"
-import {useState, createContext} from "react"
+import {useState} from "react"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import LandingPage from "./pages/LandingPage"
+import LandingModal from "./components/LandingModal"
 
-export const setPersonContext = createContext(null)
 
 function App(props) {
   ////////////////////////
@@ -37,6 +37,8 @@ function App(props) {
     keywords: false,
     budget: false
   })
+
+  const [modalShow, setModalShow] = useState(false);
   
   
   ////////////////////////
@@ -86,6 +88,16 @@ function App(props) {
     setPerson(newPerson)
   }
 
+  const handleContinue = (event) => {
+    event.preventDefault()
+    if (person.keywordText1 !== "" || person.keywordText2 !== "" || person.keywordText3 !== "") {
+        setProcessFlow({
+            ...processFlow,
+            keywords: true
+        })
+    }
+    setModalShow(true)
+}
 
   ////////////////////////
   // Render
@@ -97,7 +109,17 @@ function App(props) {
       key="app"
     >
       <Nav 
-        handleReset={handleReset}
+        handleContinue={handleContinue}
+      />
+      <LandingModal
+        key="landing-modal-1"
+        processFlow={processFlow}
+        setProcessFlow={setProcessFlow}
+        person={person}
+        setPerson={setPerson}
+        modalShow={modalShow}
+        setModalShow={setModalShow}
+        setResultsBank={setResultsBank}
       />
       <Switch
         key="switch-1"
@@ -106,22 +128,14 @@ function App(props) {
           exact path="/"
           key="route-landing-page"
         >
-          <setPersonContext.Provider value={{setPerson}}>
             <LandingPage
               key="landing-page-1"
-              person={person}
-              handleKeywordChange1={handleKeywordChange1}
-              handleKeywordChange2={handleKeywordChange2}
-              handleKeywordChange3={handleKeywordChange3}
-              handleBudgetChange={handleBudgetChange}
-              processFlow={processFlow}
               setProcessFlow={setProcessFlow}
-              setResultsBank={setResultsBank}
+              handleContinue={handleContinue}
+              person={person}
             />
-          </setPersonContext.Provider>
         </Route>
         <Route path="/giftsearch">
-          <setPersonContext.Provider value={{setPerson}}>
             <KeywordBuilder 
               person={person}
               setPerson={setPerson}
@@ -135,8 +149,8 @@ function App(props) {
               setProcessFlow={setProcessFlow}
               resultsBank={resultsBank}
               setResultsBank={setResultsBank}
+              setModalShow={setModalShow}
             />
-          </setPersonContext.Provider>
         </Route>
         <Route path="/finalcart">
           <FinalCart 

@@ -1,12 +1,11 @@
-import React, {useState, useContext} from "react"
-import {setPersonContext} from "../../../App"
+import React, {useState} from "react"
 import processKeywords from "../../../functions/processKeywords"
 import {withRouter} from "react-router-dom"
 import "./styles.css"
 
 
 function BudgetInput (props) {
-    const {person, setProcessFlow, processFlow, setResultsBank} = props
+    const {person, setPerson, setProcessFlow, processFlow, setResultsBank} = props
     
     /////////////////////////
     // Constants
@@ -14,9 +13,6 @@ function BudgetInput (props) {
 
     const [budget, setBudget] = useState(person.budget)
     const [notifyCustomer, setNotifyCustomer] = useState(false)
-
-    const personContext = useContext(setPersonContext)
-    const setPerson = personContext.setPerson
     
     /////////////////////////
     // Functions
