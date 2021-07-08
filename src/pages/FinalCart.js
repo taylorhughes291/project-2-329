@@ -67,9 +67,23 @@ const FinalCart = (props) => {
             <div className="subtotal">
                 <h3>Subtotal: {`$${sumTotal()}`}</h3>
             </div>
-            <div className="description">
-                <p>Once you are happy with your cart, we will send you to your marketplace account(s) to complete your purchase. Your Gifthalla items will already be in your cart for checkout!</p>
+            <div className="description-selections-cont">
+                <div className="description">
+                    <p>Once you are happy with your cart, we will send you to your marketplace account(s) to complete your purchase. Your Gifthalla items will already be in your cart for checkout!</p>
+                </div>
+                <SelectedProduct 
+                    person={props.person}
+                    setPerson={props.setPerson}
+                    productSearch={props.productSearch}
+                    setProductSearch={props.setProductSearch}
+                    setResultsBank={props.setResultsBank}
+                    resultsBank={props.resultsBank}
+                />
             </div>
+            <MyVerticallyCenteredModal
+              show={modalShow}
+              onHide={() => setModalShow(false)}
+            />
             <div 
                 className="search-title"
                 onClick={() => {
@@ -88,18 +102,6 @@ const FinalCart = (props) => {
             >
                 <h4>PROCEED TO CHECKOUT</h4>
             </div>
-            <MyVerticallyCenteredModal
-              show={modalShow}
-              onHide={() => setModalShow(false)}
-            />
-            <SelectedProduct 
-                person={props.person}
-                setPerson={props.setPerson}
-                productSearch={props.productSearch}
-                setProductSearch={props.setProductSearch}
-                setResultsBank={props.setResultsBank}
-                resultsBank={props.resultsBank}
-            />
         </div>
     )
 }
