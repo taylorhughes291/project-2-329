@@ -142,11 +142,12 @@ div.nav svg {
 div.landing-cont {
   margin: 0 0 80px 0;
   max-width: 100%;
-  padding: 50px 0 0;
+  background-clip: border-box;
 }
 
 div.landing-cont div.top-background {
   background: linear-gradient(180deg, #FEFCF4 0%, #EFEDE6 100%);
+  padding: 50px 0 0;
 }
 
 div.landing-page-cont {
