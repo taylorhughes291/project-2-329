@@ -65,6 +65,10 @@ div.nav-cont {
   width: 100%;
 }
 
+p.bold {
+  font-weight: 700 !important;
+}
+
 div.container-fluid {
   padding: 0;
   display: flex;
@@ -175,7 +179,7 @@ div.landing-cont div.subtext-marketplace-cont p {
   margin: 0 0 40px;
 }
 
-div.landing-cont div.subtext-marketplace-cont div.markets-cont {
+div.markets-cont {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -295,6 +299,14 @@ div.landing-cont div.inspiration-banner {
   grid-gap: 15px;
 }
 
+div.landing-cont div.inspiration-subtext-cont {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  grid-gap: 10px;
+}
+
 div.landing-cont div.inspiration-banner.second {
   background: #ADABA4;
 }
@@ -362,7 +374,6 @@ div.landing-cont div.inspiration-banner.third div.inspiration-img-cont {
 
 div.landing-cont div.inspiration-banner.third img {
   width: 152px;
-  height: 192px !important;
 }
 
 div.landing-cont div.inspiration-banner.third div.testimonial-cont {
@@ -383,18 +394,18 @@ div.landing-cont div.inspiration-banner.third div.testimonial-author {
   max-width: 100%;
 }
 
-.bold {
-  font-weight: bold;
-}
 
 div.landing-cont div.jumbotron {
   background-image: url("./assets/Walhalla.jpg");
+  background-position: cover;
   height: 354px;
   margin: 0;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  background-size: 100% auto;
-  background-color: #404D5B;
+  background-size: cover;
+  background-color: #404D58;
   background-blend-mode: luminosity;
 }
 
@@ -951,11 +962,190 @@ div.cart-cont div.button-cont {
     line-height: 69.61px;
   }
 
+  div.landing-cont div.carousel-cont {
+    height: 400px;
+  }
+
+  div.landing-cont div.carousel-inner img {
+    max-height: 400px;
+  }
+
+  div.landing-cont div.subtext-marketplace-cont {
+    padding-bottom: 125px;
+  }
+
   div.landing-cont p.tablet-subtext {
     font-size: 24px;
     line-height: 35px;
     font-weight: 400;
     width: 560px;
+    margin-bottom: 48px !important;
+  }
+
+  div.landing-cont div.markets-cont {
+    max-width: 550px;
+  }
+
+  div.landing-cont div.search {
+    padding-top: 100px;
+  }
+
+  div.landing-cont div.search img {
+    margin-bottom: 48px;
+  }
+
+  div.landing-cont div.search p {
+    font-size: 36px;
+    margin: 0 40px;
+  }
+
+  div.landing-cont div.search form {
+    margin: 48px 57px 0;
+  }
+
+  div.landing-cont div.search form input {
+    height: 40px;
+    margin-bottom: 30px;
+  }
+  
+  div.landing-cont div.search form input:nth-of-type(4) {
+    height: 48px;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 35px;
+    width: 360px;
+    margin: 10px 0 100px;
+  }
+
+  div.landing-cont div.explore-banner {
+    height: 181px;
+  }
+
+  div.landing-cont div.explore-banner h3 {
+    font-size: 48px;
+    line-height: 70px;
+    margin-top: 15px;
+  }
+
+  div.landing-cont div.inspiration-banner {
+    height: 480px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    grid-gap: 15px;
+    justify-content: center;
+  }
+
+  div.landing-cont div.inspiration-banner.first div, div.landing-cont div.inspiration-banner.second div {
+    width: 48%;
+  }
+  
+  div.landing-cont div.inspiration-banner.first {
+    flex-direction: row-reverse;
+  }
+  
+  div.landing-cont div.inspiration-banner div.inspiration-img-cont {
+    max-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+  }
+  
+  div.landing-cont div.inspiration-banner div.inspiration-img-cont img {
+    width: 100%;
+    height: auto;
+  }
+
+  div.landing-cont div.inspiration-banner div.inspiration-subtext-cont {
+    max-width: 316px;
+    width: 100%;
+    margin: 0 0 0 40px;
+    align-items: flex-start;
+  }
+  
+  div.landing-cont div.inspiration-banner h5 {
+    font-size: 36px;
+    line-height: 52px;
+    font-weight: 700;
+    max-width: 100%;
+    text-align: left;
+  }
+  
+  div.landing-cont div.inspiration-banner div.link-cont {
+    width: 100%;
+  }
+  
+  div.landing-cont div.inspiration-banner div.link-cont h5 {
+    font-size: 18px;
+    line-height: 26px;
+    margin: 0;
+  }
+  
+  div.landing-cont div.inspiration-banner.second div.inspiration-subtext-cont {
+    margin: 0 45px 0 0;
+  }
+
+  div.landing-cont div.inspiration-banner.third {
+    height: 650px;
+    justify-content: space-between;
+    grid-gap: 40px;
+  }
+
+  div.landing-cont div.inspiration-banner.third div.inspiration-img-cont {
+    width: 45%;
+    max-height: 357px;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  div.landing-cont div.inspiration-banner.third div.inspiration-img-cont img {
+    width: auto;
+  }
+
+  div.landing-cont div.inspiration-banner.third div.testimonial-cont {
+    width: 55%;
+    max-width: none;
+  }
+
+  div.landing-cont div.inspiration-banner.third div.testimonial-cont p {
+    font-size: 24px;
+    line-height: 35px;
+  }
+
+  div.landing-cont div.footer-image {
+    height: 479px;
+  }
+
+  div.landing-cont div.footer-image h2 {
+    width: 469px;
+    font-size: 48px;
+    line-height: 70px;
+  }
+
+  div.landing-cont div.jumbotron {
+    height: 100%;
+    grid-gap: 80px;
+  }
+
+  div.landing-cont div.footer-image div.markets-cont {
+    color: white;
+    max-width: 600px;
+  }
+
+  div.landing-cont div.footer-image div.markets-cont img {
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    filter: brightness(0) invert(1);
+  }
+
+  div.landing-cont footer {
+    flex-direction: row;
+    grid-gap: 5px;
+  }
+
+  div.landing-cont footer p {
+    font-size: 16px;
   }
 
   /* Final Cart */
