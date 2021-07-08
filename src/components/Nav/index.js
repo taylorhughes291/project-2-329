@@ -1,7 +1,7 @@
-import React, { useState } from "react"
-import {Link} from "react-router-dom"
+import React from "react"
+import {withRouter} from "react-router-dom"
+import {Container} from "react-bootstrap"
 import {useMediaQuery} from "react-responsive"
-import {Container, Modal, Button} from "react-bootstrap"
 
 const Nav = (props) => {
 
@@ -9,57 +9,14 @@ const Nav = (props) => {
     // Media Queries
     //////////////////////////
 
-
-    let [menuClicked, setMenuClicked] = useState(false)
-    const isTablet = useMediaQuery({query: '(min-width: 768px)'})
+    const isDesktop = useMediaQuery({query: '(min-width: 1024px)'})
+    
 
     //////////////////////////
     // Functions
     //////////////////////////
+   
 
-    const handleClick = () => {
-            if (menuClicked === false) {
-                setMenuClicked(true)
-            } else {
-                setMenuClicked(false)
-            }
-    }
-    
-    
-    function ResetModal() {
-        const [show, setShow] = useState(false);
-        const handleShow = () => setShow(true);
-        const handleClose = () => setShow(false);
-        const handleCloseReset = () => {
-            handleClose()
-            props.handleReset()
-        }
-      
-        return (
-          <>
-            <li onClick={handleShow}>
-              New Gift
-            </li>
-      
-            <Modal show={show} onHide={handleClose}>
-              <Modal.Header closeButton>
-                <Modal.Title>Are you sure you want to reset?</Modal.Title>
-              </Modal.Header>
-              <Modal.Body>Resetting will eliminate all your great selections!</Modal.Body>
-              <Modal.Footer>
-                <Button variant="secondary" onClick={handleClose}>
-                  Close
-                </Button>
-                <Link to="/">
-                    <Button variant="primary" onClick={handleCloseReset}>
-                    Reset
-                    </Button>
-                </Link>
-              </Modal.Footer>
-            </Modal>
-          </>
-        );
-      }
       
 
     //////////////////////////
@@ -68,28 +25,22 @@ const Nav = (props) => {
 
     return (
         <Container fluid>
-            <div className="nav">
+            <div className={props.history.location.pathname === "/" ? "nav home-page" : "nav non-home"}>
                 <div className="mobileCont">
-                    <img src="https://i.imgur.com/b3520VX.png?1" alt="wrappd logo"/>
-                    {!isTablet && <div className="hamburger-cont">
+                    <h1>GIFTHALLA</h1>
+                    <div className="hamburger-cont">
+                        {isDesktop && <button
+                            onClick={props.handleContinue}
+                        >SEARCH GIFTS</button>}
                         <i 
                             className="fas fa-bars fa-2x"
-                            onClick={handleClick}
                         ></i>
-                    </div>}
-                </div>
-                {(menuClicked || isTablet) && <>
-                    <div className="options-cont">
-                        <ul className="options">
-                            <li>About</li>
-                            <ResetModal />
-                        </ul>
                     </div>
-                </>}
+                </div>
 
             </div>
         </Container>
     )
 }
 
-export default Nav
+export default withRouter(Nav)

@@ -1,0 +1,17 @@
+div.modal-body div.buttons input {
+    margin-top: 7px;
+    width: 120px;
+    height: 23px;
+    background: #F386A2;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
+    color: white;
+    border: none;
+}
+
+div.modal-body div.buttons {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    grid-gap: 30px;
+}

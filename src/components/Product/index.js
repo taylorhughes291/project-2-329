@@ -5,6 +5,7 @@ import Col from "react-bootstrap/Col"
 import priceFilter from "../../functions/priceFilter.js"
 import ranking from "../../functions/ranking.js"
 import {useMediaQuery} from "react-responsive"
+import primeLogo from "../../assets/Prime_0.png"
 
 const Product = (props) => {
     
@@ -26,6 +27,7 @@ const Product = (props) => {
     //////////////////////////
 
     const handleSelect = (obj) => {
+        window.scrollTo(0, 0)
         // Attach the product info to the person's final selection
         const person = {
             ...props.person,
@@ -49,17 +51,6 @@ const Product = (props) => {
                 )
             }
         })
-
-        const newBudget = props.person.budget - obj.price - props.sumTotal()
-        const filteredArray = priceFilter(newResultsBank, newBudget)
-        const rankedArray = ranking(filteredArray, newBudget, props.person.keywords)
-        const newProductDisplay = rankedArray.splice(0, numberResults)
-        props.setProductSearch(
-            {
-                productDisplay: newProductDisplay,
-                displayBank: rankedArray
-            }
-        )
 
         props.setResultsBank(
             newResultsBank
@@ -96,7 +87,38 @@ const Product = (props) => {
             }
         })
 
-        const newBudget = props.person.budget + price - props.sumTotal()
+        props.setResultsBank(
+            newResultsBank
+        )
+
+        props.setPerson(
+            person
+        )
+    }
+
+    // Next we need to declare a function that will open the browser to a new tab with the selected product.
+    const handleProductLink = (url) => {
+        window.open(url)
+    }
+
+    //Need to declare a function that handles favoriting an item
+    const handleFavorite = (asin) => {
+        // We must change the results bank to show this one item isFavorite = true
+        // Then we must re-rank all products so that it gets sorted to the top.
+        const newResultsBank = props.resultsBank.map((item, index) => {
+            if (item.asin === asin) {
+                return ({
+                    ...item,
+                    isFavorite: true
+                })
+            } else {
+                return (
+                    item
+                )
+            }
+        })
+
+        const newBudget = props.person.budget - props.sumTotal()
         const filteredArray = priceFilter(newResultsBank, newBudget)
         const rankedArray = ranking(filteredArray, newBudget, props.person.keywords)
         const newProductDisplay = rankedArray.splice(0, numberResults)
@@ -110,15 +132,39 @@ const Product = (props) => {
         props.setResultsBank(
             newResultsBank
         )
-
-        props.setPerson(
-            person
-        )
     }
 
-    // Next we need to declare a function that will open the browser to a new tab with the selected product.
-    const handleProductLink = (url) => {
-        window.open(url)
+    //Need to declare a function that handles un-favoriting an item
+    const handleUnfavorite = (asin) => {
+        // We must change the results bank to show this one item isFavorite = true
+        // Then we must re-rank all products so that it gets sorted to the top.
+        const newResultsBank = props.resultsBank.map((item, index) => {
+            if (item.asin === asin) {
+                return ({
+                    ...item,
+                    isFavorite: false
+                })
+            } else {
+                return (
+                    item
+                )
+            }
+        })
+
+        const newBudget = props.person.budget - props.sumTotal()
+        const filteredArray = priceFilter(newResultsBank, newBudget)
+        const rankedArray = ranking(filteredArray, newBudget, props.person.keywords)
+        const newProductDisplay = rankedArray.splice(0, numberResults)
+        props.setProductSearch(
+            {
+                productDisplay: newProductDisplay,
+                displayBank: rankedArray
+            }
+        )
+
+        props.setResultsBank(
+            newResultsBank
+        )
     }
 
     //////////////////////////
@@ -141,15 +187,15 @@ const Product = (props) => {
         const ratingRender = ratingArray.map((item, index) => {
             if (item === 1) {
                 return (
-                    <i className="fas fa-star" ></i>
+                    <i className="fas fa-star" key={index} ></i>
                 )
             } else if (item === 0) {
                 return (
-                    <i className="far fa-star" ></i>
+                    <i className="far fa-star" key={index} ></i>
                 )
-            } else if (item === 0.5) {
+            } else {
                 return (
-                    <i className="fas fa-star-half-alt" ></i>
+                    <i className="fas fa-star-half-alt" key={index} ></i>
                 )
             }
         })
@@ -158,12 +204,13 @@ const Product = (props) => {
                 key={index}
                 className="product"
             >
+                <div 
+                    className={item.selected ? "selected overlay" : "not-selected overlay"}
+                ></div>
                 <Card 
                     style={{ width: '18rem' }}
                 >
-                    <div 
-                        className={item.selected ? "selected overlay" : "not-selected overlay"}
-                    ></div>
+                    <div className="img-button-cont">
                     <div className="img-cont">
                         <Card.Img 
                             variant="top" 
@@ -173,6 +220,27 @@ const Product = (props) => {
                             className="img-link-overlay"
                             onClick={() => handleProductLink(item.link)}
                         ></div>
+                    </div>
+                        <div className="button-cont">
+                            <Button 
+                                variant="primary"
+                                onClick={() => handleSelect(item)}
+                                className={item.selected ? "selected hidden btn btn-primary pink" : "btn btn-primary pink"}
+                            >ADD TO CART</Button>
+                            <Button 
+                                variant="primary"
+                                className={item.selected ? "selected btn btn-primary pink" : "hidden btn btn-primary pink"}
+                                onClick={() => handleDelete(item.asin, item.price.value)}
+                            >DELETE ITEM</Button>
+                            <Button
+                                className={item.isFavorite ? "isFavorite hidden btn btn-primary white" : "btn btn-primary white"}
+                                onClick={() => handleFavorite(item.asin)}
+                            >SAVE FOR LATER</Button>
+                            <Button
+                                className={item.isFavorite ? "isFavorite btn btn-primary white" : "hidden btn btn-primary white"}
+                                onClick={() => handleUnfavorite(item.asin)}
+                            >UN-SAVE</Button>
+                        </div>
                     </div>
                         <Card.Body>
                             <div className="text-cont">
@@ -186,28 +254,18 @@ const Product = (props) => {
                             </div>
                             <div className="price-button-cont">
                                 <Card.Title>{`$${parseFloat(Math.trunc(item.price.value*100)/100).toFixed(2)}`}</Card.Title>
+                                {item.is_prime && <img className="prime-logo" src={primeLogo} alt="Amazon Prime Logo" />}
+                                {item.delivery && <div className="shipping-delivery-cont">
+                                    {item.delivery.price && <p className="shipping">{item.delivery.price.raw}</p>}
+                                    {item.delivery.tagline && <p className="delivery">{item.delivery.tagline}</p>}
+                                </div>}
                                 <div className="ratings-cont">
                                     <div className="stars-cont">
                                     {item.ratings_total > 0 && ratingRender}
                                     </div>
                                     <p>({item.ratings_total})</p>                                    
                                 </div>
-                                <Button 
-                                    variant="primary"
-                                    onClick={() => handleSelect({
-                                        title: item.title,
-                                        price: item.price.value,
-                                        image: item.image,
-                                        url: item.link,
-                                        asin: item.asin
-                                    })}
-                                    className={item.selected ? "selected hidden btn btn-primary" : "btn btn-primary"}
-                                >Select Item</Button>
-                                <Button 
-                                    variant="primary"
-                                    className={item.selected ? "selected btn btn-primary" : "hidden btn btn-primary"}
-                                    onClick={() => handleDelete(item.asin, item.price.value)}
-                                >Delete Item</Button>
+
                             </div>
                         </Card.Body>
                 </Card>
