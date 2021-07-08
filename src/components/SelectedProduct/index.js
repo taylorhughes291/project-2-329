@@ -123,8 +123,12 @@ const SelectedProduct = (props) => {
         )
     })
     return (
-        <div>
-            {selections}
+        <div className="product-carousel">
+            <div className="container">
+                <div className="row">
+                    {selections}
+                </div>
+            </div>
         </div>
     )
 }
