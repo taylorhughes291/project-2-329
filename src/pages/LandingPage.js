@@ -10,6 +10,7 @@ import search from "../assets/search.png"
 import rightArrow from "../assets/right-arrow.png"
 import rightArrow2 from "../assets/right-arrow-2.png"
 import testimonialOne from "../assets/testimonial-1.jpg"
+import {useMediaQuery} from "react-responsive"
 
 const LandingPage = (props) => {
 
@@ -19,6 +20,8 @@ const LandingPage = (props) => {
     
     const { person, processFlow, setProcessFlow, setResultsBank } = props
     const [modalShow, setModalShow] = useState(false);
+
+    const isTablet = useMediaQuery({query: '(min-width: 768px)'})
 
 
     /////////////////////////////
@@ -95,7 +98,8 @@ const LandingPage = (props) => {
                     </div>
                 </div>
                 <div className="subtext-marketplace-cont">
-                    <p>Find the best products from your favorite marketplaces.</p>
+                    {!isTablet && <p>Find the best products from your favorite marketplaces.</p>}
+                    {isTablet && <p className="tablet-subtext">WE SEARCH THE BEST PRODUCTS FROM YOUR FAVORITE MARKETPLACES</p>}
                     <div className="markets-cont">
                         <img src={amazonLogo} alt="Amazon logo" />
                         <img src={ebayLogo} alt="eBay logo" />

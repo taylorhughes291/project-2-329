@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Varta:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Varta:wght@400;700&display=swap');
 
 
 
@@ -73,7 +73,7 @@ div.container-fluid {
 }
 
 div.nav {
-  padding: 0 0 17px 0;
+  padding: 0;
   max-width: 961px;
   width: 100%;
   background-color: #3C5068;
@@ -82,8 +82,8 @@ div.nav {
 }
 
 div.nav h1 {
-  margin: 57px 0 0 16px;
   font-size: 25px;
+  margin: 4px 0 0;
 }
 
 div.home-page {
@@ -97,10 +97,10 @@ div.mobileCont {
   align-items: center;
   width: 100%;
   padding-left: 5px;
+  margin: 50px 25px 0 16px;
 }
 
 div.hamburger-cont {
- margin: 50px 25px 0 0;
  display: flex;
  justify-content: center;
  align-items: center;
@@ -138,17 +138,26 @@ div.nav svg {
 div.landing-cont {
   margin: 0 0 80px 0;
   max-width: 100%;
+  padding: 50px 0 0;
 }
 
 div.landing-cont div.top-background {
   background: linear-gradient(180deg, #FEFCF4 0%, #EFEDE6 100%);
 }
 
+div.landing-page-cont {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
 div.landing-cont h1.hero {
-  padding: 35px 34px 0;
+  padding: 0 34px;
   margin: 0;
   font-size: 30px;
-  line-height: 44px;;
+  line-height: 44px;
+  font-weight: 400;
 }
 
 div.landing-cont a.carousel-control-prev, div.landing-cont a.carousel-control-next {
@@ -159,6 +168,7 @@ div.landing-cont div.subtext-marketplace-cont {
   padding: 30px 34px;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 div.landing-cont div.subtext-marketplace-cont p {
@@ -170,6 +180,7 @@ div.landing-cont div.subtext-marketplace-cont div.markets-cont {
   justify-content: space-between;
   align-items: center;
   mix-blend-mode: luminosity;
+  width: 100%;
 }
 
 div.landing-cont div.search-cont {
@@ -918,71 +929,40 @@ div.cart-cont div.button-cont {
 @media screen and (min-width: 768px) {
 
   /* Nav */
-  div.options-cont {
-    display: flex;
-    justify-content: center;
-    width: fit-content;
+
+  div.nav div.mobile-cont {
+    margin: 60px 40px 0;
   }
 
-  div.nav {
-    display: flex;
-    justify-content: space-between;
+  div.nav h1 {
+    font-size: 36px;
   }
-
-  div.nav div.mobileCont {
-    width: fit-content;
-  }
-
-  div.nav ul {
-    display: flex;
-    align-items: center;
-  }
-
-  div.nav ul li {
-    padding: 20px;
-    font-size: 27px;
-  }
-
+  
   /* Product Carousel */
-  div.product-carousel {
-    width: 90%;
-    margin: 0 auto 20px;
+  div.landing-cont {
+    padding: 80px 0 0;
+  }
+
+  div.landing-cont h1.hero {
+    width: 415px;
+    font-size: 48px;
+    font-weight: 400;
+    padding: 0;
+    line-height: 69.61px;
+  }
+
+  div.landing-cont p.tablet-subtext {
+    font-size: 24px;
+    line-height: 35px;
+    font-weight: 400;
+    width: 560px;
   }
 
   /* Final Cart */
-div.cart-cont .title {
-  font-size: 40px;
-}
 
-div.cart-cont .total-cost {
-  font-size: 40px;
-  margin: 25px 0;
-}
 
 /* Selected Products */
-div.selectedProduct {
-  height: 250px;
-  margin: 0 8px;
-  padding: 0 10px;
-}
 
-div.selectedProduct div.img-button-cont {
-  padding: 10px 0;
-}
-
-div.selectedProduct button {
-  width: 60%
-}
-
-div.selectedProduct div.selected-info {
-  font-size: 17px;
-  padding: 10px 10px;
-}
-
-div.selectedProduct h5 {
-  margin: 4px 0;
-  font-size: 25px;
-}
 }
 
 @media screen and (min-width: 961px) {
