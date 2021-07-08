@@ -54,10 +54,11 @@ body {
 
 button {
   border-radius: 7px !important;
-  border-color: #99E9FF;
-  background-color: #99E9FF;
-  color: #847178;
+  background-color: #F87093;
+  border: none;
+  color: #FFFFFF;
   font-weight: 700;
+  font-size: 18px;
 }
 
 /* Nav bar */
@@ -78,7 +79,6 @@ div.container-fluid {
 
 div.nav {
   padding: 0;
-  max-width: 961px;
   width: 100%;
   background-color: #3C5068;
   color: #FFFFFF;
@@ -467,7 +467,6 @@ div.modal p.alert {
 /* Keyword Builder  */
 
 div.keyword-cont {
-  max-width: 961px;
   width: 100%;
 }
 
@@ -611,7 +610,6 @@ div.keyword-cont button.finalize {
 div.sum-total-cont {
   position: absolute;
   margin: 10px auto;
-  max-width: 961px;
   width: 100%;
 }
 
@@ -883,7 +881,6 @@ div.product div.price-button-cont div.card-title {
 div.cart-cont {
   margin: 20px 0 52px;
   color: #584B50;
-  max-width: 961px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -978,12 +975,12 @@ div.cart-cont div.button-cont {
     padding-bottom: 125px;
   }
 
-  div.landing-cont p.tablet-subtext {
+  div.landing-cont div.subtext-marketplace-cont p.tablet-subtext {
     font-size: 24px;
     line-height: 35px;
     font-weight: 400;
     width: 560px;
-    margin-bottom: 48px !important;
+    margin-bottom: 48px ;
   }
 
   div.landing-cont div.markets-cont {
@@ -1189,53 +1186,134 @@ div.cart-cont div.button-cont {
   }
 
 
-  /* Selected Products */
+  /* CTA */
+  div.landing-cont div.search-title h2 {
+    font-size: 24px;
+  }
 
 }
 
-@media screen and (min-width: 961px) {
-  /* page size */
-  div.keyword-cont form {
+@media screen and (min-width: 1024px) {
+  /* Nav */
+
+  div.nav div.mobileCont {
+    margin: 66px 80px 0;
+  }
+
+  div.nav h1 {
+    font-size: 40px;
+  }
+
+  div.hamburger-cont {
+    width: 265px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  div.nav button {
+    width: 159px;
+    height: 42px;
+  }
+
+  /* Landing Page */
+
+  div.landing-cont div.landing-page-cont {
+    flex-direction: row;
+    justify-content: center;;
+  }
+
+  div.landing-cont h1.hero {
+    font-size: 40px;
+    text-align: left;
+    margin: 0 0 0 80px;
+    line-height: 70px;
+    max-width: 340px;
+  }
+
+  div.carousel-cont {
+    width: 625px;
+  }
+
+  div.landing-cont div.subtext-marketplace-cont {
+    padding-top: 73px;
+  }
+
+  div.landing-cont div.subtext-marketplace-cont p.tablet-subtext {
+    width: 904px;
+    font-size: 36px;
+    line-height: 52px;
+    margin-bottom: 73px;
+  }
+
+  div.landing-cont div.markets-cont {
+    max-width: 900px;
+  }
+
+  div.landing-cont div.search {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  div.landing-cont div.search p {
+    max-width: 700px;
+  }
+
+  div.landing-cont div.search form {
+    max-width: 721px;
     width: 100%;
   }
 
+  div.landing-cont div.inspiration-banner div.inspiration-subtext-cont {
+    max-width: 416px;
+  }
 
-/* Final Cart */
-div.cart-cont .title {
-  font-size: 50px;
-}
+  div.landing-cont div.inspiration-banner h5 {
+    font-size: 48px;
+    line-height: 70px;
+  }
 
-div.cart-cont .total-cost {
-  font-size: 45px;
-  margin: 30px 0;
-}
-/* Product Carousel */
-div.cart-cont .return {
-  font-size: 23px;
-}
+  div.landing-cont div.inspiration-banner.third div.inspiration-img-cont {
+    justify-content: center;
+    width: 35%;
+  }
 
-/* Selected Products */
-div.selectedProduct {
-  height: 300px;
-  margin: 0 8px;
-  padding: 0 10px;
-}
+  div.landing-cont div.inspiration-banner.third {
+    grid-gap: 5px;
+    justify-content: center;
+  }
 
-div.selectedProduct div.img-button-cont {
-  padding: 15px 0;
-}
+  div.landing-cont div.inspiration-banner.third div.testimonial-cont {
+    width: 65%;
+    max-width: 650px;
+  }
 
-div.selectedProduct button {
-  width: 60%
-}
+  div.landing-cont div.inspiration-banner.third div.testimonial-cont p span {
+    font-size: 48px;
+    line-height: 70px;
+  }
 
-div.selectedProduct div.selected-info {
-  font-size: 25px;
-  padding: 15px 15px;
-}
+  div.landing-cont div.footer-image h2 {
+    font-size: 64px;
+    width: 671px;
+    line-height: 93px;
+  }
 
-div.selectedProduct h5 {
-  margin: 0 0;
-  font-size: 30px;
-}
+  div.landing-cont div.footer-image div.markets-cont {
+    max-width: 850px;
+  }
+
+  div.search-title {
+    height: 132px;
+    position: relative;
+  }
+  
+  div.landing-cont div.search-title h2 {
+    font-size: 36px;
+  }
+
+  div.landing-cont {
+    margin: 0;
+  }
 }

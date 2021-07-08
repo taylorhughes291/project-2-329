@@ -5,16 +5,15 @@ import ranking from "../functions/ranking.js"
 import {useMediaQuery} from "react-responsive"
 import priceFilter from "../functions/priceFilter.js"
 import cart from "../assets/cart.png"
-import LandingModal from "../components/LandingModal"
 
 
 const KeywordBuilder = (props) => {
   ////////////////////////
   // Constants
   ////////////////////////
-  const {processFlow, setProcessFlow, productSearch, setProductSearch, resultsBank, setResultsBank} = props
+  const {setModalShow, setProcessFlow, productSearch, setProductSearch, resultsBank, setResultsBank} = props
 
-  const [modalShow, setModalShow] = useState(false);
+ 
 
   const isTablet = useMediaQuery({query: '(min-width: 768px)'})
   const isDesktop = useMediaQuery({query: '(min-width: 961px)'})
@@ -142,15 +141,6 @@ const KeywordBuilder = (props) => {
               </div>
             </div>
           </div>
-            <LandingModal
-              key="landing-modal-1"
-              processFlow={processFlow}
-              setProcessFlow={setProcessFlow}
-              person={props.person}
-              modalShow={modalShow}
-              setModalShow={setModalShow}
-              setResultsBank={setResultsBank}
-            />
             <ProductCarousel 
                 data={productSearch}
                 setProductSearch={setProductSearch}

@@ -4,7 +4,7 @@ import KeywordInput from "./KeywordInput"
 import BudgetInput from "./BudgetInput"
 import ship from "../../assets/ship.png"
 
-const LandingModal = ({processFlow, setProcessFlow, person, modalShow, setModalShow, setResultsBank}) => {
+const LandingModal = ({processFlow, setProcessFlow, person, setPerson, modalShow, setModalShow, setResultsBank}) => {
 
   function MyVerticallyCenteredModal(props) {
       return (
@@ -22,12 +22,14 @@ const LandingModal = ({processFlow, setProcessFlow, person, modalShow, setModalS
           >
             {!processFlow.keywords && <KeywordInput 
               person={person}
+              setPerson={setPerson}
               processFlow={processFlow}
               setProcessFlow={setProcessFlow}
               setModalShow={setModalShow}
             />}
             {(processFlow.keywords && !processFlow.budget) && <BudgetInput
               person={person}
+              setPerson={setPerson}
               processFlow={processFlow}
               setProcessFlow={setProcessFlow}
               setResultsBank={setResultsBank}

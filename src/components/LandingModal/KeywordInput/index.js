@@ -1,9 +1,8 @@
 import React, {useState, useContext} from "react"
-import {setPersonContext} from "../../../App"
 import "./styles.css"
 
 
-function KeywordInput ({person, setProcessFlow, processFlow, setModalShow}) {
+function KeywordInput ({person, setPerson, setProcessFlow, processFlow, setModalShow}) {
     
     /////////////////////////
     // Constants
@@ -16,8 +15,6 @@ function KeywordInput ({person, setProcessFlow, processFlow, setModalShow}) {
     })
     const [notifyCustomer, setNotifyCustomer] = useState(false)
 
-    const personContext = useContext(setPersonContext)
-    const setPerson = personContext.setPerson
     
     /////////////////////////
     // Functions
