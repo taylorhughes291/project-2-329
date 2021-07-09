@@ -29,12 +29,12 @@ const Nav = (props) => {
                 <div className="mobileCont">
                     <h1>GIFTHALLA</h1>
                     <div className="hamburger-cont">
-                        {isDesktop && <button
+                        <button
                             onClick={props.handleContinue}
-                        >SEARCH GIFTS</button>}
-                        <i 
+                        >SEARCH GIFTS</button>
+                        {/* <i 
                             className="fas fa-bars fa-2x"
-                        ></i>
+                        ></i> */}
                     </div>
                 </div>
 

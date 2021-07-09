@@ -93,22 +93,22 @@ const LandingPage = (props) => {
                 </div>
                 <div className="subtext-marketplace-cont">
                     {!isTablet && <p>Find the best products from your favorite marketplaces.</p>}
-                    {isTablet && <p className="tablet-subtext">WE SEARCH THE BEST PRODUCTS FROM YOUR FAVORITE MARKETPLACES</p>}
+                    {isTablet && <p className="tablet-subtext">We search the best products from your favorite marketplaces</p>}
                     {!isTablet && <div className="markets-cont">
                         <img src={amazonLogo} alt="Amazon logo" />
                         <img src={ebayLogo} alt="eBay logo" />
                         <img src={etsyLogo} alt="Etsy logo" />
                     </div>}
-                    {(isTablet && !isDesktop) && <div className="markets-cont tablet">
+                    {(isTablet) && <div className="markets-cont tablet">
                         <img src={amazonLogoTablet} alt="Amazon logo" />
                         <img src={ebayLogoTablet} alt="eBay logo" />
                         <img src={etsyLogoTablet} alt="Etsy logo" />
                     </div>}
-                    {isDesktop && <div className="markets-cont desktop">
+                    {/* {isDesktop && <div className="markets-cont desktop">
                         <img src={amazonLogoDesktop} alt="Amazon logo" />
                         <img src={ebayLogoDesktop} alt="eBay logo" />
                         <img src={etsyLogoDesktop} alt="Etsy logo" />
-                    </div>}
+                    </div>} */}
                 </div>
             </div>
             <div 
