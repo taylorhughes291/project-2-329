@@ -110,6 +110,11 @@ div.hamburger-cont {
  align-items: center;
 }
 
+div.nav button {
+  width: 135px;
+  height: 30px;
+}
+
 div.options-cont {
   display: flex;
   justify-content: center;
@@ -949,6 +954,11 @@ div.cart-cont div.button-cont {
   div.nav h1 {
     font-size: 36px;
   }
+
+  div.nav button {
+    width: 159px;
+    height: 42px;
+  }
   
   /* Product Carousel */
   div.landing-cont div.top-background {
@@ -1204,17 +1214,6 @@ div.cart-cont div.button-cont {
     font-size: 40px;
   }
 
-  div.hamburger-cont {
-    width: 265px;
-    display: flex;
-    justify-content: space-between;
-  }
-
-  div.nav button {
-    width: 159px;
-    height: 42px;
-  }
-
   /* Landing Page */
 
   div.landing-cont div.landing-page-cont {
@@ -1240,7 +1239,7 @@ div.cart-cont div.button-cont {
 
   div.landing-cont div.subtext-marketplace-cont p.tablet-subtext {
     width: 904px;
-    font-size: 36px;
+    font-size: 32px;
     line-height: 52px;
     margin-bottom: 73px;
   }
@@ -1270,8 +1269,8 @@ div.cart-cont div.button-cont {
   }
 
   div.landing-cont div.inspiration-banner h5 {
-    font-size: 48px;
-    line-height: 70px;
+    /* font-size: 48px; */
+    /* line-height: 70px; */
   }
 
   div.landing-cont div.inspiration-banner.third div.inspiration-img-cont {
@@ -1290,14 +1289,14 @@ div.cart-cont div.button-cont {
   }
 
   div.landing-cont div.inspiration-banner.third div.testimonial-cont p span {
-    font-size: 48px;
-    line-height: 70px;
+    font-size: 36px;
+    line-height: 60px;
   }
 
   div.landing-cont div.footer-image h2 {
-    font-size: 64px;
+    /* font-size: 64px; */
     width: 671px;
-    line-height: 93px;
+    /* line-height: 93px; */
   }
 
   div.landing-cont div.footer-image div.markets-cont {
@@ -1305,12 +1304,12 @@ div.cart-cont div.button-cont {
   }
 
   div.landing-cont div.search-title {
-    height: 132px;
+    height: 100px;
     position: relative;
   }
   
   div.landing-cont div.search-title h2 {
-    font-size: 36px;
+    font-size: 32px;
   }
 
   div.landing-cont {
