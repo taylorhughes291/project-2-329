@@ -45,15 +45,6 @@ function App(props) {
   // Functions
   ////////////////////////
 
-  const handleReset = () => {
-    setPerson({
-      budget: "",
-      keywords: [],
-      keywordText: "",
-      selectedProducts: []
-    })
-    setProductSearch([])
-  }
 
   // The following function handles changes the user inputs to the Keyword Field.
   //    It also doesn't allow the user to type in more than 3 keywords.
