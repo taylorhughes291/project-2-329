@@ -1,6 +1,5 @@
-import React, {useState, useEffect} from "react"
+import React, {useEffect} from "react"
 import {Carousel, Jumbotron, Container} from "react-bootstrap"
-import {Link} from "react-router-dom"
 import amazonLogo from "../assets/amazon.png"
 import ebayLogo from "../assets/ebay.png"
 import etsyLogo from "../assets/etsy.png"
@@ -161,12 +160,12 @@ const LandingPage = (props) => {
                 </div>
                 <div className="inspiration-subtext-cont">
                     <h5>Gifts for the person who has everything</h5>
-                    <Link to="/">
+                    <a target="_blank" rel="noreferrer" href="https://www.amazon.com/ideas/amzn1.account.AHLYIGXOOI4QZORJIKLAIWSUHZVQ/1LXHHK05VSB6V?&linkCode=ll2&tag=taylorhughe05-20&linkId=f8a3dd099847445c2f4926a3a4e7b7c0&language=en_US&ref_=as_li_ss_tl">
                         <div className="link-cont">
                             <h5>Explore gifts</h5>
                             <img src={rightArrow} alt="right arrow indicating a link to another page" /> 
                         </div>
-                    </Link>
+                    </a>
                 </div>
             </div>
             <div className="second inspiration-banner">
@@ -175,12 +174,12 @@ const LandingPage = (props) => {
                 </div>
                 <div className="inspiration-subtext-cont">
                     <h5>Gifts for the bougie people in your life</h5>
-                    <Link to="/">
+                    <a target="_blank" rel="noreferrer" href="https://www.amazon.com/ideas/amzn1.account.AHLYIGXOOI4QZORJIKLAIWSUHZVQ/1LXHHK05VSB6V?&linkCode=ll2&tag=taylorhughe05-20&linkId=f8a3dd099847445c2f4926a3a4e7b7c0&language=en_US&ref_=as_li_ss_tl">
                         <div className="link-cont">
                             <h5>Explore gifts</h5>
                             <img src={rightArrow2} alt="right arrow indicating a link to another page" /> 
                         </div>
-                    </Link>
+                    </a>
                 </div>
             </div>
             <div className="third inspiration-banner">
