@@ -36,6 +36,11 @@
   color: #61dafb;
 }
 
+.App {
+  max-width: 1148px;
+  margin: 0 auto;
+}
+
 /* //////////////////// */
 /* Custom Styles */
 /* //////////////////// */
@@ -1218,7 +1223,7 @@ div.cart-cont div.button-cont {
 
   div.landing-cont div.landing-page-cont {
     flex-direction: row;
-    justify-content: center;;
+    justify-content: center;
   }
 
   div.landing-cont h1.hero {

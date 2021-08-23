@@ -130,6 +130,9 @@ function App(props) {
               setProcessFlow={setProcessFlow}
               handleContinue={handleContinue}
               person={person}
+              handleKeywordChange1={handleKeywordChange1}
+              handleKeywordChange2={handleKeywordChange2}
+              handleKeywordChange3={handleKeywordChange3}
             />
         </Route>
         <Route path="/giftsearch">
