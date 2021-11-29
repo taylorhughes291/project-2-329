@@ -6,6 +6,9 @@ import primeLogo from "../../assets/Prime_0.png"
 
 const SelectedProduct = (props) => {
 
+
+    const amazonAssociateId = process.env.REACT_APP_AMAZON_ASSOCIATES_ID
+
     const handleDelete = (asin) => {
         // Need to first delete the product from the person useState at selectedProduct
         const newSelectedProducts = props.person.selectedProducts.filter((item, index) => {
@@ -69,6 +72,9 @@ const SelectedProduct = (props) => {
                 )
             }
         })
+
+        const associateLink = item.link + "&tag=" + amazonAssociateId
+
         return (
             <Col
                 key={index}
@@ -99,7 +105,7 @@ const SelectedProduct = (props) => {
                             </Card.Text>
                             <div 
                                 className="text-link-overlay"
-                                onClick={() => handleProductLink(item.link)}
+                                onClick={() => handleProductLink(associateLink)}
                             ></div>
                         </div>
                         <div className="price-button-cont">

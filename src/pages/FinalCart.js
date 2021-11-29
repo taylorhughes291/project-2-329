@@ -19,6 +19,8 @@ const FinalCart = (props) => {
 
     const [modalShow, setModalShow] = useState(false)
 
+    const amazonAssociateId = process.env.REACT_APP_AMAZON_ASSOCIATES_ID
+
     //////////////////////////
     // Functions
     //////////////////////////
@@ -94,7 +96,7 @@ const FinalCart = (props) => {
                         }
                         urlParam = urlParam + `ASIN.${i}=${asins[i-1]}&Quantity.${i}=1`
                     }
-                    const url = `https://www.amazon.com/gp/aws/cart/add.html?${urlParam}&AssociateTag=taylorhughe05-20`
+                    const url = `https://www.amazon.com/gp/aws/cart/add.html?${urlParam}&AssociateTag=${amazonAssociateId}`
                     window.open(url)
                     setModalShow(true)
                     }
