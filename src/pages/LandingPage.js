@@ -30,6 +30,8 @@ const LandingPage = (props) => {
     const isTablet = useMediaQuery({query: '(min-width: 768px)'})
     const isDesktop = useMediaQuery({query: '(min-width: 1024px)'})
 
+    const amazonAssociateId = process.env.REACT_APP_AMAZON_ASSOCIATES_ID
+
 
     /////////////////////////////
     // Functions
@@ -160,7 +162,7 @@ const LandingPage = (props) => {
                 </div>
                 <div className="inspiration-subtext-cont">
                     <h5>Gifts for the person who has everything</h5>
-                    <a target="_blank" rel="noreferrer" href="https://www.amazon.com/ideas/amzn1.account.AHLYIGXOOI4QZORJIKLAIWSUHZVQ/1LXHHK05VSB6V?&linkCode=ll2&tag=taylorhughe05-20&linkId=f8a3dd099847445c2f4926a3a4e7b7c0&language=en_US&ref_=as_li_ss_tl">
+                    <a target="_blank" rel="noreferrer" href={`https://www.amazon.com/ideas/amzn1.account.AHLYIGXOOI4QZORJIKLAIWSUHZVQ/1LXHHK05VSB6V?&linkCode=ll2&tag=${amazonAssociateId}&linkId=f8a3dd099847445c2f4926a3a4e7b7c0&language=en_US&ref_=as_li_ss_tl`}>
                         <div className="link-cont">
                             <h5>Explore gifts</h5>
                             <img src={rightArrow} alt="right arrow indicating a link to another page" /> 
@@ -174,7 +176,7 @@ const LandingPage = (props) => {
                 </div>
                 <div className="inspiration-subtext-cont">
                     <h5>Gifts for the bougie people in your life</h5>
-                    <a target="_blank" rel="noreferrer" href="https://www.amazon.com/ideas/amzn1.account.AHLYIGXOOI4QZORJIKLAIWSUHZVQ/1LXHHK05VSB6V?&linkCode=ll2&tag=taylorhughe05-20&linkId=f8a3dd099847445c2f4926a3a4e7b7c0&language=en_US&ref_=as_li_ss_tl">
+                    <a target="_blank" rel="noreferrer" href={`https://www.amazon.com/ideas/amzn1.account.AHLYIGXOOI4QZORJIKLAIWSUHZVQ/1LXHHK05VSB6V?&linkCode=ll2&tag=${amazonAssociateId}&linkId=f8a3dd099847445c2f4926a3a4e7b7c0&language=en_US&ref_=as_li_ss_tl`}>
                         <div className="link-cont">
                             <h5>Explore gifts</h5>
                             <img src={rightArrow2} alt="right arrow indicating a link to another page" /> 

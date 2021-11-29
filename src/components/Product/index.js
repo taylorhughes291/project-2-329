@@ -21,6 +21,7 @@ const Product = (props) => {
     } else if (isDesktop) {
       numberResults = 12
     }
+    const amazonAssociateId = process.env.REACT_APP_AMAZON_ASSOCIATES_ID
 
     //////////////////////////
     // Functions
@@ -199,6 +200,9 @@ const Product = (props) => {
                 )
             }
         })
+
+        const associateLink = item.link + "&tag=" + amazonAssociateId
+
         return (
             <Col
                 key={index}
@@ -218,7 +222,7 @@ const Product = (props) => {
                         />
                         <div 
                             className="img-link-overlay"
-                            onClick={() => handleProductLink(item.link)}
+                            onClick={() => handleProductLink(associateLink)}
                         ></div>
                     </div>
                         <div className="button-cont">
@@ -249,7 +253,7 @@ const Product = (props) => {
                                 </Card.Text>
                                 <div 
                                     className="text-link-overlay"
-                                    onClick={() => handleProductLink(item.link)}
+                                    onClick={() => handleProductLink(associateLink)}
                                 ></div>
                             </div>
                             <div className="price-button-cont">
