@@ -37,7 +37,7 @@
 }
 
 .App {
-  max-width: 1148px;
+  /* max-width: 1148px; */
   margin: 0 auto;
 }
 
@@ -85,6 +85,7 @@ div.container-fluid {
 div.nav {
   padding: 0;
   width: 100%;
+  max-width: 1143px;
   background-color: #3C5068;
   color: #FFFFFF;
   ;
@@ -149,15 +150,32 @@ div.nav svg {
 
 /* Landing Page */
 
+div#landing-cont-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
 div.landing-cont {
   margin: 0 0 80px 0;
-  max-width: 100%;
+  max-width: 1143px;
   background-clip: border-box;
 }
 
-div.landing-cont div.top-background {
+div.top-background {
   background: linear-gradient(180deg, #FEFCF4 0%, #EFEDE6 100%);
   padding: 50px 0 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+div.top-background-cont {
+  max-width: 1143px;
 }
 
 div.landing-page-cont {
@@ -167,7 +185,7 @@ div.landing-page-cont {
   align-items: center;
 }
 
-div.landing-cont h1.hero {
+h1.hero {
   padding: 0 34px;
   margin: 0;
   font-size: 30px;
@@ -175,18 +193,18 @@ div.landing-cont h1.hero {
   font-weight: 400;
 }
 
-div.landing-cont a.carousel-control-prev, div.landing-cont a.carousel-control-next {
+a.carousel-control-prev, a.carousel-control-next {
   display: none;
 }
 
-div.landing-cont div.subtext-marketplace-cont {
+div.subtext-marketplace-cont {
   padding: 30px 34px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-div.landing-cont div.subtext-marketplace-cont p {
+div.subtext-marketplace-cont p {
   margin: 0 0 40px;
 }
 
@@ -217,7 +235,7 @@ div.search-title {
   cursor: pointer;
 }
 
-div.landing-cont div.carousel-cont {
+div.carousel-cont {
   height: 365px;
   max-width: 100%;
   display: flex;
@@ -225,11 +243,11 @@ div.landing-cont div.carousel-cont {
   justify-content: center;
 }
 
-div.landing-cont div.carousel-cont div.carousel-slide {
+div.carousel-cont div.carousel-slide {
   max-height: 100%;
 }
 
-div.landing-cont div.carousel-inner img {
+div.carousel-inner img {
   max-height: 357px;
   max-width: 100%;
   width: auto !important;
@@ -966,11 +984,11 @@ div.cart-cont div.button-cont {
   }
   
   /* Product Carousel */
-  div.landing-cont div.top-background {
+  div.top-background {
     padding: 80px 0 0;
   }
 
-  div.landing-cont h1.hero {
+  h1.hero {
     width: 415px;
     font-size: 48px;
     font-weight: 400;
@@ -978,19 +996,19 @@ div.cart-cont div.button-cont {
     line-height: 69.61px;
   }
 
-  div.landing-cont div.carousel-cont {
+  div.carousel-cont {
     height: 400px;
   }
 
-  div.landing-cont div.carousel-inner img {
+  div.carousel-inner img {
     max-height: 400px;
   }
 
-  div.landing-cont div.subtext-marketplace-cont {
+  div.subtext-marketplace-cont {
     padding-bottom: 125px;
   }
 
-  div.landing-cont div.subtext-marketplace-cont p.tablet-subtext {
+  div.subtext-marketplace-cont p.tablet-subtext {
     font-size: 24px;
     line-height: 35px;
     font-weight: 400;
@@ -998,7 +1016,7 @@ div.cart-cont div.button-cont {
     margin-bottom: 48px ;
   }
 
-  div.landing-cont div.markets-cont {
+  div.markets-cont {
     max-width: 550px;
   }
 
@@ -1221,12 +1239,12 @@ div.cart-cont div.button-cont {
 
   /* Landing Page */
 
-  div.landing-cont div.landing-page-cont {
+  div.landing-page-cont {
     flex-direction: row;
     justify-content: center;
   }
 
-  div.landing-cont h1.hero {
+  h1.hero {
     font-size: 40px;
     text-align: left;
     margin: 0 0 0 80px;
@@ -1238,18 +1256,18 @@ div.cart-cont div.button-cont {
     width: 625px;
   }
 
-  div.landing-cont div.subtext-marketplace-cont {
+  div.subtext-marketplace-cont {
     padding-top: 73px;
   }
 
-  div.landing-cont div.subtext-marketplace-cont p.tablet-subtext {
+  div.subtext-marketplace-cont p.tablet-subtext {
     width: 904px;
     font-size: 32px;
     line-height: 52px;
     margin-bottom: 73px;
   }
 
-  div.landing-cont div.markets-cont {
+  div.markets-cont {
     max-width: 900px;
   }
 
